@@ -49,6 +49,16 @@ public class PlayerMovement : MonoBehaviour
     {
         
     }
+    //public void LoadData(GameData data)
+    //{
+    //    gameObject.transform.position = data.vPlayerPos;
+        
+    //}
+
+    //public void SaveData(ref GameData data)
+    //{
+    //    data.vPlayerPos = gameObject.transform.position;
+    //}
 
     // Update is called once per frame
     void FixedUpdate()
@@ -88,4 +98,9 @@ public class PlayerMovement : MonoBehaviour
         
         
     }
+
+
+   
+
+	
 }

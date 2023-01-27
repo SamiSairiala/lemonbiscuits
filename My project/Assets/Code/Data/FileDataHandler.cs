@@ -23,6 +23,7 @@ public class FileDataHandler
 		{
 			try
 			{
+				// using "using" statements if forget to open or close a file this ensures they will be closes etc.
 				string dataToLoad = "";
 				using(FileStream stream = new FileStream(fullPath, FileMode.Open))
 				{
@@ -31,9 +32,10 @@ public class FileDataHandler
 						dataToLoad = reader.ReadToEnd();
 					}
 				}
-
+				
 				loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
 			}
+			// Log error if cannot find data in fullpath.
 			catch (Exception e)
 			{
 				Debug.LogError("Error when trying to load data from file: " + fullPath + "\n" + e);
@@ -61,7 +63,8 @@ public class FileDataHandler
 				}
 			}
 		}
-		catch(Exception e)
+		// Log error if cannot find data in fullpath.
+		catch (Exception e)
 		{
 			Debug.LogError("Error when trying to save data to file: " + fullPath + "\n" + e);
 		}
