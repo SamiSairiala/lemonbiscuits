@@ -11,6 +11,7 @@ public class SavePlayer : MonoBehaviour, IDataPersitence
     public void LoadData(GameData data)
     {
         gameObject.transform.position = data.vPlayerPos;
+        
         Debug.Log("Loading player transform");
         StartCoroutine(waitFor());
     }
@@ -18,6 +19,7 @@ public class SavePlayer : MonoBehaviour, IDataPersitence
     public void SaveData(ref GameData data)
     {
         data.vPlayerPos = gameObject.transform.position;
+        
     }
 
 

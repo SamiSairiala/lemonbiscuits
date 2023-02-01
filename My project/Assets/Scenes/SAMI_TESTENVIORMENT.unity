@@ -857,6 +857,7 @@ GameObject:
   - component: {fileID: 1284651103}
   - component: {fileID: 1284651102}
   - component: {fileID: 1284651108}
+  - component: {fileID: 1284651109}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -998,7 +999,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284651101}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 383167e630a30c8419696b2a98baca18, type: 3}
   m_Name: 
@@ -1007,6 +1008,19 @@ MonoBehaviour:
   JumpControl: {fileID: 610678691577573032, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
   cameraMainTransform: {fileID: 0}
   speed: 5
+--- !u!114 &1284651109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284651101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67efe3a968647d143ad8ae9caa895fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sPlayerMovement: {fileID: 1284651108}
 --- !u!1 &1545440281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,7 +1209,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799378793}
-  m_LocalRotation: {x: 0.28020102, y: -0.0000000112522835, z: 0.0000000032844736, w: 0.9599414}
+  m_LocalRotation: {x: 0.28020102, y: 0.000000030741813, z: -0.000000008973348, w: 0.9599414}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
