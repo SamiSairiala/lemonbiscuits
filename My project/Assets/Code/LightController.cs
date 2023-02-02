@@ -8,21 +8,30 @@ namespace LemonForest.Environment
     {
         [SerializeField]
         protected GameObject sun, moon;
-        private Color morningColor, noonColor;
 
         private Light sunLight, moonLight;
         private float rotationSpeed = 5;
 
         private bool day;
 
+        [SerializeField]
+        private Color morningColor = new Color(255, 105, 112);
+        [SerializeField]
+        private Color noonColor = new Color(255, 244, 214);
+        [SerializeField]
+        private Color eveningColor;
+        [SerializeField]
+        private Color moonColor;
+        [SerializeField]
+        private float triggerAngle = 0.2f;
+
+
         // Start is called before the first frame update
         void Start()
         {
-            morningColor = new Color(255, 105, 112);
-            noonColor = new Color(255, 244, 214);
-
             sunLight = sun.GetComponent<Light>();
             moonLight = moon.GetComponent<Light>();
+            moonLight.color = moonColor;
 
             if (sun == null) { sun = GameObject.Find("Sun"); }
             if (moon == null) { moon = GameObject.Find("Moon"); }
@@ -31,16 +40,22 @@ namespace LemonForest.Environment
         // Update is called once per frame
         void Update()
         {
-            if(sun.transform.forward.y <= 0)
-            {
-                sunLight.enabled = true;
-                moonLight.enabled = false;
-            } else
-            {
-                sunLight.enabled = false;
-                moonLight.enabled = true;
-            }
+            ManageLight(sun, sunLight, triggerAngle);
+            ManageLight(moon, moonLight, triggerAngle);
+
             transform.Rotate(rotationSpeed * Time.deltaTime, 0, 0);
+        }
+
+        private void ManageLight(GameObject lightHolder, Light light, float triggerAngle)
+        {
+            if(lightHolder.transform.forward.y > triggerAngle)
+            {
+                light.enabled = false;
+            }
+            else
+            {
+                light.enabled = true;
+            }
         }
     }
 }
