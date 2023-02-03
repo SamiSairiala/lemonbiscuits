@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     private float jumpHeight = 1f;
     private float gravityValue = -9.81f;
     private float rotationSpeed = 4f;
+    private float currentSpeed = 0f;
+
+    private Animator anim;
+    
 
 
 
@@ -43,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         
         cameraMainTransform = Camera.main.transform;
+
+        anim = GetComponent<Animator>();
     }
 
     private void Awake()
@@ -77,7 +84,17 @@ public class PlayerMovement : MonoBehaviour
         Move = cameraMainTransform.forward * Move.z + cameraMainTransform.right * Move.x;
         Move.y = 0;
         characterController.Move(Move * Time.deltaTime * speed);
+        currentSpeed = characterController.velocity.magnitude;
         
+        // Sets animation controllers var speed to correspond charactercontrollers speed so plays right animation.
+        if(currentSpeed > 0)
+		{
+            anim.SetFloat("Speed", 0.5f);
+		}
+		else
+		{
+            anim.SetFloat("Speed", 0f);
+		}
         // If player has pressed jump button and is grounded add y velocity to player.
         if (JumpControl.action.triggered && PlayerGrounded == true)
         {
