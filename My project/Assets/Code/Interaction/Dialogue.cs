@@ -12,4 +12,11 @@ public class Dialogue
     // Adding place to input text to dialogue from unity editor.
     [TextArea(3, 10)]
     public string[] sentences;
+
+    // Here to fill npc to talk something after player accepts quests etc.
+    [TextArea(3, 10)]
+    public string[] sentencesDuringQuests;
+
+    [TextArea(3, 10)]
+    public string[] AfterQuestSentences;
 }

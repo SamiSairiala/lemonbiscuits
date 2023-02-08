@@ -70,24 +70,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Checks if player is grounded from character contoller and puts players y velocity to 0.
-        PlayerGrounded = characterController.isGrounded;
-        if(PlayerGrounded && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;  
-        }
+        
         // Reads players inputs from new input system.
         Vector2 movement = movementControl.action.ReadValue<Vector2>();
         Vector3 Move = new Vector3(movement.x, 0, movement.y);
-
+        Move.y = 0;
         // This moves the player towards what point camera is looking not what way the character is looking.
         Move = cameraMainTransform.forward * Move.z + cameraMainTransform.right * Move.x;
         Move.y = 0;
         characterController.Move(Move * Time.deltaTime * speed);
         currentSpeed = characterController.velocity.magnitude;
-        
+        // Checks if player is grounded from character contoller and puts players y velocity to 0.
+        PlayerGrounded = characterController.isGrounded;
+        if (PlayerGrounded && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
         // Sets animation controllers var speed to correspond charactercontrollers speed so plays right animation.
-        if(currentSpeed > 0)
+        if (currentSpeed > 0)
 		{
             anim.SetFloat("Speed", 0.5f);
 		}
@@ -98,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
         // If player has pressed jump button and is grounded add y velocity to player.
         if (JumpControl.action.triggered && PlayerGrounded == true)
         {
+            Debug.Log("Jumping");
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
