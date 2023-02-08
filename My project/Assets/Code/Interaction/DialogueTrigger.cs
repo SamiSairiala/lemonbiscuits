@@ -17,6 +17,8 @@ public class DialogueTrigger : MonoBehaviour
             Debug.Log("Starting Dialogue");
         }
     }
+    
+    
 
     public void TriggerDialogue()
     {
