@@ -13,6 +13,10 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Canvas PlayerDialogueCanvas;
 
+    
+    public bool hasSpoken = false;
+    public bool hasGottenQuestItems = false;
+
     private Queue<string> Sentences;
 
 
@@ -31,11 +35,36 @@ public class DialogueManager : MonoBehaviour
 
         Sentences.Clear();
 
-        foreach(string sentence in dialogue.sentences)
+        // Spoken lines during quest.
+        if(hasSpoken == true)
         {
-            Sentences.Enqueue(sentence);
+            foreach (string sentence in dialogue.sentencesDuringQuests)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
         }
-        DisplayNextSentence();
+
+        // After player returns quest items.
+        if (hasGottenQuestItems == true)
+        {
+            foreach (string sentence in dialogue.AfterQuestSentences)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
+
+        // First time meeting player.
+        if (hasSpoken == false && hasGottenQuestItems == false)
+        {
+            foreach (string sentence in dialogue.sentences)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
+        
     }
 
     public void DisplayNextSentence()
@@ -65,5 +94,7 @@ public class DialogueManager : MonoBehaviour
     {
         // TODO: CLOSE DIALOGUE BOX
         PlayerDialogueCanvas.gameObject.SetActive(false);
+        hasSpoken = false;
+        hasGottenQuestItems = false;
     }
 }
