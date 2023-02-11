@@ -1,23 +1,18 @@
-﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-[System.Serializable]
-public class Item : IItem
+[CreateAssetMenu(fileName = "New Item", menuName ="Item/Create New Item")]
+public class Item : ScriptableObject
 {
-	[field: SerializeField]
-	public int ID { get; set; }
-	[field: SerializeField]
-	public string Name { get; set; }
-	[field: SerializeField]
-	public string Description { get; set; }
-	[field: SerializeField]
-	public float Weight { get; set; }
-	[field: SerializeField]
-	public int Count { get; set; }
-	[field: SerializeField]
-	public bool isUnique { get; set; }
+    public int ID;
+    public string itemName;
+    public int value;
+    public Sprite Icon;
+    public ItemType itemType;
 
-	public float TotalWeight
+    public enum ItemType
 	{
-		get { return Weight * Count; }
+        Coin
 	}
 }

@@ -79,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
         Move = cameraMainTransform.forward * Move.z + cameraMainTransform.right * Move.x;
         Move.y = 0;
         characterController.Move(Move * Time.deltaTime * speed);
+
+        // Gets charactercontrollers speed and passes it to currentSpeed so can check if going above 0 float so can play right anim.
         currentSpeed = characterController.velocity.magnitude;
         // Checks if player is grounded from character contoller and puts players y velocity to 0.
         PlayerGrounded = characterController.isGrounded;
