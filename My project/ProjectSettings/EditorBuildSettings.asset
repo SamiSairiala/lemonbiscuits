@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TiinaUItesting.unity
     guid: b1b2bcf40e1b7af4e824f2ecb5263990
+  - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
