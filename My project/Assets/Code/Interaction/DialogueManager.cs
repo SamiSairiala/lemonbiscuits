@@ -97,4 +97,9 @@ public class DialogueManager : MonoBehaviour
         hasSpoken = false;
         hasGottenQuestItems = false;
     }
+
+    public void AcceptQuest()
+	{
+        EndDialogue();
+	}
 }
