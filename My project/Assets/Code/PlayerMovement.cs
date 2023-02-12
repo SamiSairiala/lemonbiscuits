@@ -26,8 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private float currentSpeed = 0f;
 
     private Animator anim;
-    
 
+    public Quest quest;
 
 
     private void OnEnable()
