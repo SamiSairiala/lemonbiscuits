@@ -26,6 +26,8 @@ public class DialogueManager : MonoBehaviour
     }
 
 
+
+    //TODO: Change to switch dialogues after pressing next or turning all of the quest items
     public void StartDialogue(Dialogue dialogue)
     {
         // TODO: open DIALOGUE BOX
