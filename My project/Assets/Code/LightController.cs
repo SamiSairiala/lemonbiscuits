@@ -1,5 +1,7 @@
+using LemonForest.Environment.DayTime;
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 
 namespace LemonForest.Environment
@@ -10,20 +12,14 @@ namespace LemonForest.Environment
         protected GameObject sun, moon;
 
         private Light sunLight, moonLight;
-        private float rotationSpeed = 5;
+        private float rotationSpeed;
 
         private bool day;
 
-        [SerializeField]
-        private Color morningColor = new Color(255, 105, 112);
-        [SerializeField]
-        private Color noonColor = new Color(255, 244, 214);
-        [SerializeField]
-        private Color eveningColor;
-        [SerializeField]
-        private Color moonColor;
-        [SerializeField]
         private float triggerAngle = 0.2f;
+
+        private Color lerp;
+
 
 
         // Start is called before the first frame update
@@ -31,10 +27,12 @@ namespace LemonForest.Environment
         {
             sunLight = sun.GetComponent<Light>();
             moonLight = moon.GetComponent<Light>();
-            moonLight.color = moonColor;
+            rotationSpeed = 360 / StaticVariables.secondsInDay;
 
             if (sun == null) { sun = GameObject.Find("Sun"); }
             if (moon == null) { moon = GameObject.Find("Moon"); }
+
+            moonLight.color = TimeStateManager.Instance.GetState(DayState.Midnight).GetColor();
         }
 
         // Update is called once per frame
@@ -43,6 +41,13 @@ namespace LemonForest.Environment
             ManageLight(sun, sunLight, triggerAngle);
             ManageLight(moon, moonLight, triggerAngle);
 
+
+            
+            lerp = Color.Lerp(TimeStateManager.Instance.GetState(TimeStateManager.Instance.CurrentColored).GetColor(),
+                TimeStateManager.Instance.GetState(TimeStateManager.Instance.NextColored).GetColor(),
+                TimeStateManager.Instance.GetStateProgress());
+
+            sunLight.color = lerp;
             transform.Rotate(rotationSpeed * Time.deltaTime, 0, 0);
         }
 
@@ -57,5 +62,7 @@ namespace LemonForest.Environment
                 light.enabled = true;
             }
         }
+
+        
     }
 }
