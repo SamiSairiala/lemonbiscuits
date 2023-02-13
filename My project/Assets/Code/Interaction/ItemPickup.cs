@@ -5,13 +5,13 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public Item Item;
-
+	public bool Collected = false;
     void Pickup()
 	{
 		InventoryManager.Instance.Add(Item);
 		Destroy(gameObject);
 	}
-
+	
 
 	//TODO: Implement some way of picking up items.
 	private void OnTriggerEnter(Collider other)
