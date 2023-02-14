@@ -775,7 +775,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2087,7 +2087,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.31659076, y: -0.000000032642646, z: 0.000000010894763, w: 0.9485622}
+  m_LocalRotation: {x: 0.31659076, y: 0.000000032642646, z: -0.000000010894763, w: 0.9485622}
   m_LocalPosition: {x: 26.933716, y: 3.74, z: 1.9315886}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2833,7 +2833,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189588219}
-  m_LocalRotation: {x: 0.31659076, y: -0.000000016321323, z: 0.000000005447381, w: 0.94856226}
+  m_LocalRotation: {x: 0.31659076, y: 0.000000016321327, z: -0.0000000054473825, w: 0.94856226}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4835,7 +4835,7 @@ MonoBehaviour:
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
   RequiredAmount: 1
   currentAmount: 0
-  Gathering: 0
+  Gathering: 1
   wantedItem: {fileID: 11400000, guid: cc3ca0dcae9145448b7c22acc85819dd, type: 2}
   quest:
     isActive: 0

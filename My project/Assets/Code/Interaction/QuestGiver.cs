@@ -89,7 +89,7 @@ public class QuestGiver : MonoBehaviour
 
 		player.quest = quest;
 		player.quest.isActive = true;
-		dialogue.hasSpoken = true;
+		dialogue.hasGottenQuest = true;
 
 	}
 

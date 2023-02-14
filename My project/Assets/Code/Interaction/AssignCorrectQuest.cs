@@ -39,12 +39,12 @@ public class AssignCorrectQuest : MonoBehaviour
 
         if (/*questGoal.goalType == GoalType.Gathering && questGoal.CurrentAmount >= questGoal.requiredAmount*/trigger.Gathering == true && trigger.currentAmount >= trigger.RequiredAmount && trigger.Completed == false)
         {
-            trigger.hasGottenQuestItems = true;
-            trigger.Completed = true;
+            trigger.hasGottenQuestItems = true;      
             onquest.onQuest = false;
             trigger.isActive = false;
+            
         }
-        if (trigger.Gathering == true && trigger.hasSpoken == true && trigger.isActive == true)
+        if (trigger.Gathering == true && trigger.hasGottenQuest == true && trigger.isActive == true)
         {
             if (InventoryManager.Instance.Items.Contains(trigger.wantedItem))
             {
@@ -69,7 +69,7 @@ public class AssignCorrectQuest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (trigger.hasSpoken == false && trigger.hasGottenQuestItems == false && onquest.onQuest == false && trigger.Completed == false)
+        if (trigger.hasGottenQuest == false && trigger.hasGottenQuestItems == false && onquest.onQuest == false && trigger.Completed == false)
         {
 
             if (interaction.action.WasPressedThisFrame())
@@ -78,7 +78,7 @@ public class AssignCorrectQuest : MonoBehaviour
                 trigger.GotQuest();
             }
         }
-        if (trigger.hasSpoken == true && trigger.Completed == false)
+        if (trigger.hasGottenQuest == true && trigger.Completed == false)
         {
             if (interaction.action.WasPressedThisFrame())
             {

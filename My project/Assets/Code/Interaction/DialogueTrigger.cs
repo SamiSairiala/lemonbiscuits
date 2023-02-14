@@ -8,7 +8,7 @@ using TMPro;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    public bool hasSpoken = false;
+    public bool hasGottenQuest = false;
     public bool hasGottenQuestItems = false;
     public bool UpdateQuest = true;
     public bool isActive = false;
@@ -100,6 +100,10 @@ public class DialogueTrigger : MonoBehaviour
         //        this.TurnInItems();
         //    }
         //}
+        if(hasGottenQuestItems == true)
+		{
+            Invoke("InvokeCompleted", 5f);
+		}
 
 
     }
@@ -127,16 +131,18 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        if(this.hasSpoken  == false && this.hasGottenQuestItems == false && onquest.onQuest == false && this.Completed == false)
+        if(this.hasGottenQuest  == false && this.hasGottenQuestItems == false && onquest.onQuest == false && this.Completed == false)
         {
-            
+            Correct.enabled = true;
+            Debug.Log("First time speaking");
             Accept.gameObject.SetActive(true);
             Next.gameObject.SetActive(true);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             TurnIn.gameObject.SetActive(false);
         }
-        if(this.hasSpoken == true && this.Completed == false)
+        if(this.hasGottenQuest == true && this.Completed == false)
         {
+            Debug.Log("Activating quest");
             isActive = true;
             Correct.enabled = true;
             onquest.onQuest = true;
@@ -150,26 +156,32 @@ public class DialogueTrigger : MonoBehaviour
             //TurnIn.onClick.AddListener(this.TurnInItems);
             UpdateQuest = false;
         }
-        if (this.hasGottenQuestItems == true && this.Completed == false && this.hasSpoken == true)
+        if (this.hasGottenQuestItems == true && this.Completed == false && this.hasGottenQuest == true)
         {
+            Debug.Log("Quest items returned.");
             FindObjectOfType<DialogueManager>().hasGottenQuestItems = true;
+            FindObjectOfType<DialogueManager>().CompletedQuest = false;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             Accept.gameObject.SetActive(false);
             TurnIn.gameObject.SetActive(false);
             CurrentQuesttext.text = "";
             CurrentQuestProgresstext.text = "";
-            Completed = true;
+            //Completed = true;
+            isActive = false;
             Correct.enabled = false;
             onquest.onQuest = false;
         }
         if(this.onquest.onQuest == true && this.isActive == false)
         {
+            Debug.Log("on Diffrent quest");
             FindObjectOfType<DialogueManager>().hasDiffrentQuest = true;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             TurnIn.gameObject.SetActive(false);
         }
-        if(this.Completed == true && this.hasGottenQuestItems == true)
+        if(this.Completed == true && this.hasGottenQuestItems == true && this.hasGottenQuest == true && this.isActive == false)
         {
+            Debug.Log("Completed quest");
+            FindObjectOfType<DialogueManager>().hasGottenQuestItems = true;
             FindObjectOfType<DialogueManager>().CompletedQuest = true;
             Correct.enabled = false;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
@@ -177,12 +189,19 @@ public class DialogueTrigger : MonoBehaviour
 
 
     }
+
+   void InvokeCompleted()
+	{
+        isActive = false;
+        Completed = true;
+	}
+
     public void GotQuest()
     {
 
         player.quest = quest;
         player.quest.isActive = true;
-        this.hasSpoken = true;
+        this.hasGottenQuest = true;
         this.isActive = true;
 
     }

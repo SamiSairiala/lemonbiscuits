@@ -49,6 +49,7 @@ public class DialogueManager : MonoBehaviour
             DisplayNextSentence();
         }
 
+        // Has diffrent quest.
         if(hasDiffrentQuest == true)
         {
             foreach (string sentence in dialogue.hasDiffrentQuestSentences)
@@ -68,7 +69,16 @@ public class DialogueManager : MonoBehaviour
             }
             DisplayNextSentence();
         }
-        if(CompletedQuest == true && hasGottenQuestItems == true)
+        //if (CompletedQuest == true)
+        //{
+        //    foreach (string sentence in dialogue.AfterQuestSentences)
+        //    {
+        //        Sentences.Enqueue(sentence);
+        //    }
+        //    DisplayNextSentence();
+        //}
+        // Completed quest.
+        if (CompletedQuest == true && hasGottenQuestItems == true)
         {
             foreach (string sentence in dialogue.CompletedQuest)
             {
@@ -78,7 +88,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // First time meeting player.
-        if (hasSpoken == false && hasGottenQuestItems == false)
+        if (hasSpoken == false && hasGottenQuestItems == false && CompletedQuest == false)
         {
             foreach (string sentence in dialogue.sentences)
             {
@@ -86,6 +96,7 @@ public class DialogueManager : MonoBehaviour
             }
             DisplayNextSentence();
         }
+        
         
     }
 
