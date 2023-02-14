@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour
     
     public bool hasSpoken = false;
     public bool hasGottenQuestItems = false;
+    public bool hasDiffrentQuest = false;
+    public bool CompletedQuest = false;
 
     private Queue<string> Sentences;
 
@@ -47,10 +49,28 @@ public class DialogueManager : MonoBehaviour
             DisplayNextSentence();
         }
 
+        if(hasDiffrentQuest == true)
+        {
+            foreach (string sentence in dialogue.hasDiffrentQuestSentences)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+
+        }
+
         // After player returns quest items.
         if (hasGottenQuestItems == true)
         {
             foreach (string sentence in dialogue.AfterQuestSentences)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
+        if(CompletedQuest == true)
+        {
+            foreach (string sentence in dialogue.CompletedQuest)
             {
                 Sentences.Enqueue(sentence);
             }
@@ -98,6 +118,8 @@ public class DialogueManager : MonoBehaviour
         PlayerDialogueCanvas.gameObject.SetActive(false);
         hasSpoken = false;
         hasGottenQuestItems = false;
+        hasDiffrentQuest = false;
+        
     }
 
     public void AcceptQuest()
