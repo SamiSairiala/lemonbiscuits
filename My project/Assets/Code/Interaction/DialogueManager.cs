@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
         Sentences.Clear();
 
         // Spoken lines during quest.
-        if(hasSpoken == true)
+        if(hasSpoken == true && hasGottenQuestItems == false && CompletedQuest == false)
         {
             foreach (string sentence in dialogue.sentencesDuringQuests)
             {
@@ -60,7 +60,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // After player returns quest items.
-        if (hasGottenQuestItems == true)
+        if (hasGottenQuestItems == true && CompletedQuest == false)
         {
             foreach (string sentence in dialogue.AfterQuestSentences)
             {
@@ -68,7 +68,7 @@ public class DialogueManager : MonoBehaviour
             }
             DisplayNextSentence();
         }
-        if(CompletedQuest == true)
+        if(CompletedQuest == true && hasGottenQuestItems == true)
         {
             foreach (string sentence in dialogue.CompletedQuest)
             {
@@ -119,6 +119,7 @@ public class DialogueManager : MonoBehaviour
         hasSpoken = false;
         hasGottenQuestItems = false;
         hasDiffrentQuest = false;
+        CompletedQuest = false;
         
     }
 

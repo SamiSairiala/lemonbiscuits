@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1417,7 +1417,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3208,7 +3208,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321389142}
-  m_LocalRotation: {x: 0.3438076, y: 0.000000022850127, z: -0.000000008366039, w: 0.9390401}
+  m_LocalRotation: {x: 0.3438076, y: -0.000000022850129, z: 0.00000000836604, w: 0.9390401}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4833,7 +4833,7 @@ MonoBehaviour:
   UpdateQuest: 0
   isActive: 0
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
-  RequiredAmount: 0
+  RequiredAmount: 1
   currentAmount: 0
   Gathering: 0
   wantedItem: {fileID: 11400000, guid: cc3ca0dcae9145448b7c22acc85819dd, type: 2}
@@ -4868,6 +4868,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2040309608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040309598}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614b474478fbade45b83149b1c7bb48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onquest: {fileID: 1194306763}
+  CurrentQuesttext: {fileID: 407031063}
+  CurrentQuestProgresstext: {fileID: 693968268}
+  interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
 --- !u!1001 &2052547343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5190,3 +5206,19 @@ MonoBehaviour:
   player: {fileID: 1143554384}
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
+--- !u!114 &2639800595101608079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2639800595101608050}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614b474478fbade45b83149b1c7bb48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onquest: {fileID: 1194306763}
+  CurrentQuesttext: {fileID: 407031063}
+  CurrentQuestProgresstext: {fileID: 693968268}
+  interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}

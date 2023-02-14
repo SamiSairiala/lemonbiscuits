@@ -31,6 +31,8 @@ public class DialogueTrigger : MonoBehaviour
     public Button TurnIn;
     public PlayerMovement player;
 
+    private AssignCorrectQuest Correct;
+
     public TextMeshProUGUI CurrentQuesttext;
     public TextMeshProUGUI CurrentQuestProgresstext;
     private void OnEnable()
@@ -46,56 +48,58 @@ public class DialogueTrigger : MonoBehaviour
     // CHANGE THIS TO DIFFRENT METHOD OF STARTING DIALOGUE.
     private void OnTriggerEnter(Collider other)
     {
-        //questGiver = GetComponent<QuestGiver>();
+        Correct = GetComponent<AssignCorrectQuest>();
+        Correct.enabled = true;
+  //      //questGiver = GetComponent<QuestGiver>();
         
         
-        if (/*questGoal.goalType == GoalType.Gathering && questGoal.CurrentAmount >= questGoal.requiredAmount*/this.Gathering == true && this.currentAmount >= this.RequiredAmount && this.Completed == false)
-		{
-            hasGottenQuestItems = true;
-            Completed = true;
-            onquest.onQuest = false;
-            isActive = false;
-		}
-        if(this.Gathering == true && this.hasSpoken == true && this.isActive == true)
-        {
-            if (InventoryManager.Instance.Items.Contains(this.wantedItem))
-            {
-                currentAmount++;
-                InventoryManager.Instance.Items.Remove(this.wantedItem);
-                CurrentQuestProgresstext.text = this.wantedItem + " returned " + /*questGoal.*/this.currentAmount + " / " + /*questGoal.*/this.RequiredAmount;
-                //return true;
-            }
-        }
-        if(other.gameObject.tag == "Player")
-        {
+  ////      if (/*questGoal.goalType == GoalType.Gathering && questGoal.CurrentAmount >= questGoal.requiredAmount*/this.Gathering == true && this.currentAmount >= this.RequiredAmount && this.Completed == false)
+		////{
+  ////          hasGottenQuestItems = true;
+  ////          Completed = true;
+  ////          onquest.onQuest = false;
+  ////          isActive = false;
+		////}
+  ////      if(this.Gathering == true && this.hasSpoken == true && this.isActive == true)
+  ////      {
+  ////          if (InventoryManager.Instance.Items.Contains(this.wantedItem))
+  ////          {
+  ////              currentAmount++;
+  ////              InventoryManager.Instance.Items.Remove(this.wantedItem);
+  ////              CurrentQuestProgresstext.text = this.wantedItem + " returned " + /*questGoal.*/this.currentAmount + " / " + /*questGoal.*/this.RequiredAmount;
+  ////              //return true;
+  ////          }
+  ////      }
+  ////      if(other.gameObject.tag == "Player")
+  ////      {
             
-            //Accept.onClick.AddListener(this.GotQuest);
-            TriggerDialogue();
-            Debug.Log("Starting Dialogue");
-            if (/*UpdateQuest == true && questGoal.goalType == GoalType.Gathering */Gathering == true && this.isActive == true)
-            {
-                CurrentQuestProgresstext.text = this.wantedItem + " returned 0 / " + this.RequiredAmount;
-            }
-        }
+  ////          //Accept.onClick.AddListener(this.GotQuest);
+  ////          TriggerDialogue();
+  ////          Debug.Log("Starting Dialogue" + this.gameObject.name);
+  ////          if (/*UpdateQuest == true && questGoal.goalType == GoalType.Gathering */Gathering == true && this.isActive == true)
+  ////          {
+  ////              CurrentQuestProgresstext.text = this.wantedItem + " returned 0 / " + this.RequiredAmount;
+  ////          }
+  //      }
     }
     private void Update()
     {
-        if (this.hasSpoken == false && this.hasGottenQuestItems == false && onquest.onQuest == false && this.Completed == false)
-        {
+        //if (this.hasSpoken == false && this.hasGottenQuestItems == false && onquest.onQuest == false && this.Completed == false)
+        //{
 
-            if (interaction.action.WasPressedThisFrame())
-            {
-                Debug.Log("Pressed E");
-                this.GotQuest();
-            }
-        }
-        if (this.hasSpoken == true && this.Completed == false)
-        {
-            if (interaction.action.WasPressedThisFrame())
-            {
-                this.TurnInItems();
-            }
-        }
+        //    if (interaction.action.WasPressedThisFrame())
+        //    {
+        //        Debug.Log("Pressed E");
+        //        this.GotQuest();
+        //    }
+        //}
+        //if (this.hasSpoken == true && this.Completed == false)
+        //{
+        //    if (interaction.action.WasPressedThisFrame())
+        //    {
+        //        this.TurnInItems();
+        //    }
+        //}
 
 
     }
@@ -134,6 +138,7 @@ public class DialogueTrigger : MonoBehaviour
         if(this.hasSpoken == true && this.Completed == false)
         {
             isActive = true;
+            Correct.enabled = true;
             onquest.onQuest = true;
             FindObjectOfType<DialogueManager>().hasSpoken = true;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
@@ -154,6 +159,7 @@ public class DialogueTrigger : MonoBehaviour
             CurrentQuesttext.text = "";
             CurrentQuestProgresstext.text = "";
             Completed = true;
+            Correct.enabled = false;
             onquest.onQuest = false;
         }
         if(this.onquest.onQuest == true && this.isActive == false)
@@ -165,6 +171,7 @@ public class DialogueTrigger : MonoBehaviour
         if(this.Completed == true && this.hasGottenQuestItems == true)
         {
             FindObjectOfType<DialogueManager>().CompletedQuest = true;
+            Correct.enabled = false;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
 
