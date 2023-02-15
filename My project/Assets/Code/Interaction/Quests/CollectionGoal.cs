@@ -23,6 +23,7 @@ public class CollectionGoal : Goal
     {
         Debug.Log("Init COLLECTION GOAL");
         base.Init();
+            ItemPickup.OnItemAddedToInventory += ItemPickedup;
         
     }
 
