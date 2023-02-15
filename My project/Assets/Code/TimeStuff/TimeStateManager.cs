@@ -153,7 +153,7 @@ namespace LemonForest.Environment.DayTime
             float endTime = GetState(NextColored).TriggerTime * secInDay - startTime;
             float tempStart = TimeController.Instance.CurrentTime - startTime;
 
-            Debug.Log(tempStart / endTime);
+            //Debug.Log(tempStart / endTime);
             return tempStart / endTime;
         }
     }

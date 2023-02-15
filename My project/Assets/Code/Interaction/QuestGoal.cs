@@ -16,6 +16,8 @@ public class QuestGoal
 		return (CurrentAmount >= requiredAmount);
 	}
 
+	
+
 	public bool CheckForItem(Item wantedItem)
 	{
 		if (InventoryManager.Instance.Items.Contains(wantedItem))

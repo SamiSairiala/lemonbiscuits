@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour
     
     public bool hasSpoken = false;
     public bool hasGottenQuestItems = false;
+    public bool hasDiffrentQuest = false;
+    public bool CompletedQuest = false;
 
     private Queue<string> Sentences;
 
@@ -38,7 +40,7 @@ public class DialogueManager : MonoBehaviour
         Sentences.Clear();
 
         // Spoken lines during quest.
-        if(hasSpoken == true)
+        if(hasSpoken == true && hasGottenQuestItems == false && CompletedQuest == false)
         {
             foreach (string sentence in dialogue.sentencesDuringQuests)
             {
@@ -47,8 +49,19 @@ public class DialogueManager : MonoBehaviour
             DisplayNextSentence();
         }
 
+        // Has diffrent quest.
+        if(hasDiffrentQuest == true)
+        {
+            foreach (string sentence in dialogue.hasDiffrentQuestSentences)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+
+        }
+
         // After player returns quest items.
-        if (hasGottenQuestItems == true)
+        if (hasGottenQuestItems == true && CompletedQuest == false)
         {
             foreach (string sentence in dialogue.AfterQuestSentences)
             {
@@ -56,9 +69,26 @@ public class DialogueManager : MonoBehaviour
             }
             DisplayNextSentence();
         }
+        //if (CompletedQuest == true)
+        //{
+        //    foreach (string sentence in dialogue.AfterQuestSentences)
+        //    {
+        //        Sentences.Enqueue(sentence);
+        //    }
+        //    DisplayNextSentence();
+        //}
+        // Completed quest.
+        if (CompletedQuest == true && hasGottenQuestItems == true)
+        {
+            foreach (string sentence in dialogue.CompletedQuest)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
 
         // First time meeting player.
-        if (hasSpoken == false && hasGottenQuestItems == false)
+        if (hasSpoken == false && hasGottenQuestItems == false && CompletedQuest == false)
         {
             foreach (string sentence in dialogue.sentences)
             {
@@ -66,6 +96,7 @@ public class DialogueManager : MonoBehaviour
             }
             DisplayNextSentence();
         }
+        
         
     }
 
@@ -98,6 +129,9 @@ public class DialogueManager : MonoBehaviour
         PlayerDialogueCanvas.gameObject.SetActive(false);
         hasSpoken = false;
         hasGottenQuestItems = false;
+        hasDiffrentQuest = false;
+        CompletedQuest = false;
+        
     }
 
     public void AcceptQuest()
