@@ -104,6 +104,7 @@ public class DialogueManager : MonoBehaviour
     {
         if(Sentences.Count == 0)
         {
+            // No more sentences.
             EndDialogue();
             return;
         }
