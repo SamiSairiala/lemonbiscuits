@@ -8,18 +8,21 @@ namespace Quests{
 
 public class CollectionGoal : Goal
 {
-    public Item requiredItem;
-    public CollectionGoal(/*NewQuest quest,*/Item requiredItem , string description, bool completed, int currentAmount, int requiredAmount)
+        public int CurrentItemsAmount;
+    public string ItemName { get; set; }
+    public CollectionGoal(NewQuest quest, string itemName , string description, bool completed, int currentAmount, int requiredAmount)
     {
-        
-        this.requiredItem = requiredItem;
+        this.Quest = quest;
+        this.ItemName = itemName;
         this.Description = description;
         this.Completed = completed;
         this.CurrentAmount = currentAmount;
+            CurrentItemsAmount = currentAmount;
         this.RequiredAmount = requiredAmount;
     }
-
-    public override void Init()
+        // required items is for example if you need 2 then just - 1 and put 1 into required items when you in reality need 2.
+        // In specific quests when you add Goals.
+        public override void Init()
     {
         Debug.Log("Init COLLECTION GOAL");
         base.Init();
@@ -28,27 +31,13 @@ public class CollectionGoal : Goal
     }
 
     
-    public bool CheckForItem(Item requiredItem)
-    {
-        if (InventoryManager.Instance.Items.Contains(requiredItem))
-        {
-            CurrentAmount++;
-            Evaluate();
-            InventoryManager.Instance.Items.Remove(requiredItem);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 
     void ItemPickedup(Item item)
     {
-        if(item.ID == this.requiredItem.ID)
+        if(item.name.Equals(this.ItemName))
         {
             this.CurrentAmount++;
-            Evaluate();
+            Evaluate(item);
         } 
     }
 }

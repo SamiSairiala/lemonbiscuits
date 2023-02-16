@@ -22,6 +22,7 @@ public class ItemPickup : MonoBehaviour
         if (OnItemAddedToInventory != null)
 		{
             OnItemAddedToInventory(item);
+            Debug.Log(item);
         }
            
     }

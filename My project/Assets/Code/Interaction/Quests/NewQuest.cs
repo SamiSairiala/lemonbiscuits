@@ -16,10 +16,7 @@ public class NewQuest : MonoBehaviour
     public void CheckGoals()
     {
         Completed = Goals.All(g => g.Completed);
-        if (Completed)
-        {
-            GiveReward();
-        }
+        
     }
 
     

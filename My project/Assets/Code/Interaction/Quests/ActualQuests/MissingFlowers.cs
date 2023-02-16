@@ -5,17 +5,20 @@ using Quests;
 
 public class MissingFlowers : NewQuest
 {
-    public Item rewardItem;
-    public Item requiredItem;
     
+    public Item requiredItem;
+    public QuestItems questItems;
     private void Start()
     {
+        questItems = FindObjectOfType<QuestItems>();
+        requiredItem = questItems.Flower;
+        Debug.Log(requiredItem.name);
         QuestName = "Missing Flowers";
-        QuestDescription = "Gather 4 flowers for Mike";
-        ItemReward = rewardItem;
+        QuestDescription = "Gather 2 flowers for Mike";
+        //ItemReward = rewardItem;
         
-
-        Goals.Add(new CollectionGoal(requiredItem, "Gather 4 flowers", false, 0, 4));
+        
+        Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 2 flowers", false, 0, 1));
 
         Goals.ForEach(g => g.Init());
     }

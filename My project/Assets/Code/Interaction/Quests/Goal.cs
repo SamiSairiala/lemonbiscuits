@@ -16,8 +16,16 @@ public class Goal
 
     }
 
-    public void Evaluate()
+    public void Evaluate(Item item)
     {
+        if (InventoryManager.Instance.Items.Contains(item))
+        {
+
+            CurrentAmount++;
+            Debug.Log(CurrentAmount + " From inventory");
+            InventoryManager.Instance.Items.Remove(item);
+            //return true;
+        }
         Debug.Log(CurrentAmount + " Current amount");
         if(CurrentAmount >= RequiredAmount)
         {
