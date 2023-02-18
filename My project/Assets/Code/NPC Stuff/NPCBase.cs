@@ -1,3 +1,4 @@
+using LemonForest.Environment.DayTime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace LemonForest.AI
     {
         [SerializeField]
         NavMeshAgent agent;
+        [SerializeField]
+        List<RoutineAction> routine;
 
 
         // Start is called before the first frame update
@@ -27,12 +30,22 @@ namespace LemonForest.AI
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetMouseButtonDown(1))
+            DoThing(TimeController.Instance.GetCurrent());
+        }
+
+        private void DoThing(DayState currentTime)
+        {
+            foreach (RoutineAction action in routine)
             {
-                Ray movePosition = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(movePosition, out var hitInfo))
+                if(action.triggerTime == currentTime)
                 {
-                    agent.SetDestination(hitInfo.point);
+                    if(action.actionType == ActionType.walkTo)
+                    {
+                        agent.SetDestination(action.location.position);
+                    }
+                } else
+                {
+                    continue;
                 }
             }
         }

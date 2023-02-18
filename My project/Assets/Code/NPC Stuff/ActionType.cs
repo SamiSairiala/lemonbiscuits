@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace LemonForest.AI
 {
-    public class Routine
+    public enum ActionType
     {
-
+        wait,
+        walkTo
     }
 }

@@ -47,10 +47,10 @@ namespace LemonForest.Environment.DayTime
 
         public DayState GetCurrent()
         {
-            return getCurrentState(CurrentTime % StaticVariables.secondsInDay);
+            return GetCurrentState(CurrentTime % StaticVariables.secondsInDay);
         }
 
-        public DayState getCurrentState(float currentTime)
+        public DayState GetCurrentState(float currentTime)
         {
             float secondsInDay = StaticVariables.secondsInDay;
             currentTime = currentTime % secondsInDay;

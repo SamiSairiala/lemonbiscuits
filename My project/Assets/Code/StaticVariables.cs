@@ -4,7 +4,7 @@ namespace LemonForest
 {
     public static class StaticVariables
     {
-        public static int secondsInDay = 300;                  //How Many IRL Seconds are in a ingame day
+        public static int secondsInDay = 60;                  //How Many IRL Seconds are in a ingame day
 
         public static float NPCMovementSpeed = 3.5f;
         public static float NPCAcceleration = 8f;
