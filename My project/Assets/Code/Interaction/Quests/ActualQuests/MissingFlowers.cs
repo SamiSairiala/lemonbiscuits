@@ -18,7 +18,7 @@ public class MissingFlowers : NewQuest
         //ItemReward = rewardItem;
         
         
-        Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 2 flowers", false, 0, 1));
+        Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 2 flowers", false, 0, 1, requiredItem));
 
         Goals.ForEach(g => g.Init());
     }
