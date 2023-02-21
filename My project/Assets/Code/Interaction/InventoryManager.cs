@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
 
 	public Transform ItemContent;
 	public GameObject InventoryItem;
+	public GameObject inventoryUI;
 
 	private void Awake()
 	{
@@ -39,11 +40,13 @@ public class InventoryManager : MonoBehaviour
 		}
 		foreach(var item in Items)
 		{
+			//Activates inventory ui.
+			inventoryUI.gameObject.SetActive(true);
 			GameObject obj = Instantiate(InventoryItem, ItemContent);
 			//TODO: Change these to TMP
 			var itemName = obj.transform.Find("Item/ItemName").GetComponent<Text>();
 			var itemIcon = obj.transform.Find("Item/ItemIcon").GetComponent<Image>();
-
+			
 			itemName.text = item.itemName;
 			itemIcon.sprite = item.Icon;
 		}
