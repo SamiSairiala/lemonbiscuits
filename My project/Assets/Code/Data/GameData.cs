@@ -6,10 +6,10 @@ using UnityEngine;
 public class GameData
 {
 
-	public Vector3 vPlayerPos;
-	public List<Item> items;
+	public Vector3 vPlayerPos; // Used for saving / loading player position.
+	public List<Item> items; // Used for saving / loading player inventory.
 
-    public GameData()
+	public GameData()
 	{
 		vPlayerPos = Vector3.zero;
 		items = new List<Item>();

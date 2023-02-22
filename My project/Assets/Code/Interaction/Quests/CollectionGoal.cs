@@ -33,7 +33,7 @@ namespace Quests
 		{
 			Debug.Log("Init COLLECTION GOAL");
 			base.Init();
-			ItemPickup.OnItemAddedToInventory += ItemPickedup;
+			ItemPickup.OnItemAddedToInventory += ItemPickedup; // Add an event on when player picksup calls ItemPickedup method.
 			for(int i = 0; i < RequiredAmount + 1; i++)
 			{
                 CheckForItemsOnStart(Item);
@@ -42,18 +42,23 @@ namespace Quests
 
         }
 		
+		// Checks if players has gotten the items before accepting quest
 		public void CheckForItemsOnStart(Item item)
 		{
-			Debug.Log("Checking items in for loop");
-            if (InventoryManager.Instance.Items.Contains(item))
-            {
+			for (int i = 0; i < RequiredAmount + 1; i++)
+			{
+				if (InventoryManager.Instance.Items.Contains(item))
+				{
 
-                this.CurrentAmount++;
-                Debug.Log(CurrentAmount + " From inventory");
-                InventoryManager.Instance.Items.Remove(item);
-				//return true;
-				Evaluate(item);
-            }
+					this.CurrentAmount++;
+					Debug.Log(CurrentAmount + " From inventory");
+                    InventoryManager.Instance.Items.Remove(item);
+                    //return true;
+                    Evaluate(item);
+				}
+			}
+			Debug.Log("Checking items in for loop");
+            
             
 
         }

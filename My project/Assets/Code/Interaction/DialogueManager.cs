@@ -114,7 +114,7 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence (string sentence) // "Animates" Dialogue.
     {
         dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray())
