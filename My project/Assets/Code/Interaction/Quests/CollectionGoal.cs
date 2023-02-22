@@ -45,8 +45,8 @@ namespace Quests
 		// Checks if players has gotten the items before accepting quest
 		public void CheckForItemsOnStart(Item item)
 		{
-			for (int i = 0; i < RequiredAmount + 1; i++)
-			{
+			//for (int i = 0; i < RequiredAmount + 1; i++)
+			//{
 				if (InventoryManager.Instance.Items.Contains(item))
 				{
 
@@ -56,7 +56,7 @@ namespace Quests
                     //return true;
                     Evaluate(item);
 				}
-			}
+			
 			Debug.Log("Checking items in for loop");
             
             
