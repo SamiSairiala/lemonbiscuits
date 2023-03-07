@@ -17,9 +17,15 @@ public class MissingFlowers : NewQuest
         Debug.Log(requiredItem.name);
         QuestName = "Missing Flowers";
         QuestDescription = "Gather 2 flowers for Mike";
+<<<<<<< HEAD
+        //ItemReward = rewardItem;
+        
+        
+=======
         ItemReward = rewardItem;
 
 
+>>>>>>> main
         Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 2 flowers", false, 0, 1, requiredItem));
 
         Goals.ForEach(g => g.Init());
