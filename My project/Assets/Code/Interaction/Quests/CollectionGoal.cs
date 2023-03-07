@@ -15,7 +15,6 @@ namespace Quests
 	{
 		public int CurrentItemsAmount;
 		public string ItemName { get; set; }
-		public Item Item { get; set; }
 		public CollectionGoal(NewQuest quest, string itemName, string description, bool completed, int currentAmount, int requiredAmount, Item item)
 		{
 			this.Quest = quest;

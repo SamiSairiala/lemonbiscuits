@@ -6,7 +6,7 @@ using Quests;
 public class MissingFlowers : NewQuest
 {
     
-    public Item requiredItem;
+    
     public Item rewardItem;
     public QuestItems questItems;
     private void Start()

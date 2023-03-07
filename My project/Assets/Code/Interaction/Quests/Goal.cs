@@ -11,7 +11,7 @@ namespace Quests
         public bool Completed { get; set; }
         public int CurrentAmount { get; set; }
         public int RequiredAmount { get; set; }
-
+        public Item Item { get; set; }
         public virtual void Init()
         {
             //Default init
