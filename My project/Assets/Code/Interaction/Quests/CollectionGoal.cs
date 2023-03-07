@@ -69,7 +69,7 @@ namespace Quests
 			if (item.name.Equals(this.ItemName))
 			{
 				this.CurrentAmount++;
-				Evaluate(item);
+				EvaluateAfter(item);
 			}
 		}
 	}

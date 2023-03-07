@@ -20,19 +20,37 @@ namespace Quests
 
         public void Evaluate(Item item)
         {
-            // Remove items from inventory if not gotten quest complete straight from inventory.
+			//Remove items from inventory if not gotten quest complete straight from inventory.
 
-            // This didint work since it deletes objects as soon as you pick them up.
-            //for(int i = 0; i < RequiredAmount; i++)
-            //{
-            //    if (InventoryManager.Instance.Items.Contains(item))
-            //    {
-            //        Debug.Log("Removed item");
-            //        InventoryManager.Instance.Items.Remove(item);
-            //    }
-            //}
-            
-            Debug.Log(CurrentAmount + " Current amount");
+			//This didint work since it deletes objects as soon as you pick them up.
+
+			//for (int i = 0; i < RequiredAmount; i++)
+			//{
+			//	if (InventoryManager.Instance.Items.Contains(item))
+			//	{
+			//		Debug.Log("Removed item");
+			//		InventoryManager.Instance.Items.Remove(item);
+			//	}
+			//}
+
+			Debug.Log(CurrentAmount + " Current amount");
+            if (CurrentAmount >= RequiredAmount)
+            {
+                Complete();
+            }
+        }
+
+        public void EvaluateAfter(Item item)
+		{
+			for (int i = 0; i < RequiredAmount; i++)
+			{
+				if (InventoryManager.Instance.Items.Contains(item))
+				{
+					Debug.Log("Removed item");
+					InventoryManager.Instance.Items.Remove(item);
+				}
+			}
+			Debug.Log(CurrentAmount + " Current amount");
             if (CurrentAmount >= RequiredAmount)
             {
                 Complete();
