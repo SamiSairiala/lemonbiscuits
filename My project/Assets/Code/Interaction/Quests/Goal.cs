@@ -11,28 +11,17 @@ namespace Quests
         public bool Completed { get; set; }
         public int CurrentAmount { get; set; }
         public int RequiredAmount { get; set; }
-        public Item RequiredItem { get; set; }
+
         public virtual void Init()
         {
             //Default init
-            
+
         }
 
         public void Evaluate(Item item)
         {
             // Remove items from inventory if not gotten quest complete straight from inventory.
 
-<<<<<<< HEAD
-                //CurrentAmount++;
-                Debug.Log(CurrentAmount + " From inventory");
-                InventoryManager.Instance.Items.Remove(item);
-                //return true;
-                if (CurrentAmount >= RequiredAmount)
-                {
-                    Complete();
-                }
-            }
-=======
             // This didint work since it deletes objects as soon as you pick them up.
             //for(int i = 0; i < RequiredAmount; i++)
             //{
@@ -43,7 +32,6 @@ namespace Quests
             //    }
             //}
             
->>>>>>> main
             Debug.Log(CurrentAmount + " Current amount");
             if (CurrentAmount >= RequiredAmount)
             {
@@ -53,7 +41,6 @@ namespace Quests
 
         public void Complete()
         {
-            
             this.Quest.CheckGoals();
             Completed = true;
             Debug.Log("Goal marked as completed.");
