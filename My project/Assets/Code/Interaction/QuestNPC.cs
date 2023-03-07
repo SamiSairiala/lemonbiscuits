@@ -51,14 +51,7 @@ public class QuestNPC : MonoBehaviour
 
     void CheckQuest()
     {
-        if (InventoryManager.Instance.Items.Contains(Quest.requiredItem))
-        {
-
-            currentAmount++;
-            //if(currentAmount >= )
-            InventoryManager.Instance.Items.Remove(Quest.requiredItem);
-            //return true;
-        }
+        
         if (Quest.Completed)
         {
             Quest.GiveReward();

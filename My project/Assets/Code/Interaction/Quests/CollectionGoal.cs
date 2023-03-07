@@ -11,7 +11,7 @@ namespace Quests
 	{
 		public int CurrentItemsAmount;
 		public string ItemName { get; set; }
-		public CollectionGoal(NewQuest quest, string itemName, string description, bool completed, int currentAmount, int requiredAmount)
+		public CollectionGoal(NewQuest quest, string itemName, string description, bool completed, int currentAmount, int requiredAmount, Item requiredItem)
 		{
 			this.Quest = quest;
 			this.ItemName = itemName;
@@ -20,6 +20,7 @@ namespace Quests
 			this.CurrentAmount = currentAmount;
 			CurrentItemsAmount = currentAmount;
 			this.RequiredAmount = requiredAmount;
+			this.RequiredItem = requiredItem;
 		}
 		// required items is for example if you need 2 then just - 1 and put 1 into required items when you in reality need 2.
 		// In specific quests when you add Goals.
@@ -28,11 +29,26 @@ namespace Quests
 			Debug.Log("Init COLLECTION GOAL");
 			base.Init();
 			ItemPickup.OnItemAddedToInventory += ItemPickedup;
-
+			CheckInv(RequiredItem);
 		}
 
+		void CheckInv(Item item)
+		{
+			for(int i = 0; i < RequiredAmount; i++)
+			{
+				if (InventoryManager.Instance.Items.Contains(item))
+				{
 
+					this.CurrentAmount++;
+					Debug.Log(CurrentAmount + " From inventory");
+					Evaluate(item);
 
+					//return true;
+				}
+			}
+			
+		}
+		
 		void ItemPickedup(Item item)
 		{
 			if (item.name.Equals(this.ItemName))

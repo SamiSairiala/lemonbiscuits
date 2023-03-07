@@ -11,11 +11,11 @@ namespace Quests
         public bool Completed { get; set; }
         public int CurrentAmount { get; set; }
         public int RequiredAmount { get; set; }
-
+        public Item RequiredItem { get; set; }
         public virtual void Init()
         {
             //Default init
-
+            
         }
 
         public void Evaluate(Item item)
@@ -23,10 +23,14 @@ namespace Quests
             if (InventoryManager.Instance.Items.Contains(item))
             {
 
-                CurrentAmount++;
+                //CurrentAmount++;
                 Debug.Log(CurrentAmount + " From inventory");
                 InventoryManager.Instance.Items.Remove(item);
                 //return true;
+                if (CurrentAmount >= RequiredAmount)
+                {
+                    Complete();
+                }
             }
             Debug.Log(CurrentAmount + " Current amount");
             if (CurrentAmount >= RequiredAmount)
@@ -37,6 +41,7 @@ namespace Quests
 
         public void Complete()
         {
+            
             this.Quest.CheckGoals();
             Completed = true;
             Debug.Log("Goal marked as completed.");
