@@ -27,6 +27,8 @@ namespace Quests
 
 		public void GiveReward()
         {
+          
+           
             if (ItemReward != null)
             {
                 InventoryManager.Instance.Add(ItemReward);

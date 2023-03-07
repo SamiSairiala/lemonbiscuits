@@ -23,7 +23,7 @@ public class FileDataHandler
 		{
 			try
 			{
-				// using "using" statements if forget to open or close a file this ensures they will be closes etc.
+				// using "using" statements if forget to open or close a file this ensures they will be closed etc.
 				string dataToLoad = "";
 				using(FileStream stream = new FileStream(fullPath, FileMode.Open))
 				{

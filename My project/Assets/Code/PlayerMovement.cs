@@ -8,6 +8,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private InputActionReference movementControl;
     [SerializeField] private InputActionReference JumpControl;
+    [SerializeField] private InputActionReference Inventory;
+
+    [SerializeField] private GameObject InventoryUI;
+    private bool inventoryOpen = false;
 
     private bool PlayerGrounded;
 
@@ -34,11 +38,13 @@ public class PlayerMovement : MonoBehaviour
     {
         movementControl.action.Enable();
         JumpControl.action.Enable();
+        Inventory.action.Enable();
     }
     private void OnDisable()
     {
         movementControl.action.Disable();
         JumpControl.action.Disable();
+        Inventory.action.Disable();
     }
 
     // Start is called before the first frame update
@@ -70,7 +76,20 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        if (Inventory.action.WasPerformedThisFrame())
+        {
+            if(inventoryOpen == false)
+            {
+                inventoryOpen = true;
+                InventoryUI.SetActive(true);
+                InventoryManager.Instance.ListItems();
+            }
+            else
+            {
+                inventoryOpen = false;
+                InventoryUI.SetActive(false);
+            }
+        }
         // Reads players inputs from new input system.
         Vector2 movement = movementControl.action.ReadValue<Vector2>();
         Vector3 Move = new Vector3(movement.x, 0, movement.y);

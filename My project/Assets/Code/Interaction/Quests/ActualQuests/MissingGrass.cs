@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Quests;
 
-public class MissingFlowers : NewQuest
+public class MissingGrass : NewQuest
 {
     
     public Item requiredItem;
@@ -15,18 +15,12 @@ public class MissingFlowers : NewQuest
         requiredItem = questItems.Flower;
         rewardItem = questItems.Coin;
         Debug.Log(requiredItem.name);
-        QuestName = "Missing Flowers";
-        QuestDescription = "Gather 2 flowers for Mike";
-<<<<<<< HEAD
-        //ItemReward = rewardItem;
-        
-        
-=======
+        QuestName = "Missing Grass";
+        QuestDescription = "Gather 2 Grass for Jeff";
         ItemReward = rewardItem;
 
 
->>>>>>> main
-        Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 2 flowers", false, 0, 1, requiredItem));
+        Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 2 grass", false, 0, 1, requiredItem));
 
         Goals.ForEach(g => g.Init());
     }

@@ -20,9 +20,9 @@ namespace Quests
 
         public void Evaluate(Item item)
         {
-            if (InventoryManager.Instance.Items.Contains(item))
-            {
+            // Remove items from inventory if not gotten quest complete straight from inventory.
 
+<<<<<<< HEAD
                 //CurrentAmount++;
                 Debug.Log(CurrentAmount + " From inventory");
                 InventoryManager.Instance.Items.Remove(item);
@@ -32,6 +32,18 @@ namespace Quests
                     Complete();
                 }
             }
+=======
+            // This didint work since it deletes objects as soon as you pick them up.
+            //for(int i = 0; i < RequiredAmount; i++)
+            //{
+            //    if (InventoryManager.Instance.Items.Contains(item))
+            //    {
+            //        Debug.Log("Removed item");
+            //        InventoryManager.Instance.Items.Remove(item);
+            //    }
+            //}
+            
+>>>>>>> main
             Debug.Log(CurrentAmount + " Current amount");
             if (CurrentAmount >= RequiredAmount)
             {

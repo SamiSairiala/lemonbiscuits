@@ -149,7 +149,11 @@ public class DialogueTrigger : MonoBehaviour
             FindObjectOfType<DialogueManager>().hasSpoken = true;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             Accept.gameObject.SetActive(false);
-            CurrentQuesttext.text = "Gather " + /*questGoal.*/this.RequiredAmount + this.wantedItem;
+            if(Gathering == true)
+            {
+                CurrentQuesttext.text = "Gather " + /*questGoal.*/this.RequiredAmount + this.wantedItem;
+            }
+            
             
             TurnIn.gameObject.SetActive(true);
             
