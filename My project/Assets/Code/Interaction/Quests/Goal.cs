@@ -33,7 +33,7 @@ namespace Quests
 			//	}
 			//}
 
-			Debug.Log(CurrentAmount + " Current amount");
+			Debug.Log(CurrentAmount + " From inventory Current amount");
             if (CurrentAmount >= RequiredAmount)
             {
                 Complete();
@@ -42,19 +42,38 @@ namespace Quests
 
         public void EvaluateAfter(Item item)
 		{
-			for (int i = 0; i < RequiredAmount; i++)
-			{
-				if (InventoryManager.Instance.Items.Contains(item))
-				{
-					Debug.Log("Removed item");
-					InventoryManager.Instance.Items.Remove(item);
-				}
-			}
-			Debug.Log(CurrentAmount + " Current amount");
+            if (CurrentAmount < RequiredAmount)
+            {
+                
+                    if (InventoryManager.Instance.Items.Contains(item))
+                    {
+                        Debug.Log("Removed item");
+                        InventoryManager.Instance.Items.Remove(item);
+                    }
+                
+            }
+            
+            //Debug.Log(CurrentAmount + " Current amount");
             if (CurrentAmount >= RequiredAmount)
             {
-                Complete();
+                GotoCompleteAndDeleteItems(item);
             }
+        }
+
+        public void GotoCompleteAndDeleteItems(Item item)
+        {
+            //if (CurrentAmount < RequiredAmount)
+            //{
+            //    for (int i = 0; i < RequiredAmount; i++)
+            //    {
+            //        if (InventoryManager.Instance.Items.Contains(item))
+            //        {
+            //            Debug.Log("Removed item");
+            //            InventoryManager.Instance.Items.Remove(item);
+            //        }
+            //    }
+            //}
+            Complete();
         }
 
         public void Complete()

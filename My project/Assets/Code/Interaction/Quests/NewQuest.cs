@@ -13,6 +13,7 @@ namespace Quests
         public Item ItemReward { get; set; }
         public bool Completed { get; set; }
         public Item requiredItem { get; set; }
+        public int RequiredAmount { get; set; }
 
 
         public void CheckGoals()

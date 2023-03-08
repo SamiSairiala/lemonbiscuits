@@ -14,6 +14,7 @@ public class QuestNPC : MonoBehaviour
 
     [SerializeField] private InputActionReference interaction;
     public OnQuest onQuest;
+    public GameObject Quests;
 
     [SerializeField] private GameObject quests;
     [SerializeField] private string questName; // Type quest name in editor that then gets taken from quests gameobject and activated.
@@ -87,6 +88,16 @@ public class QuestNPC : MonoBehaviour
         
         if (Quest.Completed)
         {
+            //if (InventoryManager.Instance.Items.Contains(Quest.requiredItem))
+            //{
+            //    for(currentAmount = 0; currentAmount < Quest.RequiredAmount; currentAmount++)
+            //    {
+            //        Debug.Log("Deleting items");
+            //        InventoryManager.Instance.Items.Remove(Quest.requiredItem);
+            //    }
+                
+               
+            //}
             onQuest.onQuest = false;
             Quest.GiveReward();
             Debug.Log("Quest completed");

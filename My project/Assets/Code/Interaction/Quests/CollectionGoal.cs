@@ -68,6 +68,7 @@ namespace Quests
 		{
 			if (item.name.Equals(this.ItemName))
 			{
+				Debug.Log(CurrentAmount + "Current amount");
 				this.CurrentAmount++;
 				EvaluateAfter(item);
 			}
