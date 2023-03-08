@@ -69,7 +69,16 @@ namespace Quests
 			if (item.name.Equals(this.ItemName))
 			{
 				Debug.Log(CurrentAmount + "Current amount");
-				this.CurrentAmount++;
+                #region TEST!
+                if (CurrentAmount < RequiredAmount)
+                {
+					if (InventoryManager.Instance.Items.Contains(item))
+					{
+						InventoryManager.Instance.Items.Remove(item);
+					}
+				}
+                #endregion
+                this.CurrentAmount++;
 				EvaluateAfter(item);
 			}
 		}
