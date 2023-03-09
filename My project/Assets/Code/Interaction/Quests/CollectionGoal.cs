@@ -51,9 +51,9 @@ namespace Quests
 
 					this.CurrentAmount++;
 					Debug.Log(CurrentAmount + " From inventory");
-                    InventoryManager.Instance.Items.Remove(item);
-                    //return true;
-                    Evaluate(item);
+				InventoryManager.Instance.Items.Remove(item);
+				//return true;
+				Evaluate(item);
 				}
 			
 			Debug.Log("Checking items in for loop");
@@ -68,17 +68,19 @@ namespace Quests
 		{
 			if (item.name.Equals(this.ItemName))
 			{
-				Debug.Log(CurrentAmount + "Current amount");
+				
+                
+                this.CurrentAmount++;
+                Debug.Log(CurrentAmount + "Current amount");
                 #region TEST!
-                if (CurrentAmount < RequiredAmount)
-                {
+                if (CurrentAmount <= RequiredAmount + 1)
+				{
 					if (InventoryManager.Instance.Items.Contains(item))
 					{
 						InventoryManager.Instance.Items.Remove(item);
 					}
 				}
-                #endregion
-                this.CurrentAmount++;
+				#endregion
 				EvaluateAfter(item);
 			}
 		}

@@ -83,21 +83,38 @@ public class QuestNPC : MonoBehaviour
         Debug.Log("Assigned quest");
     }
 
+    void DeleteItems()
+    {
+        Item item = null;
+        #region If time get this working properly!
+        if (questName.Contains("Flower"))
+        {
+            Debug.Log("Quest has flowers");
+            item = quests.GetComponent<QuestItems>().Flower;
+
+        }
+            if (InventoryManager.Instance.Items.Contains(item))
+            {
+
+                for (currentAmount = 0; currentAmount < this.Quest.RequiredAmount + 1; currentAmount++)
+                {
+                    Debug.Log("Deleting items");
+                    InventoryManager.Instance.Items.Remove(item);
+                }
+
+
+            }
+        
+        #endregion
+    }
+
     void CheckQuest()
     {
         
         if (Quest.Completed)
         {
-            //if (InventoryManager.Instance.Items.Contains(Quest.requiredItem))
-            //{
-            //    for(currentAmount = 0; currentAmount < Quest.RequiredAmount; currentAmount++)
-            //    {
-            //        Debug.Log("Deleting items");
-            //        InventoryManager.Instance.Items.Remove(Quest.requiredItem);
-            //    }
-                
-               
-            //}
+
+            //DeleteItems();
             onQuest.onQuest = false;
             Quest.GiveReward();
             Debug.Log("Quest completed");

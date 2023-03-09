@@ -31,7 +31,7 @@ public class InventoryManager : MonoBehaviour
 		Items.Remove(item);
 	}
 
-	// TODO: Make it show with pressing some button.
+	
 	// Shows inventory UI.
 	public void ListItems()
 	{

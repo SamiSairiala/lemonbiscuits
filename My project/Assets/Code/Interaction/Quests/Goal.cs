@@ -42,19 +42,19 @@ namespace Quests
 
         public void EvaluateAfter(Item item)
 		{
-            if (CurrentAmount < RequiredAmount)
-            {
-                
-                    if (InventoryManager.Instance.Items.Contains(item))
-                    {
-                        Debug.Log("Removed item");
-                        InventoryManager.Instance.Items.Remove(item);
-                    }
-                
-            }
+            //if (CurrentAmount == 0)
+            //{
+
+            //    if (InventoryManager.Instance.Items.Contains(item))
+            //    {
+            //        Debug.Log("Removed item");
+            //        InventoryManager.Instance.Items.Remove(item);
+            //    }
+
+            //}
             
             //Debug.Log(CurrentAmount + " Current amount");
-            if (CurrentAmount >= RequiredAmount)
+            if (CurrentAmount >= RequiredAmount + 1)
             {
                 GotoCompleteAndDeleteItems(item);
             }
