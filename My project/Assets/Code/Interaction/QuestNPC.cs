@@ -87,6 +87,8 @@ public class QuestNPC : MonoBehaviour
     {
         Item item = null;
         #region If time get this working properly!
+        // This works it just can get quite bloated if many diffrent items needed in diffrent quests.
+        // If using this comment out other methods of deleting items from CollectionGoal and Goal.
         if (questName.Contains("Flower"))
         {
             Debug.Log("Quest has flowers");

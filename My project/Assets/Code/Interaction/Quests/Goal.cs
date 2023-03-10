@@ -52,17 +52,7 @@ namespace Quests
             //    }
 
             //}
-            
-            //Debug.Log(CurrentAmount + " Current amount");
-            if (CurrentAmount >= RequiredAmount + 1)
-            {
-                GotoCompleteAndDeleteItems(item);
-            }
-        }
-
-        public void GotoCompleteAndDeleteItems(Item item)
-        {
-            //if (CurrentAmount < RequiredAmount)
+            //if (CurrentAmount <= RequiredAmount + 1)
             //{
             //    for (int i = 0; i < RequiredAmount; i++)
             //    {
@@ -73,7 +63,18 @@ namespace Quests
             //        }
             //    }
             //}
-            Complete();
+
+            //Debug.Log(CurrentAmount + " Current amount");
+            if (CurrentAmount >= RequiredAmount)
+            {
+                GotoCompleteAndDeleteItems(item);
+            }
+        }
+
+        public void GotoCompleteAndDeleteItems(Item item)
+        {
+			
+			Complete();
         }
 
         public void Complete()

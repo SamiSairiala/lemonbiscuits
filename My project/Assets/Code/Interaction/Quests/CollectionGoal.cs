@@ -72,11 +72,14 @@ namespace Quests
                 
                 this.CurrentAmount++;
                 Debug.Log(CurrentAmount + "Current amount");
-                #region TEST!
-                if (CurrentAmount <= RequiredAmount + 1)
+				#region TEST!
+				if (CurrentAmount <= RequiredAmount + 1)
 				{
+					Debug.Log("Ascessing deleting");
+					Debug.Log(item);
 					if (InventoryManager.Instance.Items.Contains(item))
 					{
+						Debug.Log("Deleting item");
 						InventoryManager.Instance.Items.Remove(item);
 					}
 				}
