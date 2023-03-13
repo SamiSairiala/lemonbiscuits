@@ -10,6 +10,7 @@ public class Item : ScriptableObject
     public int value;
     public Sprite Icon;
     public ItemType itemType;
+    public bool IsStackable;
 
     public enum ItemType
 	{

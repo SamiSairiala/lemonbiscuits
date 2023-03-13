@@ -20,6 +20,7 @@ public class InventoryManager : MonoBehaviour
 
 	public void Add(Item item)
 	{
+		
 		Items.Add(item);
 		
 	}

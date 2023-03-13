@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     //public void LoadData(GameData data)
     //{
     //    gameObject.transform.position = data.vPlayerPos;
-        
+
     //}
 
     //public void SaveData(ref GameData data)
@@ -74,11 +74,13 @@ public class PlayerMovement : MonoBehaviour
     //}
 
     // Update is called once per frame
-    void FixedUpdate()
+
+
+    private void Update()
     {
         if (Inventory.action.WasPerformedThisFrame())
         {
-            if(inventoryOpen == false)
+            if (inventoryOpen == false)
             {
                 inventoryOpen = true;
                 InventoryUI.SetActive(true);
@@ -90,6 +92,10 @@ public class PlayerMovement : MonoBehaviour
                 InventoryUI.SetActive(false);
             }
         }
+    }
+    void FixedUpdate()
+    {
+       
         // Reads players inputs from new input system.
         Vector2 movement = movementControl.action.ReadValue<Vector2>();
         Vector3 Move = new Vector3(movement.x, 0, movement.y);
