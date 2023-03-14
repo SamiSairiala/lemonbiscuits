@@ -17,7 +17,7 @@ public class MissingFlowers : NewQuest
         rewardItem = questItems.Coin;
         Debug.Log(requiredItem.name);
         QuestName = "Missing Flowers";
-        QuestDescription = "Gather 2 flowers for Mike";
+        QuestDescription = "Gather 3 flowers.";
         ItemReward = rewardItem;
         RequiredAmount = requiredAmount;
 

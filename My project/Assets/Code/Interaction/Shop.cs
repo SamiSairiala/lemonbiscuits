@@ -48,6 +48,7 @@ public class Shop : MonoBehaviour
             {
                 Debug.Log("Player had coin");
                 PlayerCoins++;
+
                 
             }
            

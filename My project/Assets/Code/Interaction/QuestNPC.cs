@@ -1,6 +1,7 @@
 using Quests;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,9 @@ public class QuestNPC : MonoBehaviour
     [SerializeField] private GameObject quests;
     [SerializeField] private string questName; // Type quest name in editor that then gets taken from quests gameobject and activated.
     public NewQuest Quest { get; set; }
+
+    public TextMeshProUGUI CurrentQuesttext;
+    public TextMeshProUGUI CurrentQuestProgresstext;
     // Start is called before the first frame update
 
 
@@ -53,7 +57,7 @@ public class QuestNPC : MonoBehaviour
                     // Has given quest but not completed yet.
                     // Also checks if quest is completed.
                     CheckQuest();
-                    Debug.Log("Checking quest");
+                Debug.Log("Checking quest");
                 }
                 else if (!AssignedQuest && !Helped && onQuest.onQuest)
                 {
@@ -81,6 +85,15 @@ public class QuestNPC : MonoBehaviour
         AssignedQuest = true;
         Quest = (NewQuest)quests.AddComponent(System.Type.GetType(questName));
         Debug.Log("Assigned quest");
+        StartCoroutine(UpdateQuestText());
+        
+    }
+
+    IEnumerator UpdateQuestText()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log(this.Quest.QuestDescription);
+        CurrentQuesttext.text = (Quest.QuestDescription.ToString());
     }
 
     void DeleteItems()
