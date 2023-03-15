@@ -34,7 +34,7 @@ namespace Quests
 			//}
 
 			Debug.Log(CurrentAmount + " From inventory Current amount");
-            if (CurrentAmount >= RequiredAmount)
+            if (CurrentAmount >= RequiredAmount + 1)
             {
                 Complete();
             }
@@ -65,7 +65,7 @@ namespace Quests
             //}
 
             //Debug.Log(CurrentAmount + " Current amount");
-            if (CurrentAmount >= RequiredAmount)
+            if (CurrentAmount >= RequiredAmount + 1)
             {
                 GotoCompleteAndDeleteItems(item);
             }
@@ -73,7 +73,14 @@ namespace Quests
 
         public void GotoCompleteAndDeleteItems(Item item)
         {
-			
+			//for(int i = 0; i <= RequiredAmount; i++)
+   //         {
+   //             if (InventoryManager.Instance.Items.Contains(item))
+   //             {
+   //                 Debug.Log("Deleting item");
+   //                 InventoryManager.Instance.Items.Remove(item);
+   //             }
+   //         }
 			Complete();
         }
 

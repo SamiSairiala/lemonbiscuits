@@ -9,7 +9,7 @@ public class MissingFlowers : NewQuest
     
     public Item rewardItem;
     public QuestItems questItems;
-    public int requiredAmount = 2; // Invisible + 1 from somewhere so if you want to only to require 2 write 1 here. // TODO: Found the issue need to think of a fix
+    public int requiredAmount = 2; // Invisible + 1 from somewhere so if you want to only to require 2 write 1 here. // TODO: Found the issue need to think of a fix //NVM IT´S FIXED?:D
     private void Start()
     {
         questItems = FindObjectOfType<QuestItems>();
@@ -17,7 +17,7 @@ public class MissingFlowers : NewQuest
         rewardItem = questItems.Coin;
         Debug.Log(requiredItem.name);
         QuestName = "Missing Flowers";
-        QuestDescription = "Gather 3 flowers.";
+        QuestDescription = "Gather 2 flowers.";
         ItemReward = rewardItem;
         RequiredAmount = requiredAmount;
 

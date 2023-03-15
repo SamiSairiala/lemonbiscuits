@@ -20,6 +20,8 @@ public class Shop : MonoBehaviour
     [SerializeField]Transform ShopScrollView;
     Button buyButton;
     public Item Coin;
+    [SerializeField] private GameObject ShopCanvas;
+    
 
     private void Start()
     {
@@ -63,5 +65,10 @@ public class Shop : MonoBehaviour
             }
         }
 
+    }
+
+    public void CloseShop()
+    {
+        ShopCanvas.SetActive(false);
     }
 }

@@ -124,7 +124,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         // TODO: CLOSE DIALOGUE BOX
         PlayerDialogueCanvas.gameObject.SetActive(false);

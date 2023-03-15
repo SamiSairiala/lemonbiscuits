@@ -79,7 +79,16 @@ public class QuestNPC : MonoBehaviour
         }
     }
 
-    
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            FindObjectOfType<DialogueManager>().EndDialogue(); // Closes dialogue box if player walks away.
+        }
+       
+    }
+
+
     void AssignQuest()
     {
         AssignedQuest = true;
@@ -129,7 +138,8 @@ public class QuestNPC : MonoBehaviour
         if (Quest.Completed)
         {
 
-            //DeleteItems();
+            DeleteItems();
+            CurrentQuesttext.text = "";
             onQuest.onQuest = false;
             Quest.GiveReward();
             Debug.Log("Quest completed");

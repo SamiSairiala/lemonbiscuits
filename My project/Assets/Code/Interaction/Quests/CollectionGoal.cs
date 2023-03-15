@@ -51,7 +51,7 @@ namespace Quests
 
 					this.CurrentAmount++;
 					Debug.Log(CurrentAmount + " From inventory");
-				InventoryManager.Instance.Items.Remove(item);
+				//InventoryManager.Instance.Items.Remove(item); 
 				//return true;
 				Evaluate(item);
 				}
@@ -62,7 +62,7 @@ namespace Quests
 
         }
 
-
+		// IMPORTANT: CURRENTLY DELETING ITEMS IN QuestNPC class.
 
 		void ItemPickedup(Item item)
 		{
@@ -73,16 +73,16 @@ namespace Quests
                 this.CurrentAmount++;
                 Debug.Log(CurrentAmount + "Current amount");
 				#region TEST!
-				if (CurrentAmount <= RequiredAmount + 1)
-				{
-					Debug.Log("Ascessing deleting");
-					Debug.Log(item);
-					if (InventoryManager.Instance.Items.Contains(item))
-					{
-						Debug.Log("Deleting item");
-						InventoryManager.Instance.Items.Remove(item);
-					}
-				}
+				//if (CurrentAmount <= RequiredAmount + 1)
+				//{
+				//	Debug.Log("Ascessing deleting");
+				//	Debug.Log(item);
+    //                if (InventoryManager.Instance.Items.Contains(item))
+    //                {
+    //                    Debug.Log("Deleting item");
+    //                    InventoryManager.Instance.Items.Remove(item);
+    //                }
+    //            }
 				#endregion
 				EvaluateAfter(item);
 			}
