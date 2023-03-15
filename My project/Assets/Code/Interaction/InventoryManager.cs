@@ -11,7 +11,8 @@ public class InventoryManager : MonoBehaviour
 
 	public Transform ItemContent;
 	public GameObject InventoryItem;
-	
+
+	private int quantity = 0;
 
 	private void Awake()
 	{
@@ -38,19 +39,23 @@ public class InventoryManager : MonoBehaviour
 	{
 		foreach(Transform item in ItemContent)
 		{
-			Destroy(item.gameObject);
+			Destroy(item.gameObject); 
 		}
 		foreach(var item in Items)
 		{
-			//Activates inventory ui.
-			
+			 
+            //Activates inventory ui.
+            
 			GameObject obj = Instantiate(InventoryItem, ItemContent);
-			//TODO: Change these to TMP
 			var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
 			var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+			var itemCount = obj.transform.Find("ItemCount").GetComponent<TextMeshProUGUI>();
 			
 			itemName.text = item.itemName;
 			itemIcon.sprite = item.Icon;
+
+			
+
 		}
 	}
 }
