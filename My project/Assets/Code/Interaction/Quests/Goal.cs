@@ -59,7 +59,7 @@ namespace Quests
             //        if (InventoryManager.Instance.Items.Contains(item))
             //        {
             //            Debug.Log("Removed item");
-            //            InventoryManager.Instance.Items.Remove(item);
+            //            InventoryManager.Instance.Remove(item);
             //        }
             //    }
             //}
@@ -78,7 +78,7 @@ namespace Quests
    //             if (InventoryManager.Instance.Items.Contains(item))
    //             {
    //                 Debug.Log("Deleting item");
-   //                 InventoryManager.Instance.Items.Remove(item);
+   //                 InventoryManager.Instance.Remove(item);
    //             }
    //         }
 			Complete();

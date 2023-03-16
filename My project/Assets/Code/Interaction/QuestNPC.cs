@@ -123,7 +123,7 @@ public class QuestNPC : MonoBehaviour
                 for (currentAmount = 0; currentAmount < this.Quest.RequiredAmount + 1; currentAmount++)
                 {
                     Debug.Log("Deleting items");
-                    InventoryManager.Instance.Items.Remove(item);
+                    InventoryManager.Instance.Remove(item);
                 }
 
 

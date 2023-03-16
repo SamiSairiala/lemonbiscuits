@@ -21,17 +21,18 @@ public class InventoryManager : MonoBehaviour
 
 	public void Add(Item item)
 	{
+        item.Amount++;
+        Items.Add(item);
 		
-		Items.Add(item);
-		item.Amount++;
 	}
 
 	
 
 	public void Remove(Item item)
 	{
-		Items.Remove(item);
-		item.Amount--;
+		item.Amount -= 1;
+        Items.Remove(item);
+		
 	}
 
 	
@@ -44,10 +45,7 @@ public class InventoryManager : MonoBehaviour
 		}
 		foreach(var item in Items)
 		{
-			if(item.Amount > 1)
-			{
-				
-			}
+			
             //Activates inventory ui.
             
 			GameObject obj = Instantiate(InventoryItem, ItemContent);
@@ -58,11 +56,15 @@ public class InventoryManager : MonoBehaviour
 			itemName.text = item.itemName;
 			itemIcon.sprite = item.Icon;
 			itemCount.text = item.Amount.ToString();
+            if (item.Amount > 1)
+            {
+				
+                break;
+            }
 
-			
 
-			
 
-		}
+
+        }
 	}
 }

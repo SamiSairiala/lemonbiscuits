@@ -116,7 +116,7 @@ public class DialogueTrigger : MonoBehaviour
                 if (InventoryManager.Instance.Items.Contains(this.wantedItem))
                 {
                     currentAmount++;
-                    InventoryManager.Instance.Items.Remove(this.wantedItem);
+                    InventoryManager.Instance.Remove(this.wantedItem);
                     //return true;
                 }
                 //else

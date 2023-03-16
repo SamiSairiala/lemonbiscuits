@@ -51,7 +51,7 @@ namespace Quests
 
 					this.CurrentAmount++;
 					Debug.Log(CurrentAmount + " From inventory");
-				//InventoryManager.Instance.Items.Remove(item); 
+				//InventoryManager.Instance.Remove(item); 
 				//return true;
 				Evaluate(item);
 				}
@@ -80,7 +80,7 @@ namespace Quests
     //                if (InventoryManager.Instance.Items.Contains(item))
     //                {
     //                    Debug.Log("Deleting item");
-    //                    InventoryManager.Instance.Items.Remove(item);
+    //                    InventoryManager.Instance.Remove(item);
     //                }
     //            }
 				#endregion
