@@ -30,15 +30,16 @@ namespace Quests
 		// In specific quests when you add Goals.
 		public override void Init()
 		{
-			Debug.Log("Init COLLECTION GOAL");
+            this.CurrentAmount = 0;
+            Debug.Log("Init COLLECTION GOAL");
 			base.Init();
 			ItemPickup.OnItemAddedToInventory += ItemPickedup; // Add an event on when player picksup calls ItemPickedup method.
 			for(int i = 0; i < RequiredAmount + 1; i++)
 			{
                 CheckForItemsOnStart(Item);
             }
-			
 
+			
         }
 		
 		// Checks if players has gotten the items before accepting quest
@@ -53,7 +54,7 @@ namespace Quests
 					Debug.Log(CurrentAmount + " From inventory");
 				//InventoryManager.Instance.Remove(item); 
 				//return true;
-				Evaluate(item);
+					Evaluate(item);
 				}
 			
 			Debug.Log("Checking items in for loop");
@@ -71,7 +72,7 @@ namespace Quests
 				
                 
                 this.CurrentAmount++;
-                Debug.Log(CurrentAmount + "Current amount");
+                Debug.Log(this.CurrentAmount + " Current amount");
 				#region TEST!
 				//if (CurrentAmount <= RequiredAmount + 1)
 				//{
@@ -84,7 +85,7 @@ namespace Quests
     //                }
     //            }
 				#endregion
-				EvaluateAfter(item);
+				Evaluate(item);
 			}
 		}
 	}

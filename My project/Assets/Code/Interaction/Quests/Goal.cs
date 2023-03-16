@@ -15,7 +15,7 @@ namespace Quests
         public virtual void Init()
         {
             //Default init
-
+            CurrentAmount = 0;
         }
 
         public void Evaluate(Item item)
@@ -33,8 +33,8 @@ namespace Quests
 			//	}
 			//}
 
-			Debug.Log(CurrentAmount + " From inventory Current amount");
-            if (CurrentAmount >= RequiredAmount + 1)
+			//Debug.Log(CurrentAmount + " From inventory Current amount");
+            if (CurrentAmount >= RequiredAmount)
             {
                 Complete();
             }
@@ -65,7 +65,7 @@ namespace Quests
             //}
 
             //Debug.Log(CurrentAmount + " Current amount");
-            if (CurrentAmount >= RequiredAmount + 1)
+            if (CurrentAmount >= RequiredAmount)
             {
                 GotoCompleteAndDeleteItems(item);
             }

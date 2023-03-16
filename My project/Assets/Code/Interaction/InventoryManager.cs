@@ -56,11 +56,11 @@ public class InventoryManager : MonoBehaviour
 			itemName.text = item.itemName;
 			itemIcon.sprite = item.Icon;
 			itemCount.text = item.Amount.ToString();
-            if (item.Amount > 1)
-            {
+            //if (item.Amount > 1)
+            //{
 				
-                break;
-            }
+            //    break;
+            //}
 
 
 
