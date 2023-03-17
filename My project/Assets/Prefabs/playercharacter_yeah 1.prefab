@@ -115,8 +115,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementControl: {fileID: -728507795854104120, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
   JumpControl: {fileID: 610678691577573032, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
+  Inventory: {fileID: 0}
+  InventoryUI: {fileID: 0}
   cameraMainTransform: {fileID: 0}
   speed: 5
+  quest:
+    isActive: 0
+    Title: 
+    description: 
+    goal:
+      goalType: 0
+      requiredAmount: 0
+      CurrentAmount: 0
+      wantedItem: {fileID: 0}
 --- !u!114 &321413116891933652
 MonoBehaviour:
   m_ObjectHideFlags: 0
