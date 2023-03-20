@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Quest quest;
 
+    
+
 
     private void OnEnable()
     {
@@ -56,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
         cameraMainTransform = Camera.main.transform;
 
         anim = GetComponent<Animator>();
+
+        
     }
 
     private void Awake()

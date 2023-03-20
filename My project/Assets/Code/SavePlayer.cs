@@ -13,6 +13,7 @@ public class SavePlayer : MonoBehaviour, IDataPersitence
         inventoryManager = FindObjectOfType<InventoryManager>();
         gameObject.transform.position = data.vPlayerPos;
         inventoryManager.Items = data.items;
+        inventoryManager.InventoryItems = data.Inventoryitems;
         Debug.Log("Loading player transform" + data.vPlayerPos);
         StartCoroutine(waitFor());
     }
@@ -22,7 +23,7 @@ public class SavePlayer : MonoBehaviour, IDataPersitence
         inventoryManager = FindObjectOfType<InventoryManager>();
         data.vPlayerPos = gameObject.transform.position;
         data.items = inventoryManager.Items;
-        
+        data.Inventoryitems = inventoryManager.InventoryItems;
     }
 
 
