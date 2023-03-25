@@ -14,7 +14,7 @@ public class MissingFlowers : NewQuest
     {
         questItems = FindObjectOfType<QuestItems>();
         requiredItem = questItems.Flower;
-        rewardItem = questItems.Coin;
+        rewardItem = questItems.FishingRod;
         Debug.Log(requiredItem.name);
         QuestName = "Missing Flowers";
         QuestDescription = "Gather 3 flowers."; //Required amount + 1.

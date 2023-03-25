@@ -10,4 +10,5 @@ public class QuestItems : MonoBehaviour
 
     [Header("Reward items")]
     public Item Coin;
+    public Item FishingRod;
 }
