@@ -18,7 +18,13 @@ public class InventoryManager : MonoBehaviour
 	private void Awake()
 	{
 		Instance = this;
-		
+		for(int i = 0; i < Items.Count; i++)
+		{
+			if(Items[i] == null)
+			{
+				List<Item> InventoryItems = new List<Item>(); // Testing this here.
+			}
+		}
 	}
 
 	public void Add(Item item)

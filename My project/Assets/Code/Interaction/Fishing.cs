@@ -17,6 +17,9 @@ public class Fishing : MonoBehaviour
 
     public GameObject fishingRod;
     public GameObject playerChracter;
+    [SerializeField] private float radius = 1f;
+
+    public bool isFishing = false;
     // Start is called before the first frame update
 
 
@@ -38,23 +41,26 @@ public class Fishing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InventoryManager.Instance.Items.Contains(FishingRod) && fishingButton.action.WasPressedThisFrame())
+        if (InventoryManager.Instance.Items.Contains(FishingRod) && fishingButton.action.WasPressedThisFrame() && isFishing == false)
         {
             speed = 0;
             pressing = true;
+            
             fishingRod.SetActive(true);
         }
         if(pressing == true)
         {
-            speed += Time.deltaTime * 30;
+            speed += Time.deltaTime * 100;
         }
-        if(InventoryManager.Instance.Items.Contains(FishingRod) && fishingButton.action.WasReleasedThisFrame())
+        if(InventoryManager.Instance.Items.Contains(FishingRod) && fishingButton.action.WasReleasedThisFrame() && isFishing == false)
         {
             pressing = false;
-            Instantiate(fishingBob, playerChracter.transform.localPosition, playerChracter.transform.localRotation);
+            isFishing = true;
+            Instantiate(fishingBob, fishingRod.transform.position, fishingRod.transform.rotation);
+			Rigidbody rb = fishingBob.GetComponent<Rigidbody>();
             projectile.speed = speed;
-            fishingRod.SetActive(false);
-            Debug.Log(speed);
+			fishingRod.SetActive(false);
+			Debug.Log(speed);
         }
     }
 }
