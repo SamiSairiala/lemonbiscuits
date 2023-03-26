@@ -5,7 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
-using static UnityEditor.Progress;
+
 
 namespace Quests
 {
@@ -34,6 +34,7 @@ namespace Quests
             Debug.Log("Init COLLECTION GOAL");
 			base.Init();
 			ItemPickup.OnItemAddedToInventory += ItemPickedup; // Add an event on when player picksup calls ItemPickedup method.
+			FishingProjectile.OnItemAddedToInventory += ItemPickedup;
 			for(int i = 0; i < RequiredAmount + 1; i++)
 			{
                 CheckForItemsOnStart(Item);
@@ -43,13 +44,13 @@ namespace Quests
         }
 		
 		// Checks if players has gotten the items before accepting quest
-		public void CheckForItemsOnStart(Item item)
+		public void CheckForItemsOnStart(Item item) // TODO: FIX THIS!
 		{
 			//for (int i = 0; i < RequiredAmount + 1; i++)
 			//{
 				if (InventoryManager.Instance.Items.Contains(item))
 				{
-
+					
 					this.CurrentAmount++;
 					Debug.Log(CurrentAmount + " From inventory");
 				//InventoryManager.Instance.Remove(item); 

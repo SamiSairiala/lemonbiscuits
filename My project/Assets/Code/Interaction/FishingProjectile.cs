@@ -17,8 +17,13 @@ public class FishingProjectile : MonoBehaviour
     [SerializeField] private Fishing fishing;
 
     public Item fish;
+
+    public delegate void ItemEventHandler(Item item);
+    public static event ItemEventHandler OnItemAddedToInventory;
+
     void Start()
     {
+        fish = null;
         Return = false;
         rigidBody = GetComponent<Rigidbody>();
         player = GameObject.Find("Playercharacter");
@@ -46,22 +51,41 @@ public class FishingProjectile : MonoBehaviour
 
     IEnumerator ComeBackToPlayer()
 	{
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(5.0f);
         MoveBackToPlayer();
+        StartCoroutine(DestroyIfNotReached());
         
+    }
+
+    IEnumerator DestroyIfNotReached()
+	{
+        yield return new WaitForSeconds(2.0f);
+        Return = true;
+        if (fish != null)
+        {
+            ItemAddedToInventory(fish);
+            InventoryManager.Instance.Add(fish);
+        }
+        Destroy(gameObject);
+        fishing.isFishing = false;
     }
 
     void MoveBackToPlayer()
 	{
         Debug.Log("Moving");
         Return = true; // Change this
-	}
+        
+    }
+
+   
+    
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag.Equals("Player"))
 		{
             if(fish != null)
 			{
+                ItemAddedToInventory(fish);
                 InventoryManager.Instance.Add(fish);
 			}
             fishing.isFishing = false;
@@ -69,4 +93,14 @@ public class FishingProjectile : MonoBehaviour
             Debug.Log("Came Back");
 		}
 	}
+
+    public static void ItemAddedToInventory(Item item)
+    {
+        if (OnItemAddedToInventory != null)
+        {
+            OnItemAddedToInventory(item);
+            Debug.Log(item);
+        }
+
+    }
 }

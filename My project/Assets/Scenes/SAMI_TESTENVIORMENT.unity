@@ -3160,7 +3160,7 @@ MonoBehaviour:
   onQuest: {fileID: 1633525382}
   Quests: {fileID: 0}
   quests: {fileID: 1633525378}
-  questName: MissingFlowers
+  questName: CatherFish
   CurrentQuesttext: {fileID: 1675653135}
   CurrentQuestProgresstext: {fileID: 1850445575}
 --- !u!65 &1721967592
@@ -3310,7 +3310,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799378793}
-  m_LocalRotation: {x: 0.2208755, y: 0.000000016781419, z: -0.0000000038004675, w: 0.97530204}
+  m_LocalRotation: {x: 0.2208755, y: -0.000000016781419, z: 0.0000000038004675, w: 0.97530204}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3580,8 +3580,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fishes:
+  - {fileID: 11400000, guid: 0a5e8bdec13174c4685712e4f9c056e9, type: 2}
   - {fileID: 11400000, guid: 2d4e2553c8009f34887bcaec97793783, type: 2}
-  - {fileID: 11400000, guid: cc3ca0dcae9145448b7c22acc85819dd, type: 2}
 --- !u!1001 &1930739921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4462,7 +4462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c9c33b47df1424b9591daffceb21c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FishingRod: {fileID: 11400000, guid: cc3ca0dcae9145448b7c22acc85819dd, type: 2}
+  FishingRod: {fileID: 11400000, guid: 09754824046c45744b865cb2df6169b8, type: 2}
   fishingBob: {fileID: 4469612499593203996, guid: 61da7ae4e979f0a49a96b245465bb91b, type: 3}
   projectile: {fileID: -8497613217599249227, guid: 61da7ae4e979f0a49a96b245465bb91b, type: 3}
   fishingButton: {fileID: -6514849811575051414, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
@@ -4547,6 +4547,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
+      propertyPath: Item1
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a5e8bdec13174c4685712e4f9c056e9, type: 2}
+    - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
       propertyPath: resultSlot
       value: 
       objectReference: {fileID: 926270428}
@@ -4570,6 +4574,10 @@ PrefabInstance:
       propertyPath: CraftingCanvas
       value: 
       objectReference: {fileID: 1278244711}
+    - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
+      propertyPath: recipe.Array.data[0]
+      value: FishFishFishFish
+      objectReference: {fileID: 0}
     - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
       propertyPath: craftingSlots.Array.data[0]
       value: 
@@ -4691,6 +4699,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: Fish
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a5e8bdec13174c4685712e4f9c056e9, type: 2}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: FishingRod
+      value: 
+      objectReference: {fileID: 11400000, guid: 09754824046c45744b865cb2df6169b8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
 --- !u!1001 &5619598728436748105
@@ -5095,6 +5111,14 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 752400627}
+    - target: {fileID: 7037826542889469259, guid: bbeaeccb8ad2dd44da69e2368a5f679b, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a5e8bdec13174c4685712e4f9c056e9, type: 2}
+    - target: {fileID: 7037826542889469262, guid: bbeaeccb8ad2dd44da69e2368a5f679b, type: 3}
+      propertyPath: itemName
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a5e8bdec13174c4685712e4f9c056e9, type: 2}
     - target: {fileID: 7037826543210870912, guid: bbeaeccb8ad2dd44da69e2368a5f679b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

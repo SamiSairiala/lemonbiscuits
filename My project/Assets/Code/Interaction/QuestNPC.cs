@@ -117,6 +117,11 @@ public class QuestNPC : MonoBehaviour
             item = quests.GetComponent<QuestItems>().Flower;
 
         }
+		if (questName.Contains("Fish"))
+		{
+            Debug.Log("Quest has fish");
+            item = quests.GetComponent<QuestItems>().Fish;
+        }
             if (InventoryManager.Instance.Items.Contains(item))
             {
 

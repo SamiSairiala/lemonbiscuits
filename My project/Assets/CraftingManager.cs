@@ -35,9 +35,15 @@ public class CraftingManager : MonoBehaviour
 	public Item Item2;
 
 
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag.Equals("Player"))
+		{
+			CraftingCanvas.SetActive(true);
+		}
+	}
 
-
-    private void Update()
+	private void Update()
     {
 		GameObject1.GetComponentInChildren<TextMeshProUGUI>().text = Item1.Amount.ToString();
 		GameObject2.GetComponentInChildren<TextMeshProUGUI>().text = Item2.Amount.ToString();

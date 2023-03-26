@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2cb4811d0a8aa40bd4248c73f76f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 114.94083
+  speed: 58.663254
   radius: 1
   player: {fileID: 0}
-  ReturnSpeed: 0.05
+  ReturnSpeed: 0.08
   fishing: {fileID: 0}
   fish: {fileID: 0}
 --- !u!65 &4743591976475341779
