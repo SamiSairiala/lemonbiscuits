@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 03aa5181eed8dfc4ab0ad186446136e7
+guid: 80a2e4a10232b90489603bc01f082fa3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 84a3257596091cf4aa69d90038bfceed, type: 2}
+      name: Fabricroof
+    second: {fileID: 2100000, guid: 403d75fa38617aa43a36d34107eb0804, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
