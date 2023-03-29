@@ -125,7 +125,7 @@ public class QuestNPC : MonoBehaviour
             if (InventoryManager.Instance.Items.Contains(item))
             {
 
-                for (currentAmount = 0; currentAmount < this.Quest.RequiredAmount + 1; currentAmount++)
+                for (currentAmount = 0; currentAmount < this.Quest.RequiredAmount; currentAmount++)
                 {
                     Debug.Log("Deleting items");
                     InventoryManager.Instance.Remove(item);
@@ -157,6 +157,7 @@ public class QuestNPC : MonoBehaviour
         }
         else
         {
+            Debug.Log(Quest.Completed);
             FindObjectOfType<DialogueManager>().hasSpoken = true;
             FindObjectOfType<DialogueManager>().hasGottenQuestItems = false;
             FindObjectOfType<DialogueManager>().CompletedQuest = false;

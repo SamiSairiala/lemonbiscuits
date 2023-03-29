@@ -22,7 +22,7 @@ public class MissingFlowers : NewQuest
         RequiredAmount = requiredAmount;
 
 
-        Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 2 flowers", false, 0, requiredAmount, requiredItem));
+        Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 3 flowers", false, 0, requiredAmount, requiredItem));
 
         Goals.ForEach(g => g.Init());
     }

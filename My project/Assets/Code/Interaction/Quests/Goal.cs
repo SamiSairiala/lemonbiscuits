@@ -36,6 +36,7 @@ namespace Quests
 			//Debug.Log(CurrentAmount + " From inventory Current amount");
             if (CurrentAmount >= RequiredAmount)
             {
+                Debug.Log(CurrentAmount + " / " + RequiredAmount);
                 Complete();
             }
         }
@@ -88,6 +89,7 @@ namespace Quests
         {
             this.Quest.CheckGoals();
             Completed = true;
+            Quest.Completed = true;
             Debug.Log("Goal marked as completed.");
         }
     }

@@ -15,6 +15,10 @@ public class InventoryManager : MonoBehaviour
 
 	private int quantity = 0;
 	[SerializeField]private UI_Inventory uiInventory;
+
+	[Header("UI pop up for items.")]
+	public GameObject ItemIcon;
+	public GameObject ItemName;
 	private void Awake()
 	{
 		Instance = this;
@@ -55,12 +59,20 @@ public class InventoryManager : MonoBehaviour
 			Items.Add(item);
 			InventoryItems.Add(item);
 		}
-        
-        
-		
+
+		ItemIcon.SetActive(true);
+		ItemName.SetActive(true);
+		ItemIcon.GetComponent<Image>().sprite = item.Icon;
+		ItemName.GetComponent<TextMeshProUGUI>().text = item.name + " Added!";
+		StartCoroutine(CloseItemPopUp());
 	}
 
-	
+	private IEnumerator CloseItemPopUp()
+    {
+		yield return new WaitForSeconds(1f);
+		ItemIcon.SetActive(false);
+		ItemName.SetActive(false);
+	}
 
 	public void Remove(Item item)
 	{

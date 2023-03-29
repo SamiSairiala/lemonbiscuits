@@ -19,6 +19,8 @@ public class Fishing : MonoBehaviour
     public GameObject playerChracter;
     [SerializeField] private float radius = 1f;
 
+    private Color c1 = Color.cyan;
+
     public bool isFishing = false;
     // Start is called before the first frame update
 
@@ -57,9 +59,16 @@ public class Fishing : MonoBehaviour
             pressing = false;
             isFishing = true;
             Instantiate(fishingBob, fishingRod.transform.position, fishingRod.transform.rotation);
-			Rigidbody rb = fishingBob.GetComponent<Rigidbody>();
+            var go = new GameObject("fishingLine");
+            var lr = go.AddComponent<LineRenderer>();
+
+            lr.SetPosition(0, fishingRod.transform.position);
+            lr.SetPosition(1, fishingBob.transform.position);
+            lr.SetWidth(0.1f, 0.1f);
+            lr.SetColors(c1, c1);
+
+            Rigidbody rb = fishingBob.GetComponent<Rigidbody>();
             projectile.speed = speed;
-			fishingRod.SetActive(false);
 			Debug.Log(speed);
         }
     }
