@@ -48,10 +48,14 @@ public class Shop : MonoBehaviour
         {
             if (InventoryManager.Instance.Items.Contains(Coin))
             {
-                Debug.Log("Player had coin");
-                PlayerCoins++;
+                if(Coin.Amount >= price)
+                {
+                    Debug.Log("Player had coin");
+                    PlayerCoins++;
 
-                
+                }
+
+
             }
            
         }

@@ -44,18 +44,21 @@ namespace Quests
         }
 		
 		// Checks if players has gotten the items before accepting quest
-		public void CheckForItemsOnStart(Item item) // TODO: FIX THIS!
+		public void CheckForItemsOnStart(Item item) // TODO: FIX THIS! // Commented potential fix
 		{
 			//for (int i = 0; i < RequiredAmount + 1; i++)
 			//{
 				if (InventoryManager.Instance.Items.Contains(item))
 				{
-					
+					if(item.Amount >= RequiredAmount) // HERE TO TEST IF WORKS.
+                {
 					this.CurrentAmount++;
 					Debug.Log(CurrentAmount + " From inventory");
-				//InventoryManager.Instance.Remove(item); 
-				//return true;
+					//InventoryManager.Instance.Remove(item); 
+					//return true;
 					Evaluate(item);
+				}
+					
 				}
 			
 			Debug.Log("Checking items in for loop");
