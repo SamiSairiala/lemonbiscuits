@@ -18,6 +18,8 @@ public class FishingProjectile : MonoBehaviour
 
     public Item fish;
 
+    private GameObject fishingRod;
+
     public delegate void ItemEventHandler(Item item);
     public static event ItemEventHandler OnItemAddedToInventory;
 
@@ -27,6 +29,7 @@ public class FishingProjectile : MonoBehaviour
         Return = false;
         rigidBody = GetComponent<Rigidbody>();
         player = GameObject.Find("Playercharacter");
+        fishingRod = GameObject.Find("FishingRod");
         fishing = FindObjectOfType<Fishing>();
         StartCoroutine(ComeBackToPlayer());
         Launch();
@@ -68,6 +71,7 @@ public class FishingProjectile : MonoBehaviour
         }
         Destroy(gameObject);
         fishing.isFishing = false;
+        fishingRod.SetActive(false);
     }
 
     void MoveBackToPlayer()
@@ -90,6 +94,7 @@ public class FishingProjectile : MonoBehaviour
 			}
             fishing.isFishing = false;
             GameObject.Destroy(gameObject);
+            fishingRod.SetActive(false);
             Debug.Log("Came Back");
 		}
 	}
