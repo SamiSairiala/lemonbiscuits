@@ -19,7 +19,10 @@ namespace Quests
         public void CheckGoals()
         {
             Completed = Goals.All(g => g.Completed);
-
+            if (Completed)
+            {
+                Debug.Log("Quest completed from NewQuest class");
+            }
         }
 
 		

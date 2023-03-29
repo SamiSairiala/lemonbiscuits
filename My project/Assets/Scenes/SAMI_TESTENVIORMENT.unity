@@ -3623,7 +3623,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799378793}
-  m_LocalRotation: {x: 0.2208755, y: -0.000000016781419, z: 0.0000000038004675, w: 0.97530204}
+  m_LocalRotation: {x: 0.2208755, y: 0.000000016781419, z: -0.0000000038004675, w: 0.97530204}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4542,7 +4542,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068902272}
-  m_LocalRotation: {x: 0.34042525, y: 0.000000016178669, z: -0.0000000058574865, w: 0.9402716}
+  m_LocalRotation: {x: 0.34042525, y: -0.000000016178673, z: 0.000000005857488, w: 0.9402716}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5449,6 +5449,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7252159122577350061, guid: 14e3d3fc441e6a14fa993da007f8ccc4, type: 3}
+      propertyPath: ItemIcon
+      value: 
+      objectReference: {fileID: 795582597}
+    - target: {fileID: 7252159122577350061, guid: 14e3d3fc441e6a14fa993da007f8ccc4, type: 3}
+      propertyPath: ItemName
+      value: 
+      objectReference: {fileID: 1080993484}
     - target: {fileID: 7252159122577350061, guid: 14e3d3fc441e6a14fa993da007f8ccc4, type: 3}
       propertyPath: ItemContent
       value: 

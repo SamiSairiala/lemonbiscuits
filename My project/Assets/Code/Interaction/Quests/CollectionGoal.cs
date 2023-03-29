@@ -35,29 +35,26 @@ namespace Quests
 			base.Init();
 			ItemPickup.OnItemAddedToInventory += ItemPickedup; // Add an event on when player picksup calls ItemPickedup method.
 			FishingProjectile.OnItemAddedToInventory += ItemPickedup;
-			for(int i = 0; i < RequiredAmount + 1; i++)
-			{
-                CheckForItemsOnStart(Item);
-            }
+
+            CheckForItemsOnStart(Item);
+            
 
 			
         }
 		
 		// Checks if players has gotten the items before accepting quest
-		public void CheckForItemsOnStart(Item item) // TODO: FIX THIS! // Commented potential fix
+		public void CheckForItemsOnStart(Item item)
 		{
 			//for (int i = 0; i < RequiredAmount + 1; i++)
 			//{
 				if (InventoryManager.Instance.Items.Contains(item))
 				{
-					if(item.Amount >= RequiredAmount) // HERE TO TEST IF WORKS.
-                {
-					this.CurrentAmount++;
+					CurrentAmount = item.Amount;
 					Debug.Log(CurrentAmount + " From inventory");
 					//InventoryManager.Instance.Remove(item); 
 					//return true;
 					Evaluate(item);
-				}
+				
 					
 				}
 			
