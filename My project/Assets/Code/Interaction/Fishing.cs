@@ -18,10 +18,17 @@ public class Fishing : MonoBehaviour
     public GameObject fishingRod;
     public GameObject playerChracter;
     [SerializeField] private float radius = 1f;
+    public GameObject FishingRodEnd;
 
-    private Color c1 = Color.cyan;
+    public Color c1;
 
     public bool isFishing = false;
+
+    private LineRenderer lr;
+    private GameObject FishingLine;
+    private GameObject fishingLure;
+
+
     // Start is called before the first frame update
 
 
@@ -40,6 +47,8 @@ public class Fishing : MonoBehaviour
         
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
@@ -47,7 +56,6 @@ public class Fishing : MonoBehaviour
         {
             speed = 0;
             pressing = true;
-            
             fishingRod.SetActive(true);
         }
         if(pressing == true)
@@ -58,18 +66,32 @@ public class Fishing : MonoBehaviour
         {
             pressing = false;
             isFishing = true;
-            Instantiate(fishingBob, fishingRod.transform.position, fishingRod.transform.rotation);
-            var go = new GameObject("fishingLine");
-            var lr = go.AddComponent<LineRenderer>();
-
-            lr.SetPosition(0, fishingRod.transform.position);
-            lr.SetPosition(1, fishingBob.transform.position);
-            lr.SetWidth(0.1f, 0.1f);
-            lr.SetColors(c1, c1);
-
-            Rigidbody rb = fishingBob.GetComponent<Rigidbody>();
             projectile.speed = speed;
+            fishingLure = Instantiate(fishingBob, fishingRod.transform.position, fishingRod.transform.rotation);
+            projectile.speed = speed;
+            //Instantiate(fishingBob, fishingRod.transform.position, fishingRod.transform.rotation);
+            FishingLine = new GameObject("fishingLine");
+            lr = FishingLine.AddComponent<LineRenderer>();
+            Rigidbody rb = fishingBob.GetComponent<Rigidbody>();
+            //projectile.speed = speed;
 			Debug.Log(speed);
         }
+        if (fishingRod.activeInHierarchy && isFishing == true)
+        {
+            GameObject fishingLine = GameObject.Find("fishingLine");
+            fishingLine.GetComponent<LineRenderer>().SetPosition(0, FishingRodEnd.transform.position);
+            fishingLine.GetComponent<LineRenderer>().SetPosition(1, fishingLure.transform.position);
+            fishingLine.GetComponent<LineRenderer>().SetWidth(0.01f, 0.01f);
+            fishingLine.GetComponent<LineRenderer>().SetColors(c1, c1);
+            //lr.SetPosition(0, FishingRodEnd.transform.position);
+            //lr.SetPosition(1, fishingLure.transform.position);
+            //lr.SetWidth(0.01f, 0.01f);
+            //lr.material = new Material(Shader.Find("Particles/Additive"));
+            //lr.SetColors(c1, c1);
+        }
+        else if(!fishingRod.activeInHierarchy)
+            {
+            Destroy(FishingLine);
+            }
     }
 }

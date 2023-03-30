@@ -52,10 +52,10 @@ public class FishingProjectile : MonoBehaviour
 		}
     }
 
-    IEnumerator ComeBackToPlayer()
+    public IEnumerator ComeBackToPlayer()
 	{
         yield return new WaitForSeconds(5.0f);
-        MoveBackToPlayer();
+        //MoveBackToPlayer();
         StartCoroutine(DestroyIfNotReached());
         
     }
@@ -74,9 +74,10 @@ public class FishingProjectile : MonoBehaviour
         fishingRod.SetActive(false);
     }
 
-    void MoveBackToPlayer()
+    public void MoveBackToPlayer()
 	{
         Debug.Log("Moving");
+       
         Return = true; // Change this
         
     }
