@@ -49,17 +49,11 @@ public class FishingBond : MonoBehaviour
                 fishingBob = FindObjectOfType<FishingProjectile>();
                 if (i <= 5)
                 {
-                    Caught = true;
-                    Randomindex = Random.Range(0, Fishes.Count);
-                    fishingBob.fish = Fishes[Randomindex];
-                    QuickTimeMouse.SetActive(true);
-                    QuickTimeText.SetActive(true);
-                    Debug.Log("Caught fish");
+                    StartCoroutine(WaitFor());
                 }
                 else
                 {
-                    Debug.Log("didint Caught fish");
-                    Caught = true;
+                    StartCoroutine(WaitForReel());
                 }
             }
             //if (i <= 5)
@@ -103,6 +97,28 @@ public class FishingBond : MonoBehaviour
         yield return new WaitForSeconds(3f);
         QuickTimeMouse.SetActive(false);
         QuickTimeText.SetActive(false);
+    }
+
+    IEnumerator WaitFor()
+	{
+        int WaitFor = 0;
+        WaitFor = Random.Range(1, 6);
+        yield return new WaitForSeconds(WaitFor);
+        Caught = true;
+        Randomindex = Random.Range(0, Fishes.Count);
+        fishingBob.fish = Fishes[Randomindex];
+        QuickTimeMouse.SetActive(true);
+        QuickTimeText.SetActive(true);
+        Debug.Log("Caught fish");
+    }
+
+    IEnumerator WaitForReel()
+	{
+        int WaitFor = 0;
+        WaitFor = Random.Range(1, 6);
+        yield return new WaitForSeconds(WaitFor);
+        Debug.Log("didint Caught fish");
+        Caught = true;
     }
 
     //IEnumerator QuickTime(Collider other)
