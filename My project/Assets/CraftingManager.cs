@@ -13,6 +13,9 @@ public class CraftingManager : MonoBehaviour
 
 	public List<Item> itemList;
 
+	public delegate void ItemEventHandler(Item item);
+	public static event ItemEventHandler OnItemAddedToInventory;
+
 	[Header("Add by writing the item x4 without spaces " +
 		" name must be the same as in Items folder the corresponding items name")]
 	[Header("if want smaller recipe for example: FlowerFlowernullnull ")]
@@ -47,7 +50,7 @@ public class CraftingManager : MonoBehaviour
     {
 		GameObject1.GetComponentInChildren<TextMeshProUGUI>().text = Item1.Amount.ToString();
 		GameObject2.GetComponentInChildren<TextMeshProUGUI>().text = Item2.Amount.ToString();
-		if (Item1.Amount == 0)
+		if (Item1.Amount == 0) // Add items here too.
 		{
 			GameObject1.gameObject.SetActive(false);
 		}
@@ -186,11 +189,22 @@ public class CraftingManager : MonoBehaviour
 	public void AcceptCraft()
     {
 		InventoryManager.Instance.Add(itemToReceive);
+		ItemAddedToInventory(itemToReceive);
 		resultSlot.item = null;
 		resultSlot.gameObject.SetActive(false);
 		AcceptButton.SetActive(false);
 		CraftingCanvas.SetActive(false);
 		ClearList();
 		List<Item> itemList = new List<Item>(4);
+	}
+
+	public static void ItemAddedToInventory(Item item)
+	{
+		if (OnItemAddedToInventory != null)
+		{
+			OnItemAddedToInventory(item);
+			Debug.Log(item);
+		}
+
 	}
 }
