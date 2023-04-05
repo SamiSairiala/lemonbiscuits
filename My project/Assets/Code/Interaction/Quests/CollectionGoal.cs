@@ -35,6 +35,7 @@ namespace Quests
 			base.Init();
 			ItemPickup.OnItemAddedToInventory += ItemPickedup; // Add an event on when player picksup calls ItemPickedup method.
 			FishingProjectile.OnItemAddedToInventory += ItemPickedup;
+			CraftingManager.OnItemAddedToInventory += ItemPickedup;
 
             CheckForItemsOnStart(Item);
             

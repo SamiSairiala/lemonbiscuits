@@ -17,12 +17,12 @@ public class MissingFlowers : NewQuest
         rewardItem = questItems.FishingRod;
         Debug.Log(requiredItem.name);
         QuestName = "Missing Flowers";
-        QuestDescription = "Gather 3 flowers."; //Required amount + 1.
+        QuestDescription = "Gather 2 flowers."; 
         ItemReward = rewardItem;
         RequiredAmount = requiredAmount;
 
 
-        Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 3 flowers", false, 0, requiredAmount, requiredItem));
+        Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 2 flowers", false, 0, requiredAmount, requiredItem));
 
         Goals.ForEach(g => g.Init());
     }

@@ -33,7 +33,9 @@ public class PlayerMovement : MonoBehaviour
 
     public Quest quest;
 
-    
+    public delegate void TalkEventHandler(GameObject npc);
+    public static event TalkEventHandler WhoTalkedTo;
+
 
 
     private void OnEnable()
@@ -66,19 +68,23 @@ public class PlayerMovement : MonoBehaviour
     {
         
     }
-    //public void LoadData(GameData data)
-    //{
-    //    gameObject.transform.position = data.vPlayerPos;
 
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Equals("NPC"))
+        {
+            TalkedTo(other.gameObject);
+        }
+    }
 
-    //public void SaveData(ref GameData data)
-    //{
-    //    data.vPlayerPos = gameObject.transform.position;
-    //}
-
-    // Update is called once per frame
-
+    public static void TalkedTo(GameObject npc)
+    {
+        if(npc != null)
+        {
+            WhoTalkedTo(npc);
+        }
+        
+    }
 
     private void Update()
     {
