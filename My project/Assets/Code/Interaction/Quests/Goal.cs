@@ -12,6 +12,7 @@ namespace Quests
         public int CurrentAmount { get; set; }
         public int RequiredAmount { get; set; }
         public Item Item { get; set; }
+        public GameObject npcGameobject { get; set; }
         public virtual void Init()
         {
             //Default init

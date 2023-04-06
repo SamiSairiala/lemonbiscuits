@@ -28,6 +28,7 @@ public class Fishing : MonoBehaviour
     private GameObject FishingLine;
     private GameObject fishingLure;
 
+    [SerializeField] private Material fishingLineMaterial;
 
     // Start is called before the first frame update
 
@@ -83,6 +84,7 @@ public class Fishing : MonoBehaviour
             fishingLine.GetComponent<LineRenderer>().SetPosition(1, fishingLure.transform.position);
             fishingLine.GetComponent<LineRenderer>().SetWidth(0.01f, 0.01f);
             fishingLine.GetComponent<LineRenderer>().SetColors(c1, c1);
+            fishingLine.GetComponent<LineRenderer>().material = fishingLineMaterial;
             //lr.SetPosition(0, FishingRodEnd.transform.position);
             //lr.SetPosition(1, fishingLure.transform.position);
             //lr.SetWidth(0.01f, 0.01f);

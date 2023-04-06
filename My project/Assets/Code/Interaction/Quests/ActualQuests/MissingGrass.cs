@@ -22,6 +22,7 @@ public class MissingGrass : NewQuest
         RequiredAmount = requiredAmount;
 
         Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 2 grass", false, 0, requiredAmount, requiredItem));
+        
 
         Goals.ForEach(g => g.Init());
     }

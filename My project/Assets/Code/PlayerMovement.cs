@@ -81,7 +81,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if(npc != null)
         {
-            WhoTalkedTo(npc);
+            if(WhoTalkedTo != null)
+            {
+                WhoTalkedTo(npc);
+            }
+            Debug.Log(npc);
+           
         }
         
     }
