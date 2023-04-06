@@ -32,7 +32,7 @@ public class SettingsValues : MonoBehaviour
         DontDestroyOnLoad(this);
         if (scene.name.Equals("TiinaUItesting") && optionsMenu.activeInHierarchy == true)
         {
-            Debug.Log("Main menu options");
+            Debug.Log("Main menu options"); // Gets slider in main menu
             sensitivitySlider = GameObject.Find("SensitivitySlider").GetComponent<Slider>();
             sensitivitySlider.value = sensitivityValue;
             
@@ -47,7 +47,7 @@ public class SettingsValues : MonoBehaviour
     {
         if (scene.name.Equals("Level"))
         {
-            sensitivitySlider = GameObject.Find("SensitivitySlider").GetComponent<Slider>();
+            sensitivitySlider = GameObject.Find("SensitivitySlider").GetComponent<Slider>(); // gets slider and pause canvas as soon as scene is changed
             pauseCanvas = GameObject.Find("PauseCanvas");
             StartCoroutine(GetStuff());
         }
@@ -66,7 +66,7 @@ public class SettingsValues : MonoBehaviour
         //sensitivitySlider = GameObject.Find("SensitivitySlider").GetComponent<Slider>();
         sensitivitySlider.value = sensitivityValue;
         sensitivitySlider.onValueChanged.AddListener(delegate { valueChanged(); });
-        camera.m_XAxis.m_MaxSpeed = sensitivityValue;
+        camera.m_XAxis.m_MaxSpeed = sensitivityValue; // Changes cinemachines "sensitivity" to sensitivityValue
         pauseCanvas.SetActive(false);
     }
 
