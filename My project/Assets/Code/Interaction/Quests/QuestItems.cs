@@ -12,5 +12,9 @@ public class QuestItems : MonoBehaviour
     [Header("Reward items")]
     public Item Coin;
     public Item FishingRod;
-    
+
+    [Header("Quest NPC's")]
+    public GameObject NPC1; // Rename These.
+    public GameObject NPC2;
+
 }

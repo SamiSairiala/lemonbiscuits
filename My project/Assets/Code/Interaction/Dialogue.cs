@@ -13,6 +13,9 @@ public class Dialogue
     [TextArea(3, 10)]
     public string[] sentences;
 
+    [TextArea(3, 10)]
+    public string[] secondQuestSentences;
+
     // Here to fill npc to talk something after player accepts quests etc.
     [TextArea(3, 10)]
     public string[] sentencesDuringQuests;
