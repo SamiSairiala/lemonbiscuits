@@ -30,6 +30,14 @@ public class Fishing : MonoBehaviour
 
     [SerializeField] private Material fishingLineMaterial;
 
+    public float maxFishingDist = 100f;
+
+    private int layerMask = 4;
+
+    [SerializeField] private GameObject mainCamera;
+
+    public bool Casting = false;
+
     // Start is called before the first frame update
 
 
@@ -53,18 +61,41 @@ public class Fishing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit hit;
+
         if (InventoryManager.Instance.Items.Contains(FishingRod) && fishingButton.action.WasPressedThisFrame() && isFishing == false)
         {
-            speed = 0;
+            Debug.Log("Starting fishing check");
+
+            if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, maxFishingDist))
+            {
+                Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                Debug.Log("Shooting ray");
+                if (hit.transform.gameObject.layer == layerMask)
+                {
+                    Debug.Log("Raycast hit water");
+                        speed = 0;
+                        
+                    Casting = true;
+                        
+                    
+                   
+                }
+            }
+        }
+        if(Casting == true)
+        {
             pressing = true;
             fishingRod.SetActive(true);
         }
-        if(pressing == true)
+        if (pressing == true)
         {
+            Debug.Log("Pressing");
             speed += Time.deltaTime * 100;
         }
-        if(InventoryManager.Instance.Items.Contains(FishingRod) && fishingButton.action.WasReleasedThisFrame() && isFishing == false)
+        if (InventoryManager.Instance.Items.Contains(FishingRod) && fishingButton.action.WasReleasedThisFrame() && isFishing == false && Casting == true)
         {
+            Casting = false;
             pressing = false;
             isFishing = true;
             projectile.speed = speed;
@@ -75,7 +106,7 @@ public class Fishing : MonoBehaviour
             lr = FishingLine.AddComponent<LineRenderer>();
             Rigidbody rb = fishingBob.GetComponent<Rigidbody>();
             //projectile.speed = speed;
-			Debug.Log(speed);
+            Debug.Log(speed);
         }
         if (fishingRod.activeInHierarchy && isFishing == true)
         {
@@ -91,9 +122,10 @@ public class Fishing : MonoBehaviour
             //lr.material = new Material(Shader.Find("Particles/Additive"));
             //lr.SetColors(c1, c1);
         }
-        else if(!fishingRod.activeInHierarchy)
-            {
+        else if (!fishingRod.activeInHierarchy)
+        {
             Destroy(FishingLine);
-            }
+        }
+
     }
 }

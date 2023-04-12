@@ -71,6 +71,7 @@ public class FishingProjectile : MonoBehaviour
         }
         Destroy(gameObject);
         fishing.isFishing = false;
+        fishing.Casting = false;
         fishingRod.SetActive(false);
     }
 
@@ -96,6 +97,7 @@ public class FishingProjectile : MonoBehaviour
             fishing.isFishing = false;
             GameObject.Destroy(gameObject);
             fishingRod.SetActive(false);
+            fishing.Casting = false;
             Debug.Log("Came Back");
 		}
 	}

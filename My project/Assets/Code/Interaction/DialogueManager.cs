@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     public bool hasGottenQuestItems = false;
     public bool hasDiffrentQuest = false;
     public bool CompletedQuest = false;
+    public bool SecondQuest = false;
 
     private Queue<string> Sentences;
 
@@ -53,6 +54,15 @@ public class DialogueManager : MonoBehaviour
         if(hasDiffrentQuest == true)
         {
             foreach (string sentence in dialogue.hasDiffrentQuestSentences)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+
+        }
+        if(SecondQuest == true)
+        {
+            foreach (string sentence in dialogue.secondQuestSentences)
             {
                 Sentences.Enqueue(sentence);
             }
