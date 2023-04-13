@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     public bool hasDiffrentQuest = false;
     public bool CompletedQuest = false;
     public bool SecondQuest = false;
+    public bool TalkQuest = false;
 
     private Queue<string> Sentences;
 
@@ -51,7 +52,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // Has diffrent quest.
-        if(hasDiffrentQuest == true)
+        if(hasDiffrentQuest == true && TalkQuest == false)
         {
             foreach (string sentence in dialogue.hasDiffrentQuestSentences)
             {
@@ -68,6 +69,14 @@ public class DialogueManager : MonoBehaviour
             }
             DisplayNextSentence();
 
+        }
+        if(TalkQuest == true && hasDiffrentQuest == true)
+        {
+            foreach (string sentence in dialogue.TalkQuest)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
         }
 
         // After player returns quest items.
@@ -98,7 +107,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // First time meeting player.
-        if (hasSpoken == false && hasGottenQuestItems == false && CompletedQuest == false)
+        if (hasSpoken == false && hasGottenQuestItems == false && CompletedQuest == false && hasDiffrentQuest == false && TalkQuest == false)
         {
             foreach (string sentence in dialogue.sentences)
             {
@@ -142,6 +151,8 @@ public class DialogueManager : MonoBehaviour
         hasGottenQuestItems = false;
         hasDiffrentQuest = false;
         CompletedQuest = false;
+        SecondQuest = false;
+        TalkQuest = false;
         
     }
 

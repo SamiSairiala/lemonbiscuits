@@ -1811,7 +1811,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256121185}
-  m_LocalRotation: {x: 0.2802522, y: -2.8976463e-15, z: 1.5972322e-15, w: 0.9599264}
+  m_LocalRotation: {x: 0.28025216, y: 0.00000004045787, z: -0.0000000118117445, w: 0.9599264}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2399,7 +2399,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545440281}
-  m_LocalRotation: {x: 0.28025222, y: -0.000000040457873, z: 0.000000011811748, w: 0.9599265}
+  m_LocalRotation: {x: 0.2802522, y: 0.00000004045787, z: -0.000000011811745, w: 0.9599265}
   m_LocalPosition: {x: -1.1079817, y: 7.5, z: -6.338397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3177,7 +3177,7 @@ GameObject:
   - component: {fileID: 1721967591}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3198,6 +3198,7 @@ MonoBehaviour:
     name: Jeff
     sentences:
     - Hi! My name is jeff
+    secondQuestSentences: []
     sentencesDuringQuests:
     - Have you gotten my flowers?
     AfterQuestSentences:
@@ -3206,6 +3207,8 @@ MonoBehaviour:
     - You should propably do the other task first.
     CompletedQuest:
     - Thanks for that one time (jeff)
+    TalkQuest:
+    - Hello! TALK QUEST!
   currentAmount: 0
   DiffrentQuest: 0
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
@@ -3755,7 +3758,7 @@ GameObject:
   - component: {fileID: 1936022672}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3854,6 +3857,7 @@ MonoBehaviour:
     name: Mark
     sentences:
     - Hi! My name is Mark could you help me find my flowers?
+    secondQuestSentences: []
     sentencesDuringQuests:
     - Have you found all of my flowers?
     AfterQuestSentences:
@@ -3862,13 +3866,14 @@ MonoBehaviour:
     - You should propably do the other task first.
     CompletedQuest:
     - Thanks for that one time
+    TalkQuest: []
   currentAmount: 0
   DiffrentQuest: 0
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
   onQuest: {fileID: 1633525382}
   Quests: {fileID: 0}
   quests: {fileID: 1633525378}
-  questName: MissingFlowers
+  questName: TalkToNPC
   CurrentQuesttext: {fileID: 1675653135}
   CurrentQuestProgresstext: {fileID: 1850445575}
 --- !u!1 &1970887764
@@ -4527,6 +4532,10 @@ MonoBehaviour:
   FishingRodEnd: {fileID: 996223132}
   c1: {r: 1, g: 1, b: 1, a: 1}
   isFishing: 0
+  fishingLineMaterial: {fileID: 0}
+  maxFishingDist: 100
+  mainCamera: {fileID: 0}
+  Casting: 0
 --- !u!1001 &1116276594126382618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4857,6 +4866,14 @@ PrefabInstance:
       propertyPath: Fish
       value: 
       objectReference: {fileID: 11400000, guid: 0a5e8bdec13174c4685712e4f9c056e9, type: 2}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: NPC1
+      value: 
+      objectReference: {fileID: 1721967590}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: NPC2
+      value: 
+      objectReference: {fileID: 1936022667}
     - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
       propertyPath: FishingRod
       value: 

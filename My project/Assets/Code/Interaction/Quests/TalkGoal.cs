@@ -30,6 +30,8 @@ namespace Quests
         {
             if (gameObject.name.Equals(npcGameobject.name)) // Gameobject name here.
             {
+                Debug.Log("Right npc");
+                Debug.Log(CurrentAmount + " / " + RequiredAmount);
                 CurrentAmount++;
                 Evaluate(null);
             }

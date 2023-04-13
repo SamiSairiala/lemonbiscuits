@@ -13,6 +13,7 @@ public class QuestNPC : MonoBehaviour
     public bool DiffrentQuest = false;
     public bool Helped { get; set; }
 
+
     [SerializeField] private InputActionReference interaction;
     public OnQuest onQuest;
     public GameObject Quests;
@@ -40,52 +41,68 @@ public class QuestNPC : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            
 
-                if (!AssignedQuest && !Helped && !onQuest.onQuest)
-                {
-                
-                    // Assign quest to player.
-                    AssignQuest();
-                    onQuest.onQuest = true;
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-                else if (AssignedQuest && !Helped)
-                {
-                    // Has given quest but not completed yet.
-                    // Also checks if quest is completed.
-                    CheckQuest();
+
+            if (!AssignedQuest && !Helped && !onQuest.onQuest)
+            {
+
+                // Assign quest to player.
+                AssignQuest();
+                onQuest.onQuest = true;
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            }
+            else if (AssignedQuest && !Helped)
+            {
+                // Has given quest but not completed yet.
+                // Also checks if quest is completed.
+                CheckQuest();
                 Debug.Log("Checking quest");
-                }
-                else if (!AssignedQuest && !Helped && onQuest.onQuest)
-                {
+            }
+            else if (!AssignedQuest && !Helped && onQuest.onQuest && !onQuest.TalkQuest)
+            {
                 Debug.Log("Diffrent quest");
-                    FindObjectOfType<DialogueManager>().hasDiffrentQuest = true;
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-                else
-                {
-                Debug.Log("Meeting after completing");
-                    FindObjectOfType<DialogueManager>().hasGottenQuestItems = true;
-                    FindObjectOfType<DialogueManager>().CompletedQuest = true;
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-            
+                FindObjectOfType<DialogueManager>().hasDiffrentQuest = true;
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            }
+            else if (onQuest.onQuest && onQuest.TalkQuest)
+            {
+                Debug.Log("Talk quest");
+                FindObjectOfType<DialogueManager>().hasSpoken = false;
+                FindObjectOfType<DialogueManager>().SecondQuest = false;
+                FindObjectOfType<DialogueManager>().TalkQuest = true;
+                FindObjectOfType<DialogueManager>().hasDiffrentQuest = true;
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                
+                    if (onQuest.TalkQuest == true)
+                    {
+                        onQuest.TalkQuest = false;
+                    }
+                
 
-            
-            
+            }
+            else
+            {
+                Debug.Log("Meeting after completing");
+                FindObjectOfType<DialogueManager>().hasGottenQuestItems = true;
+                FindObjectOfType<DialogueManager>().CompletedQuest = true;
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            }
+
+
+
+
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             FindObjectOfType<DialogueManager>().EndDialogue(); // Closes dialogue box if player walks away.
         }
-       
+
     }
 
 
@@ -95,7 +112,7 @@ public class QuestNPC : MonoBehaviour
         Quest = (NewQuest)quests.AddComponent(System.Type.GetType(questName));
         Debug.Log("Assigned quest");
         StartCoroutine(UpdateQuestText());
-        
+
     }
 
     IEnumerator UpdateQuestText()
@@ -117,29 +134,29 @@ public class QuestNPC : MonoBehaviour
             item = quests.GetComponent<QuestItems>().Flower;
 
         }
-		if (questName.Contains("Fish"))
-		{
+        if (questName.Contains("Fish"))
+        {
             Debug.Log("Quest has fish");
             item = quests.GetComponent<QuestItems>().Fish;
         }
-            if (InventoryManager.Instance.Items.Contains(item))
+        if (InventoryManager.Instance.Items.Contains(item))
+        {
+
+            for (currentAmount = 0; currentAmount < this.Quest.RequiredAmount; currentAmount++)
             {
-
-                for (currentAmount = 0; currentAmount < this.Quest.RequiredAmount; currentAmount++)
-                {
-                    Debug.Log("Deleting items");
-                    InventoryManager.Instance.Remove(item);
-                }
-
-
+                Debug.Log("Deleting items");
+                InventoryManager.Instance.Remove(item);
             }
-        
+
+
+        }
+
         #endregion
     }
 
     void CheckQuest()
     {
-        
+
         if (Quest.Completed)
         {
 
@@ -168,6 +185,6 @@ public class QuestNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
