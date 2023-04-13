@@ -1400,7 +1400,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190044033}
-  m_LocalRotation: {x: 0.2646427, y: -0.00000001659291, z: 0.000000004553543, w: 0.9643465}
+  m_LocalRotation: {x: 0.2646427, y: 0.000000016592917, z: -0.0000000045535438, w: 0.9643466}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6572,7 +6572,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.3042126, y: 0.00000003278174, z: -0.000000010468797, w: 0.9526042}
+  m_LocalRotation: {x: 0.3042126, y: -0.00000003278174, z: 0.000000010468797, w: 0.9526042}
   m_LocalPosition: {x: 8, y: 3.56, z: 9.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7809,7 +7809,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189588219}
-  m_LocalRotation: {x: 0.3042126, y: 0.000000016390873, z: -0.000000005234398, w: 0.9526042}
+  m_LocalRotation: {x: 0.3042126, y: -0.000000016390873, z: 0.000000005234398, w: 0.9526042}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7836,6 +7836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onQuest: 0
+  TalkQuest: 0
 --- !u!1001 &1200095719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10906,6 +10907,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2249268901866578949, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
   m_PrefabInstance: {fileID: 6056888930848896436}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1643415961 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6069984777435094049, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
+  m_PrefabInstance: {fileID: 6056888930848896436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1653492155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12859,6 +12865,7 @@ MonoBehaviour:
     - You should complete your diffrent task first.
     CompletedQuest:
     - Thanks for these so much!
+    TalkQuest: []
   currentAmount: 0
   DiffrentQuest: 0
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
@@ -13743,6 +13750,27 @@ MonoBehaviour:
   maxFishingDist: 100
   mainCamera: {fileID: 509284332}
   Casting: 0
+--- !u!114 &321413115808092268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021690420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21659147533726c43a590bd64ee6012d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 1643415961}
+  t: {fileID: 1233228941}
+  posX: 0
+  posZ: 0
+  textureValues:
+  - 0
+  - 1
+  - 2
+  - 3
 --- !u!1001 &453706215069783644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14437,6 +14465,7 @@ MonoBehaviour:
     - You should propably do the other task first.
     CompletedQuest:
     - Thanks for that one time!
+    TalkQuest: []
   currentAmount: 0
   DiffrentQuest: 0
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
