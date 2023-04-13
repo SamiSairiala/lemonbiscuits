@@ -91,6 +91,11 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(Terrain.activeTerrain.terrainData.terrainLayers);
+    }
+
     private void Update()
     {
         if (Inventory.action.WasPerformedThisFrame())
