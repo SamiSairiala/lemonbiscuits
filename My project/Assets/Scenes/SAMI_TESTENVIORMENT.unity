@@ -1811,7 +1811,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256121185}
-  m_LocalRotation: {x: 0.28025216, y: 0.00000004045787, z: -0.0000000118117445, w: 0.9599264}
+  m_LocalRotation: {x: 0.2802522, y: -2.8976463e-15, z: 1.5972322e-15, w: 0.9599264}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2399,7 +2399,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545440281}
-  m_LocalRotation: {x: 0.2802522, y: 0.00000004045787, z: -0.000000011811745, w: 0.9599265}
+  m_LocalRotation: {x: 0.28025222, y: -0.000000040457873, z: 0.000000011811748, w: 0.9599265}
   m_LocalPosition: {x: -1.1079817, y: 7.5, z: -6.338397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3216,8 +3216,11 @@ MonoBehaviour:
   Quests: {fileID: 0}
   quests: {fileID: 1633525378}
   questName: CatherFish
+  secondquestName: 
   CurrentQuesttext: {fileID: 1675653135}
   CurrentQuestProgresstext: {fileID: 1850445575}
+  hasSecondQuest: 0
+  secondQuestActive: 0
 --- !u!65 &1721967592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3857,7 +3860,8 @@ MonoBehaviour:
     name: Mark
     sentences:
     - Hi! My name is Mark could you help me find my flowers?
-    secondQuestSentences: []
+    secondQuestSentences:
+    - Hello could you help me again
     sentencesDuringQuests:
     - Have you found all of my flowers?
     AfterQuestSentences:
@@ -3874,8 +3878,11 @@ MonoBehaviour:
   Quests: {fileID: 0}
   quests: {fileID: 1633525378}
   questName: TalkToNPC
+  secondquestName: MissingGrass
   CurrentQuesttext: {fileID: 1675653135}
   CurrentQuestProgresstext: {fileID: 1850445575}
+  hasSecondQuest: 1
+  secondQuestActive: 0
 --- !u!1 &1970887764
 GameObject:
   m_ObjectHideFlags: 0
@@ -4289,7 +4296,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068902272}
-  m_LocalRotation: {x: 0.34042525, y: 0.000000016178669, z: -0.0000000058574865, w: 0.9402716}
+  m_LocalRotation: {x: 0.34042525, y: -0.000000016178673, z: 0.000000005857488, w: 0.9402716}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -20,10 +20,14 @@ public class QuestNPC : MonoBehaviour
 
     [SerializeField] private GameObject quests;
     [SerializeField] private string questName; // Type quest name in editor that then gets taken from quests gameobject and activated.
+    [SerializeField] private string secondquestName;
     public NewQuest Quest { get; set; }
 
     public TextMeshProUGUI CurrentQuesttext;
     public TextMeshProUGUI CurrentQuestProgresstext;
+
+    public bool hasSecondQuest = false;
+    public bool secondQuestActive = false;
     // Start is called before the first frame update
 
 
@@ -84,6 +88,11 @@ public class QuestNPC : MonoBehaviour
             }
             else
             {
+                if(hasSecondQuest == true && secondQuestActive == false)
+				{
+                    secondQuestActive = true;
+                    AssignSecondQuest();
+				}
                 Debug.Log("Meeting after completing");
                 FindObjectOfType<DialogueManager>().hasGottenQuestItems = true;
                 FindObjectOfType<DialogueManager>().CompletedQuest = true;
@@ -104,7 +113,15 @@ public class QuestNPC : MonoBehaviour
         }
 
     }
-
+    void AssignSecondQuest()
+	{
+        Quest = null; 
+        AssignedQuest = true;
+        Quest = (NewQuest)quests.AddComponent(System.Type.GetType(secondquestName));
+        Debug.Log("Assigned quest");
+        StartCoroutine(UpdateQuestText());
+        Helped = false;
+    }
 
     void AssignQuest()
     {
@@ -112,6 +129,7 @@ public class QuestNPC : MonoBehaviour
         Quest = (NewQuest)quests.AddComponent(System.Type.GetType(questName));
         Debug.Log("Assigned quest");
         StartCoroutine(UpdateQuestText());
+        
 
     }
 
