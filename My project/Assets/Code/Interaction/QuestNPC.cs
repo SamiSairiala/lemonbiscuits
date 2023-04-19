@@ -47,6 +47,7 @@ public class QuestNPC : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            FindObjectOfType<DialogueManager>().npcName = dialogue.name;
 
 
             if (!AssignedQuest && !Helped && !onQuest.onQuest)

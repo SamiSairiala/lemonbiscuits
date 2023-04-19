@@ -23,7 +23,11 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> Sentences;
 
+    public string PlayerName;
 
+    // gets npc name from QuestNPC script.
+    public string npcName;
+    public bool playerTalking = false;
     private void Start()
     {
         Sentences = new Queue<string>();
@@ -37,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         // TODO: open DIALOGUE BOX
         PlayerDialogueCanvas.gameObject.SetActive(true);
         Debug.Log("Starting dialogue");
-        nameText.text = dialogue.name;
+        //nameText.text = dialogue.name;
 
         Sentences.Clear();
 
@@ -106,6 +110,7 @@ public class DialogueManager : MonoBehaviour
             DisplayNextSentence();
         }
 
+
         // First time meeting player.
         if (hasSpoken == false && hasGottenQuestItems == false && CompletedQuest == false && hasDiffrentQuest == false && TalkQuest == false)
         {
@@ -121,6 +126,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        
         if(Sentences.Count == 0)
         {
             // No more sentences.
@@ -128,6 +134,18 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = Sentences.Dequeue();
+        if (sentence.Contains("-"))
+        {
+            // PLAYER NAME
+            nameText.text = PlayerName;
+            Debug.Log("Player talking");
+        }
+        else
+        {
+            // NPC NAME
+            Debug.Log("Player not talking");
+            nameText.text = npcName;
+        }
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
