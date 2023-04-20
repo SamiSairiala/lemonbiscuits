@@ -38,22 +38,28 @@ public class FishingBond : MonoBehaviour
 		{
             //int i = 0;
             //i = Random.Range(1, 11);
-            StartCoroutine(DeActivateUI());
+            
             fishingBob = FindObjectOfType<FishingProjectile>();
             isIn = true;
             if (isIn == true)
             {
                 int i = 0;
                 i = Random.Range(1, 11);
-                StartCoroutine(DeActivateUI());
+                
                 fishingBob = FindObjectOfType<FishingProjectile>();
-                if (i <= 5)
+                if (i <= 2)
                 {
                     StartCoroutine(WaitFor());
+                    StartCoroutine(ResetFishing());
+                }
+                else if(i >= 7)
+                {
+                    StartCoroutine(WaitForReel());
+                    StartCoroutine(ResetFishing());
                 }
                 else
                 {
-                    StartCoroutine(WaitForReel());
+                    StartCoroutine(ResetFishing());
                 }
             }
             //if (i <= 5)
@@ -81,22 +87,26 @@ public class FishingBond : MonoBehaviour
 
 
 
-        if(Caught == true)
-        {
+        
             if (Reel.action.WasPerformedThisFrame())
             {
                 fishingBob.MoveBackToPlayer();
                 QuickTimeMouse.SetActive(false);
                 QuickTimeText.SetActive(false);
             }
-        }
+        
     }
 
     IEnumerator DeActivateUI()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         QuickTimeMouse.SetActive(false);
         QuickTimeText.SetActive(false);
+    }
+
+    IEnumerator ResetFishing()
+    {
+        yield return new WaitForSeconds(10);
     }
 
     IEnumerator WaitFor()
@@ -109,16 +119,23 @@ public class FishingBond : MonoBehaviour
         fishingBob.fish = Fishes[Randomindex];
         QuickTimeMouse.SetActive(true);
         QuickTimeText.SetActive(true);
+        StartCoroutine(DeActivateUI());
         Debug.Log("Caught fish");
     }
 
     IEnumerator WaitForReel()
 	{
         int WaitFor = 0;
-        WaitFor = Random.Range(1, 6);
+        WaitFor = Random.Range(4, 9);
         yield return new WaitForSeconds(WaitFor);
-        Debug.Log("didint Caught fish");
         Caught = true;
+        Randomindex = Random.Range(0, Fishes.Count);
+        fishingBob.fish = Fishes[Randomindex];
+        QuickTimeMouse.SetActive(true);
+        QuickTimeText.SetActive(true);
+        StartCoroutine(DeActivateUI());
+        Debug.Log("Caught fish");
+
     }
 
     //IEnumerator QuickTime(Collider other)

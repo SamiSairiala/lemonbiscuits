@@ -54,7 +54,7 @@ public class FishingProjectile : MonoBehaviour
 
     public IEnumerator ComeBackToPlayer()
 	{
-        yield return new WaitForSeconds(8.0f);
+        yield return new WaitForSeconds(12.0f);
         //MoveBackToPlayer();
         StartCoroutine(DestroyIfNotReached());
         
