@@ -8,6 +8,8 @@ public class SpawnRareFishingPond : MonoBehaviour
 
     public GameObject RareFishingPond;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,11 @@ public class SpawnRareFishingPond : MonoBehaviour
 
     public void SpawnPond()
     {
-        int rand = Random.Range(1, 6);
+		if (RareFishingPond.activeInHierarchy)
+		{
+            Destroy(RareFishingPond);
+		}
+        int rand = Random.Range(1, 5);
         Instantiate(RareFishingPond, spawnPoints[rand].transform.position, Quaternion.Euler(180f,0f,0f));
         
     }

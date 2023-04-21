@@ -11,6 +11,7 @@ public class FishingBond : MonoBehaviour
 	private FishingProjectile fishingBob;
 
     [Header("QuickTime ui")]
+    [SerializeField] private GameObject QuicktimeCanvas;
     [SerializeField] private GameObject QuickTimeText;
     [SerializeField] private GameObject QuickTimeMouse;
 
@@ -21,6 +22,9 @@ public class FishingBond : MonoBehaviour
     private bool Caught = false;
     private bool isIn = false;
 
+    public bool NormalFish = true;
+
+    public GameObject fishingRod;
 
     private void OnEnable()
     {
@@ -34,11 +38,10 @@ public class FishingBond : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag.Equals("Fishing"))
+		if (other.gameObject.tag.Equals("Fishing") && NormalFish == true)
 		{
             //int i = 0;
             //i = Random.Range(1, 11);
-            
             fishingBob = FindObjectOfType<FishingProjectile>();
             isIn = true;
             if (isIn == true)
@@ -49,16 +52,19 @@ public class FishingBond : MonoBehaviour
                 fishingBob = FindObjectOfType<FishingProjectile>();
                 if (i <= 2)
                 {
+                    Debug.Log("<= 2");
                     StartCoroutine(WaitFor());
                     StartCoroutine(ResetFishing());
                 }
                 else if(i >= 7)
                 {
+                    Debug.Log(">= 7");
                     StartCoroutine(WaitForReel());
                     StartCoroutine(ResetFishing());
                 }
                 else
                 {
+                    Debug.Log("no fish");
                     StartCoroutine(ResetFishing());
                 }
             }
@@ -88,24 +94,26 @@ public class FishingBond : MonoBehaviour
 
 
         
-            if (Reel.action.WasPerformedThisFrame())
+            if (Reel.action.WasPerformedThisFrame() && fishingRod.activeInHierarchy)
             {
+                
                 fishingBob.MoveBackToPlayer();
-                QuickTimeMouse.SetActive(false);
-                QuickTimeText.SetActive(false);
+                
+                
+                QuicktimeCanvas.SetActive(false);
             }
         
     }
 
     IEnumerator DeActivateUI()
     {
-        yield return new WaitForSeconds(1f);
-        QuickTimeMouse.SetActive(false);
-        QuickTimeText.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        QuicktimeCanvas.SetActive(false);
     }
 
     IEnumerator ResetFishing()
     {
+        NormalFish = true;
         yield return new WaitForSeconds(10);
     }
 
@@ -117,8 +125,7 @@ public class FishingBond : MonoBehaviour
         Caught = true;
         Randomindex = Random.Range(0, Fishes.Count);
         fishingBob.fish = Fishes[Randomindex];
-        QuickTimeMouse.SetActive(true);
-        QuickTimeText.SetActive(true);
+        QuicktimeCanvas.SetActive(true);
         StartCoroutine(DeActivateUI());
         Debug.Log("Caught fish");
     }
@@ -131,8 +138,7 @@ public class FishingBond : MonoBehaviour
         Caught = true;
         Randomindex = Random.Range(0, Fishes.Count);
         fishingBob.fish = Fishes[Randomindex];
-        QuickTimeMouse.SetActive(true);
-        QuickTimeText.SetActive(true);
+        QuicktimeCanvas.SetActive(true);
         StartCoroutine(DeActivateUI());
         Debug.Log("Caught fish");
 

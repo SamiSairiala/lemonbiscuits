@@ -13,7 +13,7 @@ public class FishingProjectile : MonoBehaviour
 
     private bool Return = false;
 
-    public float ReturnSpeed = 0.3f;
+    public float ReturnSpeed = 0.6f;
     [SerializeField] private Fishing fishing;
 
     public Item fish;
@@ -28,7 +28,7 @@ public class FishingProjectile : MonoBehaviour
         fish = null;
         Return = false;
         rigidBody = GetComponent<Rigidbody>();
-        player = GameObject.Find("Playercharacter");
+        player = GameObject.Find("playercharacter_yeah 1");
         fishingRod = GameObject.Find("FishingRod");
         fishing = FindObjectOfType<Fishing>();
         StartCoroutine(ComeBackToPlayer());
@@ -47,8 +47,10 @@ public class FishingProjectile : MonoBehaviour
     {
         if(Return == true)
 		{
-			//transform.Translate(player.transform.position * ReturnSpeed * Time.deltaTime);
+            //transform.Translate(player.transform.position * ReturnSpeed * Time.deltaTime);
+            Debug.Log("Reeling");
 			transform.position = Vector3.MoveTowards(transform.position, player.transform.position, ReturnSpeed);
+            
 		}
     }
 
@@ -83,9 +85,9 @@ public class FishingProjectile : MonoBehaviour
         
     }
 
-   
-    
-	private void OnTriggerEnter(Collider other)
+	
+
+	private void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.tag.Equals("Player"))
 		{
