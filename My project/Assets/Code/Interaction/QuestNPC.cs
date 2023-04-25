@@ -147,13 +147,23 @@ public class QuestNPC : MonoBehaviour
         #region Deletes items when quest is completed to not confuse player!
         // This works it just can get quite bloated if many diffrent items needed in diffrent quests.
         // If using this comment out other methods of deleting items from CollectionGoal and Goal.
-        if (questName.Contains("Flower")) // If quest item that is required is not in quest name think of another way of doing it.
+        if (questName.Contains("Flower") && secondQuestActive == false) // If quest item that is required is not in quest name think of another way of doing it.
         {
             Debug.Log("Quest has flowers");
             item = quests.GetComponent<QuestItems>().Flower;
 
         }
-        if (questName.Contains("Fish"))
+        if (questName.Contains("Fish") && secondQuestActive == false)
+        {
+            Debug.Log("Quest has fish");
+            item = quests.GetComponent<QuestItems>().Fish;
+        }
+        if(secondquestName.Contains("Flower") && secondQuestActive == true)
+        {
+            Debug.Log("Quest has flowers");
+            item = quests.GetComponent<QuestItems>().Flower;
+        }
+        if (secondquestName.Contains("Fish") && secondQuestActive == true)
         {
             Debug.Log("Quest has fish");
             item = quests.GetComponent<QuestItems>().Fish;

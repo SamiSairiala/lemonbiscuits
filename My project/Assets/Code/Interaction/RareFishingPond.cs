@@ -10,7 +10,7 @@ public class RareFishingPond : MonoBehaviour
     [SerializeField] private GameObject QuickTimeCanvas;
 
 
-   
+    public SpawnRareFishingPond spawner;
 
     private FishingProjectile fishingBob;
     public List<Item> Fishes;
@@ -26,6 +26,7 @@ public class RareFishingPond : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawner = FindObjectOfType<SpawnRareFishingPond>();
         normalFishingBond = FindObjectOfType<FishingBond>();
 
     }
@@ -51,6 +52,12 @@ public class RareFishingPond : MonoBehaviour
         }
 	}
 
+    IEnumerator ChangePondLocation()
+    {
+        yield return new WaitForSeconds(5f);
+        spawner.SpawnPond();
+    }
+
     IEnumerator WaitFor()
     {
         int WaitFor = 0;
@@ -62,6 +69,7 @@ public class RareFishingPond : MonoBehaviour
         normalFishingBond.NormalFish = true;
         QuickTimeCanvas.SetActive(true);
         StartCoroutine(DeActivateUI());
+        StartCoroutine(ChangePondLocation());
     }
 
     IEnumerator DeActivateUI()
