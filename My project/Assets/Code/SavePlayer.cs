@@ -22,10 +22,7 @@ public class SavePlayer : MonoBehaviour, IDataPersitence
         inventoryManager.InventoryItems = data.Inventoryitems;
         Debug.Log("Loading player transform" + data.vPlayerPos);
         StartCoroutine(waitFor());
-        if (data.firstquestComplete)
-        {
-            firstquestComplete = true;
-        }
+        firstquestComplete = data.firstquestComplete;
     }
 
     public void SaveData(ref GameData data)
