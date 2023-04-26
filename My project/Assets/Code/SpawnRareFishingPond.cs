@@ -24,6 +24,7 @@ public class SpawnRareFishingPond : MonoBehaviour
 		}
         int rand = Random.Range(1, 5);
         Instantiate(RareFishingPond, spawnPoints[rand].transform.position, Quaternion.Euler(180f,0f,0f));
+        RareFishingPond.GetComponent<RareFishingPond>().enabled = true;
         
     }
 

@@ -33,23 +33,27 @@ public class CheckTerrainTexture : MonoBehaviour
 
     private void Update()
     {
-        //GetTerrainTexture();
-        //if(textureValues[0] > 0)
-        //{
-        //    Debug.Log("Grass");
-        //}
-        //if (textureValues[1] > 0)
-        //{
-        //    Debug.Log("Grass2");
-        //}
-        //if (textureValues[2] > 0)
-        //{
-        //    Debug.Log("Dirt");
-        //}
-        //if (textureValues[3] > 0)
-        //{
-        //    Debug.Log("Dirt with grass");
-        //}
+        GetTerrainTexture();
+        if (textureValues[0] > 0)
+        {
+            Debug.Log("Grass");
+        }
+        if (textureValues[1] > 0)
+        {
+            Debug.Log("Grass2");
+        }
+        if (textureValues[2] > 0)
+        {
+            Debug.Log("Dirt");
+        }
+        if (textureValues[3] > 0)
+        {
+            Debug.Log("Dirt with grass");
+        }
+        if (textureValues[4] > 0)
+        {
+            Debug.Log("Sand");
+        }
     }
 
     void CheckTexture()
@@ -59,5 +63,6 @@ public class CheckTerrainTexture : MonoBehaviour
         textureValues[1] = aMap[0, 0, 1]; // Grass
         textureValues[2] = aMap[0, 0, 2]; // Dirt
         textureValues[3] = aMap[0, 0, 3]; // Dirt with grass
+        textureValues[4] = aMap[0, 0, 4]; // Sand
     }
 }
