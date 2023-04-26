@@ -7,6 +7,12 @@ public class SavePlayer : MonoBehaviour, IDataPersitence
     [SerializeField] PlayerMovement sPlayerMovement;
     private float fWaitForEnable = 2f;
     private InventoryManager inventoryManager;
+    public bool firstquestComplete;
+    public bool secondquestComplete;
+    public bool thirdquestComplete;
+    public bool fourthquestComplete;
+    public bool fifthquestComplete;
+    
 
     public void LoadData(GameData data)
     {
@@ -16,6 +22,10 @@ public class SavePlayer : MonoBehaviour, IDataPersitence
         inventoryManager.InventoryItems = data.Inventoryitems;
         Debug.Log("Loading player transform" + data.vPlayerPos);
         StartCoroutine(waitFor());
+        if (data.firstquestComplete)
+        {
+            firstquestComplete = true;
+        }
     }
 
     public void SaveData(ref GameData data)
@@ -24,6 +34,7 @@ public class SavePlayer : MonoBehaviour, IDataPersitence
         data.vPlayerPos = gameObject.transform.position;
         data.items = inventoryManager.Items;
         data.Inventoryitems = inventoryManager.InventoryItems;
+        data.firstquestComplete = firstquestComplete;
     }
 
 
