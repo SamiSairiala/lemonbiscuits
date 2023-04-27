@@ -62,6 +62,7 @@ public class Riddle : MonoBehaviour
     public void ClickedRight()
     {
         rightButtonScript.RightButtonPress();
+        FindObjectOfType<DialogueManager>().DisplayNextSentence();
     }
 
     void FinalRight()
@@ -79,7 +80,7 @@ public class Riddle : MonoBehaviour
         if(rightButtonScript.Right)
         {
             rightButtonScript.Right = false;
-            FindObjectOfType<DialogueManager>().DisplayNextSentence();
+            //FindObjectOfType<DialogueManager>().DisplayNextSentence();
         }
         if (rightButtonScript.WrongAnswer)
         {
