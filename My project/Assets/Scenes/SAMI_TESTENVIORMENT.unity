@@ -2454,7 +2454,7 @@ GameObject:
   - component: {fileID: 1563751574}
   - component: {fileID: 1563751573}
   m_Layer: 5
-  m_Name: AcceptQuest
+  m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2653,6 +2653,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b61e90b2c4e384dbc74e83060f58f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1633525385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633525378}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6e02e634495b6408558113b6a191ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onquest: {fileID: 1633525382}
+  FirstButton: {fileID: 1970887766}
+  SecondButton: {fileID: 1563751573}
+  ThirdButton: {fileID: 10403480}
+  rightButtonScript: {fileID: 1633525386}
+--- !u!114 &1633525386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633525378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ef51a749c8df745852bbc51e72d2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Right: 0
+  WrongAnswer: 0
+  bFinalRight: 0
 --- !u!1 &1648748567
 GameObject:
   m_ObjectHideFlags: 0
@@ -3197,10 +3229,15 @@ MonoBehaviour:
   dialogue:
     name: Jeff
     sentences:
-    - Hi! My name is jeff
+    - Hi!.
+    - Hi, could you tell me how to acess the lighthouse?-
+    - You must first solve 3 diffrent riddles. Talk to me again when you are ready
+      to begin
     secondQuestSentences: []
     sentencesDuringQuests:
-    - Have you gotten my flowers?
+    - '1: Is a salmon a fish?'
+    - '2: Is a salmon a fish?'
+    - '3: Is a salmon a fish?'
     AfterQuestSentences:
     - Thanks for getting my flowers (jeff)
     hasDiffrentQuestSentences:
@@ -3209,13 +3246,17 @@ MonoBehaviour:
     - Thanks for that one time (jeff)
     TalkQuest:
     - Hello! TALK QUEST!
+    FailedQuestions:
+    - Sorry but that is wrong.
   currentAmount: 0
   DiffrentQuest: 0
+  hasQuestionQuest: 1
+  QuestionQuest: 0
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
   onQuest: {fileID: 1633525382}
   Quests: {fileID: 0}
   quests: {fileID: 1633525378}
-  questName: CatherFish
+  questName: Riddle
   secondquestName: 
   CurrentQuesttext: {fileID: 1675653135}
   CurrentQuestProgresstext: {fileID: 1850445575}
@@ -3368,7 +3409,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799378793}
-  m_LocalRotation: {x: 0.2208755, y: -0.000000016781419, z: 0.0000000038004675, w: 0.97530204}
+  m_LocalRotation: {x: 0.2208755, y: 0.000000016781419, z: -0.0000000038004675, w: 0.97530204}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3640,9 +3681,12 @@ MonoBehaviour:
   Fishes:
   - {fileID: 11400000, guid: 0a5e8bdec13174c4685712e4f9c056e9, type: 2}
   - {fileID: 11400000, guid: 2d4e2553c8009f34887bcaec97793783, type: 2}
+  QuicktimeCanvas: {fileID: 0}
   QuickTimeText: {fileID: 1610682320}
   QuickTimeMouse: {fileID: 1442540789}
   Reel: {fileID: -1816876572137815328, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
+  NormalFish: 1
+  fishingRod: {fileID: 0}
 --- !u!1001 &1930739921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3872,14 +3916,17 @@ MonoBehaviour:
     CompletedQuest:
     - Thanks for that one time
     TalkQuest: []
+    FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
+  hasQuestionQuest: 0
+  QuestionQuest: 0
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
   onQuest: {fileID: 1633525382}
   Quests: {fileID: 0}
   quests: {fileID: 1633525378}
   questName: TalkToNPC
-  secondquestName: MissingGrass
+  secondquestName: Riddle
   CurrentQuesttext: {fileID: 1675653135}
   CurrentQuestProgresstext: {fileID: 1850445575}
   hasSecondQuest: 1
@@ -4476,6 +4523,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 809411942}
     - target: {fileID: 321413116891933653, guid: cee0395439a0a5d439646453c07f0b6b, type: 3}
+      propertyPath: cameraMainTransform
+      value: 
+      objectReference: {fileID: 1545440284}
+    - target: {fileID: 321413116891933653, guid: cee0395439a0a5d439646453c07f0b6b, type: 3}
       propertyPath: quest.goal.wantedItem
       value: 
       objectReference: {fileID: 11400000, guid: cc3ca0dcae9145448b7c22acc85819dd, type: 2}
@@ -4542,7 +4593,7 @@ MonoBehaviour:
   isFishing: 0
   fishingLineMaterial: {fileID: 0}
   maxFishingDist: 100
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1545440281}
   Casting: 0
 --- !u!1001 &1116276594126382618
 PrefabInstance:
@@ -4890,6 +4941,10 @@ PrefabInstance:
       propertyPath: FishingRod
       value: 
       objectReference: {fileID: 11400000, guid: 09754824046c45744b865cb2df6169b8, type: 2}
+    - target: {fileID: 4466637910475298246, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: riddle
+      value: 
+      objectReference: {fileID: 1633525385}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
 --- !u!1001 &5619598728436748105

@@ -20,6 +20,10 @@ public class DialogueManager : MonoBehaviour
     public bool CompletedQuest = false;
     public bool SecondQuest = false;
     public bool TalkQuest = false;
+    public bool QuestionsQuest = false;
+    public bool failedQuestionQuest = false;
+
+    public bool WrongAnswer = false;
 
     private Queue<string> Sentences;
 
@@ -110,6 +114,15 @@ public class DialogueManager : MonoBehaviour
             DisplayNextSentence();
         }
 
+        if (WrongAnswer)
+        {
+            foreach (string sentence in dialogue.FailedQuestions)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
+
 
         // First time meeting player.
         if (hasSpoken == false && hasGottenQuestItems == false && CompletedQuest == false && hasDiffrentQuest == false && TalkQuest == false)
@@ -139,12 +152,37 @@ public class DialogueManager : MonoBehaviour
             // PLAYER NAME
             nameText.text = PlayerName;
             Debug.Log("Player talking");
-        }
+        }   
         else
         {
             // NPC NAME
             Debug.Log("Player not talking");
             nameText.text = npcName;
+        }
+        // Used only for one quest. Hacky way of doing this but time is running out.
+        if (sentence.Contains("1:"))
+        {
+            FindObjectOfType<OnQuest>().riddle.First();
+            FindObjectOfType<OnQuest>().riddle.FirstButton.GetComponentInChildren<TextMeshProUGUI>().text = "No";
+            FindObjectOfType<OnQuest>().riddle.SecondButton.GetComponentInChildren<TextMeshProUGUI>().text = "Yes";
+            FindObjectOfType<OnQuest>().riddle.ThirdButton.GetComponentInChildren<TextMeshProUGUI>().text = "No";
+            Debug.Log("First riddle");
+        }
+        if (sentence.Contains("2:"))
+        {
+            FindObjectOfType<OnQuest>().riddle.Second();
+            FindObjectOfType<OnQuest>().riddle.FirstButton.GetComponentInChildren<TextMeshProUGUI>().text = "No";
+            FindObjectOfType<OnQuest>().riddle.SecondButton.GetComponentInChildren<TextMeshProUGUI>().text = "Yes";
+            FindObjectOfType<OnQuest>().riddle.ThirdButton.GetComponentInChildren<TextMeshProUGUI>().text = "No";
+            Debug.Log("Second riddle");
+        }
+        if (sentence.Contains("3:"))
+        {
+            FindObjectOfType<OnQuest>().riddle.Third();
+            FindObjectOfType<OnQuest>().riddle.FirstButton.GetComponentInChildren<TextMeshProUGUI>().text = "No";
+            FindObjectOfType<OnQuest>().riddle.SecondButton.GetComponentInChildren<TextMeshProUGUI>().text = "No";
+            FindObjectOfType<OnQuest>().riddle.ThirdButton.GetComponentInChildren<TextMeshProUGUI>().text = "Yes";
+            Debug.Log("Third riddle");
         }
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
@@ -171,6 +209,7 @@ public class DialogueManager : MonoBehaviour
         CompletedQuest = false;
         SecondQuest = false;
         TalkQuest = false;
+        
         
     }
 

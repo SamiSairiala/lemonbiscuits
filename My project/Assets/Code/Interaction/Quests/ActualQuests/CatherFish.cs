@@ -6,7 +6,7 @@ public class CatherFish : NewQuest
 {
     public Item rewardItem;
     public QuestItems questItems; // Quest items is here to get easy reference to needed items/npcs and other stuff that is needed in quest.
-    public int requiredAmount = 1; // Invisible + 1 from somewhere so if you want to only to require 2 write 1 here. // TODO: Found the issue need to think of a fix 
+    public int requiredAmount = 2; // Invisible + 1 from somewhere so if you want to only to require 2 write 1 here. // TODO: Found the issue need to think of a fix 
     private void Start()
     {
         questItems = FindObjectOfType<QuestItems>();

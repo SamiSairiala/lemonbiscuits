@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.UI;
 public class QuestNPC : MonoBehaviour
 {
     public Dialogue dialogue;
@@ -13,6 +13,8 @@ public class QuestNPC : MonoBehaviour
     public bool DiffrentQuest = false;
     public bool Helped { get; set; }
 
+    public bool hasQuestionQuest = false;
+    public bool QuestionQuest = false;
 
     [SerializeField] private InputActionReference interaction;
     public OnQuest onQuest;
@@ -25,6 +27,9 @@ public class QuestNPC : MonoBehaviour
 
     public TextMeshProUGUI CurrentQuesttext;
     public TextMeshProUGUI CurrentQuestProgresstext;
+
+
+  
 
     public bool hasSecondQuest = false;
     public bool secondQuestActive = false;
@@ -52,7 +57,10 @@ public class QuestNPC : MonoBehaviour
 
             if (!AssignedQuest && !Helped && !onQuest.onQuest)
             {
-
+                if (questName.Equals("Riddle"))
+                {
+                    QuestionQuest = true;
+                }
                 // Assign quest to player.
                 AssignQuest();
                 onQuest.onQuest = true;
@@ -91,6 +99,10 @@ public class QuestNPC : MonoBehaviour
             {
                 if(hasSecondQuest == true && secondQuestActive == false)
 				{
+                    if (secondquestName.Equals("Riddle"))
+                    {
+                        QuestionQuest = true;
+                    }
                     secondQuestActive = true;
                     AssignSecondQuest();
 				}
@@ -116,20 +128,39 @@ public class QuestNPC : MonoBehaviour
     }
     void AssignSecondQuest()
 	{
-        Quest = null; 
-        AssignedQuest = true;
-        Quest = (NewQuest)quests.AddComponent(System.Type.GetType(secondquestName));
-        Debug.Log("Assigned quest");
-        StartCoroutine(UpdateQuestText());
-        Helped = false;
+        if (hasQuestionQuest && QuestionQuest)
+        {
+            Quest = null;
+            onQuest.riddle.enabled = true;
+            AssignedQuest = true;
+        }
+        else
+        {
+            Quest = null;
+            AssignedQuest = true;
+            Quest = (NewQuest)quests.AddComponent(System.Type.GetType(secondquestName));
+            Debug.Log("Assigned quest");
+            StartCoroutine(UpdateQuestText());
+            Helped = false;
+        }
+        
     }
 
     void AssignQuest()
     {
-        AssignedQuest = true;
-        Quest = (NewQuest)quests.AddComponent(System.Type.GetType(questName));
-        Debug.Log("Assigned quest");
-        StartCoroutine(UpdateQuestText());
+        if (hasQuestionQuest && QuestionQuest)
+        {
+            onQuest.riddle.enabled = true;
+            AssignedQuest = true;
+        }
+        else
+        {
+            AssignedQuest = true;
+            Quest = (NewQuest)quests.AddComponent(System.Type.GetType(questName));
+            Debug.Log("Assigned quest");
+            StartCoroutine(UpdateQuestText());
+        }
+        
         
 
     }
@@ -185,8 +216,28 @@ public class QuestNPC : MonoBehaviour
 
     void CheckQuest()
     {
+        if (onQuest.RiddleQuestCompleted)
+        {
+            onQuest.onQuest = false;
+            Helped = true;
+            AssignedQuest = false;
+            QuestionQuest = false;
+            FindObjectOfType<DialogueManager>().hasGottenQuestItems = true;
+            FindObjectOfType<DialogueManager>().CompletedQuest = false;
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        }
+        else
+        {
+            FindObjectOfType<DialogueManager>().hasSpoken = true;
+            FindObjectOfType<DialogueManager>().hasGottenQuestItems = false;
+            FindObjectOfType<DialogueManager>().CompletedQuest = false;
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        }
+        if (QuestionQuest == false)
+        {
 
-        if (Quest.Completed)
+        
+        if (Quest.Completed)    
         {
 
             DeleteItems();
@@ -208,6 +259,7 @@ public class QuestNPC : MonoBehaviour
             FindObjectOfType<DialogueManager>().hasGottenQuestItems = false;
             FindObjectOfType<DialogueManager>().CompletedQuest = false;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        }
         }
     }
 

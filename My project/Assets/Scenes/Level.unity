@@ -7507,7 +7507,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.3042126, y: 0.00000003278174, z: -0.000000010468797, w: 0.9526042}
+  m_LocalRotation: {x: 0.3042126, y: -0.00000003278174, z: 0.000000010468797, w: 0.9526042}
   m_LocalPosition: {x: 8, y: 3.56, z: -1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9033,7 +9033,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189588219}
-  m_LocalRotation: {x: 0.3042126, y: 0.000000016390873, z: -0.000000005234398, w: 0.9526042}
+  m_LocalRotation: {x: 0.3042126, y: -0.000000016390873, z: 0.000000005234398, w: 0.9526042}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9061,6 +9061,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onQuest: 0
   TalkQuest: 0
+  RiddleQuest: 0
+  RiddleQuestCompleted: 0
+  riddle: {fileID: 0}
 --- !u!1001 &1200095719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9677,7 +9680,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321389142}
-  m_LocalRotation: {x: 0.3438076, y: -0.000000022850129, z: 0.00000000836604, w: 0.9390401}
+  m_LocalRotation: {x: 0.3438076, y: 0.000000022850127, z: -0.000000008366039, w: 0.9390401}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15098,8 +15101,11 @@ MonoBehaviour:
     CompletedQuest:
     - Thanks for these so much!
     TalkQuest: []
+    FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
+  hasQuestionQuest: 0
+  QuestionQuest: 0
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
   onQuest: {fileID: 253224392}
   Quests: {fileID: 0}
@@ -17258,8 +17264,11 @@ MonoBehaviour:
     CompletedQuest:
     - Thanks for that one time!
     TalkQuest: []
+    FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
+  hasQuestionQuest: 0
+  QuestionQuest: 0
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
   onQuest: {fileID: 253224392}
   Quests: {fileID: 0}
