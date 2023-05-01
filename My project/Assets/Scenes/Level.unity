@@ -4738,6 +4738,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: lemontreebase 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1376055237241637817, guid: 7c4ac7a0b50b9bb4ebd7883bcae4a101, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376055237241637817, guid: 7c4ac7a0b50b9bb4ebd7883bcae4a101, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8900352bfc6a9e64ab748b03a72152be, type: 2}
+    - target: {fileID: 1376055237241637817, guid: 7c4ac7a0b50b9bb4ebd7883bcae4a101, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6248c79f7a2ec240866c28d0a692207, type: 2}
     - target: {fileID: 2939153712193630407, guid: 7c4ac7a0b50b9bb4ebd7883bcae4a101, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -9680,7 +9692,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321389142}
-  m_LocalRotation: {x: 0.3438076, y: 0.000000022850127, z: -0.000000008366039, w: 0.9390401}
+  m_LocalRotation: {x: 0.3438076, y: -0.000000022850129, z: 0.00000000836604, w: 0.9390401}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
