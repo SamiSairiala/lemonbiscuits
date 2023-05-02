@@ -47,12 +47,15 @@ public class Shop : MonoBehaviour
 
     void SellButtonClicked(int itemIndex)
 	{
+        Debug.Log("Selling");
 		if (InventoryManager.Instance.Items.Contains(ShopItemsList[itemIndex].item))
 		{
             InventoryManager.Instance.Remove(ShopItemsList[itemIndex].item);
             int value = ShopItemsList[itemIndex].item.value;
+            Debug.Log("Had needed item removing it now");
             for(int i = 0; i == value; i++)
 			{
+                Debug.Log("Adding coin");
                 InventoryManager.Instance.Add(Coin);
             }
             
