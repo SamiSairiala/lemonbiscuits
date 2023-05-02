@@ -143,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("Speed", 0f);
 		}
         // If player has pressed jump button and is grounded add y velocity to player.
-        if (JumpControl.action.triggered && PlayerGrounded == true)
+        if (JumpControl.action.WasPerformedThisFrame() && PlayerGrounded == true)
         {
             Debug.Log("Jumping");
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);

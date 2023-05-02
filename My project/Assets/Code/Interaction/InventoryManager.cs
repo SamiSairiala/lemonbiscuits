@@ -86,6 +86,7 @@ public class InventoryManager : MonoBehaviour
 		
 	}
 
+	
 
 	// Shows inventory UI.
 	public void ListItems()

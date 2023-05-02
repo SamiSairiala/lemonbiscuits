@@ -226,14 +226,14 @@ public class QuestNPC : MonoBehaviour
             FindObjectOfType<DialogueManager>().CompletedQuest = false;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
-        else if(QuestionQuest && !onQuest.RiddleQuestCompleted)
-        {
-            FindObjectOfType<DialogueManager>().hasSpoken = true;
-            FindObjectOfType<DialogueManager>().hasGottenQuestItems = false;
-            FindObjectOfType<DialogueManager>().CompletedQuest = false;
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        }
-        if (QuestionQuest == false)
+		else if (QuestionQuest && !onQuest.RiddleQuestCompleted)
+		{
+			FindObjectOfType<DialogueManager>().hasSpoken = true;
+			FindObjectOfType<DialogueManager>().hasGottenQuestItems = false;
+			FindObjectOfType<DialogueManager>().CompletedQuest = false;
+			FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+		}
+		if (QuestionQuest == false)
         {
 
         
