@@ -58,7 +58,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionTexture:
-        m_Texture: {fileID: 2800000, guid: e2abb501473f03e4db23d7181dd277a3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3096bdfe4c885304c96b3e6a7515755e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -121,5 +121,5 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 0.2313725, g: 0.2313725, b: 0.2313725, a: 1}
-    - _EmissionColor: {r: 0, g: 0.30056763, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 1, b: 0.7005143, a: 1}
   m_BuildTextureStacks: []
