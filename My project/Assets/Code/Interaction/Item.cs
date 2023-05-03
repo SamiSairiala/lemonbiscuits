@@ -18,4 +18,6 @@ public class Item : ScriptableObject
         Coin,
         QuestItem
 	}
+
+    
 }

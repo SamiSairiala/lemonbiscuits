@@ -36,23 +36,23 @@ public class CheckTerrainTexture : MonoBehaviour
         GetTerrainTexture();
         if (textureValues[0] > 0)
         {
-            Debug.Log("Grass");
+            //Debug.Log("Grass");
         }
         if (textureValues[1] > 0)
         {
-            Debug.Log("Grass2");
+            //Debug.Log("Grass2");
         }
         if (textureValues[2] > 0)
         {
-            Debug.Log("Dirt");
+            //Debug.Log("Dirt");
         }
         if (textureValues[3] > 0)
         {
-            Debug.Log("Dirt with grass");
+            //Debug.Log("Dirt with grass");
         }
         if (textureValues[4] > 0)
         {
-            Debug.Log("Sand");
+            //Debug.Log("Sand");
         }
     }
 

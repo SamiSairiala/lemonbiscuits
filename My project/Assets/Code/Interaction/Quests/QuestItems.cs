@@ -7,6 +7,7 @@ public class QuestItems : MonoBehaviour
     [Header("Required quest items")]
     public Item Flower;
     public Item Fish;
+    public Item Apple;
 
 
     [Header("Reward items")]

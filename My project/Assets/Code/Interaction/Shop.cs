@@ -19,6 +19,7 @@ public class Shop : MonoBehaviour
     GameObject g;
     [SerializeField]Transform ShopScrollView;
     Button buyButton;
+    Button SellButton;
     public Item Coin;
     [SerializeField] private GameObject ShopCanvas;
     
@@ -35,9 +36,35 @@ public class Shop : MonoBehaviour
             g.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = ShopItemsList[i].Price.ToString();
             buyButton = g.transform.GetChild(2).GetComponent<Button>();
             buyButton.AddEventListener(i, OnShopItemButtonClicked);
+            g.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = ShopItemsList[i].item.value.ToString();
+            SellButton = g.transform.GetChild(3).GetComponent<Button>();
+            SellButton.AddEventListener(i, SellButtonClicked);
         }
         Destroy(ItemTemplate);
     }
+
+
+
+    void SellButtonClicked(int itemIndex)
+	{
+        Debug.Log("Selling");
+		if (InventoryManager.Instance.Items.Contains(ShopItemsList[itemIndex].item))
+		{
+            InventoryManager.Instance.Remove(ShopItemsList[itemIndex].item);
+            int value = ShopItemsList[itemIndex].item.value;
+            Debug.Log("Had needed item removing it now");
+            for(int i = 0; i < value; i++)
+			{
+                Debug.Log("Adding coin");
+                InventoryManager.Instance.Add(Coin);
+            }
+            
+		}
+		else
+		{
+            Debug.Log("Dont have that item");
+		}
+	}
 
     void OnShopItemButtonClicked(int itemIndex)
     {

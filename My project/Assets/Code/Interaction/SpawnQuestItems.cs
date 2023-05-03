@@ -14,17 +14,37 @@ public class SpawnQuestItems : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Randomize();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!Flower.activeInHierarchy)
+	private void Randomize()
+	{
+        int numberOfFlowerObjects = GameObject.FindGameObjectsWithTag("Flower").Length;
+        Debug.Log(numberOfFlowerObjects);
+        if (numberOfFlowerObjects <= 4)
         {
-            int rand = Random.Range(1, 10); // 9 spawn points
-            Instantiate(Flower, spawnPoints[rand].transform.position, Quaternion.identity);
-            
+            Debug.Log("Spawning flowers");
+            spawnApple();
+        }
+        else
+        {
+            Debug.Log("not Spawning flowers");
+            StartCoroutine(DontSpawn());
         }
     }
+
+    IEnumerator DontSpawn()
+	{
+        yield return new WaitForSeconds(10);
+        Start();
+    }
+
+	private void spawnApple()
+	{
+        int rand = Random.Range(1, 10); // 9 spawn points
+        Instantiate(Flower, spawnPoints[rand].transform.position, Quaternion.identity);
+        StartCoroutine(DontSpawn());
+    }
+
+	
 }
