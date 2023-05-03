@@ -53,7 +53,7 @@ public class Shop : MonoBehaviour
             InventoryManager.Instance.Remove(ShopItemsList[itemIndex].item);
             int value = ShopItemsList[itemIndex].item.value;
             Debug.Log("Had needed item removing it now");
-            for(int i = 0; i == value; i++)
+            for(int i = 0; i < value; i++)
 			{
                 Debug.Log("Adding coin");
                 InventoryManager.Instance.Add(Coin);

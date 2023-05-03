@@ -14,6 +14,7 @@ public class GameData
 	public bool thirdquestComplete;
 	public bool fourthquestComplete;
 	public bool fifthquestComplete;
+	public string Playername;
 
 	public GameData()
 	{
@@ -24,5 +25,6 @@ public class GameData
         {
 			firstquestComplete = true;
         }
+		Playername = "";
 	}
 }

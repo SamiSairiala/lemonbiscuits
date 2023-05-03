@@ -23,6 +23,8 @@ public class SavePlayer : MonoBehaviour, IDataPersitence
         Debug.Log("Loading player transform" + data.vPlayerPos);
         StartCoroutine(waitFor());
         firstquestComplete = data.firstquestComplete;
+        FindObjectOfType<DialogueManager>().PlayerName = data.Playername;
+        Debug.Log(FindObjectOfType<DialogueManager>().PlayerName);
     }
 
     public void SaveData(ref GameData data)
@@ -32,6 +34,7 @@ public class SavePlayer : MonoBehaviour, IDataPersitence
         data.items = inventoryManager.Items;
         data.Inventoryitems = inventoryManager.InventoryItems;
         data.firstquestComplete = firstquestComplete;
+        data.Playername = FindObjectOfType<DialogueManager>().PlayerName.ToString();
     }
 
 
