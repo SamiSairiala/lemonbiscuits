@@ -16,6 +16,12 @@ public class Dialogue
     [TextArea(3, 10)]
     public string[] secondQuestSentences;
 
+    [TextArea(3, 10)]
+    public string[] thirdQuestSentences;
+
+    [TextArea(3, 10)]
+    public string[] FourthQuestSentences;
+
     // Here to fill npc to talk something after player accepts quests etc.
     [TextArea(3, 10)]
     public string[] sentencesDuringQuests;
@@ -30,7 +36,31 @@ public class Dialogue
     public string[] CompletedQuest;
 
     [TextArea(3, 10)]
+    public string[] nextTwigQuest;
+
+    [TextArea(3, 10)]
+    public string[] nextRockieQuest;
+
+    [TextArea(3, 10)]
+    public string[] nextLaughyQuest;
+
+    [TextArea(3, 10)]
     public string[] TalkQuest;
+
+    [TextArea(3, 10)]
+    public string[] SecondTalkQuest;
+
+    [TextArea(3, 10)]
+    public string[] FirstQuestDone;
+
+    [TextArea(3, 10)]
+    public string[] SecondQuestDone;
+
+    [TextArea(3, 10)]
+    public string[] ThirdQuestDone;
+
+    [TextArea(3, 10)]
+    public string[] FourthQuestDone;
 
 
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.1836265, g: 0.22787556, b: 0.29804754, a: 1}
+  m_IndirectSpecularColor: {r: 0.18362683, g: 0.22787625, b: 0.29804856, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1419,7 +1419,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190044033}
-  m_LocalRotation: {x: 0.2646427, y: -0.000000016592917, z: 0.0000000045535438, w: 0.9643466}
+  m_LocalRotation: {x: 0.2646427, y: 0.00000001659291, z: -0.000000004553543, w: 0.9643465}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1586,6 +1586,10 @@ PrefabInstance:
     - target: {fileID: 7037826542889469260, guid: bbeaeccb8ad2dd44da69e2368a5f679b, type: 3}
       propertyPath: m_Name
       value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037826542889469260, guid: bbeaeccb8ad2dd44da69e2368a5f679b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7037826542889469262, guid: bbeaeccb8ad2dd44da69e2368a5f679b, type: 3}
       propertyPath: itemName
@@ -2200,9 +2204,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0a5e8bdec13174c4685712e4f9c056e9, type: 2}
     - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: NPC1
+      value: 
+      objectReference: {fileID: 2639800595101608050}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: NPC2
+      value: 
+      objectReference: {fileID: 2040309598}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: NPC3
+      value: 
+      objectReference: {fileID: 1013497731}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
       propertyPath: Apple
       value: 
       objectReference: {fileID: 11400000, guid: 8f1dff9c2a6afce4bb19776517548329, type: 2}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: Recipe
+      value: 
+      objectReference: {fileID: 11400000, guid: 8fe8f7010ac89ff4b8517cb422189bef, type: 2}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: Croissant
+      value: 
+      objectReference: {fileID: 11400000, guid: c39984d14a16ed541a1195d9e0d67cfc, type: 2}
     - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
       propertyPath: FishingRod
       value: 
@@ -2223,6 +2247,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4b61e90b2c4e384dbc74e83060f58f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &253224393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+  m_PrefabInstance: {fileID: 253224390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253224391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb49565d2659204b892922981187c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &254459476 stripped
@@ -3113,6 +3148,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4970087727901191957, guid: 1607472a83624b84ea2ba3b91d4f957d, type: 3}
   m_PrefabInstance: {fileID: 345359246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &359625411 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7037826542080554647, guid: bbeaeccb8ad2dd44da69e2368a5f679b, type: 3}
+  m_PrefabInstance: {fileID: 198857990}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &361621290
 PrefabInstance:
@@ -4505,6 +4545,124 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6693736345578290286, guid: cb6fb8cfa8c1c2547816c26202495c96, type: 3}
   m_PrefabInstance: {fileID: 562096703}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &566634246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 566634247}
+  - component: {fileID: 566634251}
+  - component: {fileID: 566634250}
+  - component: {fileID: 566634249}
+  - component: {fileID: 566634248}
+  m_Layer: 5
+  m_Name: Recipe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &566634247
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566634246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2060591253}
+  m_Father: {fileID: 359625411}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 578.3956, y: -82.43381}
+  m_SizeDelta: {x: 137.29132, y: 164.86761}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &566634248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566634246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 30489067}
+          m_TargetAssemblyTypeName: CraftingManager, Assembly-CSharp
+          m_MethodName: OnMouseDownItem
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 8fe8f7010ac89ff4b8517cb422189bef, type: 2}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &566634249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566634246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299ec371355eb174990ac1626ca6cda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: {fileID: 11400000, guid: 8fe8f7010ac89ff4b8517cb422189bef, type: 2}
+--- !u!114 &566634250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566634246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: c796d2902e7363e43a97c6ee3011ce5e, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &566634251
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566634246}
+  m_CullTransparentMesh: 1
 --- !u!4 &571008941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1153976439273760686, guid: 5784b3b5d3536cc4fa44dc4a8cdd64c2, type: 3}
@@ -7173,7 +7331,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.3042126, y: -0.00000003278174, z: 0.000000010468797, w: 0.9526042}
+  m_LocalRotation: {x: 0.3042126, y: 0.00000003278174, z: -0.000000010468797, w: 0.9526042}
   m_LocalPosition: {x: 8, y: 3.56, z: -1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7738,6 +7896,125 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010472475}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1013497731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2639800594581369285, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+  m_PrefabInstance: {fileID: 1409752770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1013497732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013497731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d185285a23c424d86291904318d3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Laughy
+    sentences:
+    - Oh, hello-o-o! We're always happy to see new faces here! Fell yourself at home!
+      Our name is Laughy. Will you be our friend?
+    - Hmm. Let me think.
+    - There are no big tasks for you, but if you want a distraction, there is something
+      you could do. I want to test your skills.
+    - I love cooking, it's my passion! Will you make me happy with something? I will
+      give you a gift in return.
+    - You'll find everything you need in our local shop.
+    - 'May the fine taste and imagination be with you! I will give you a few coins
+      so you can get started. {TIP!: If you run out of money you can fish and sell
+      them back to the store.}'
+    secondQuestSentences: []
+    thirdQuestSentences:
+    - Hi-i. Are you getting the hang of it here yet? How do you like it? Have you
+      already met our friends, Rockie and Twig?
+    - Rockie is a little bit more introvered, but he's kind and caring. When we're
+      with him, we don't notice how the time flies. Although, for us loonies, time
+      dosen't matter at all.
+    - And Twig keeps their own counsel. They play Mr.Mysterious. Probably took it
+      from grandpa Arbor. But they're actually the sweetest barkie in the village!
+    - 'You''re a great friend, and we want others to know that too. But if you''ve
+      already met them, that''s grea! '
+    - And we wanted to ask something from you again...
+    - We haven't had any treats in a while. We lo-v-ove sweets! And you? We know
+      nothing about cooking. But Rockie is great chef!
+    - 'Even having dosen''t stop him from gastronomical wonders. He''s master of
+      his craft! Could you ask him for a tasty, but simple recipe? '
+    - And we'll give you a piece when we're done with it. Thanks!
+    sentencesDuringQuests:
+    - Have you gotten the 3 flowers?
+    AfterQuestSentences:
+    - Thanks for your help!
+    hasDiffrentQuestSentences:
+    - You should propably do the other task first.
+    CompletedQuest:
+    - Thanks for that one time!
+    nextTwigQuest:
+    - Hi! I think you should first talk to Twig.
+    nextRockieQuest: []
+    nextLaughyQuest:
+    - Hi! I think you should first talk to Laughy.
+    TalkQuest:
+    - Hello! This is the first time i'm seeing you here. You must be the newcomer!
+      Rumors about you spread all over the village!
+    - I know, Arbor told you a lot of scary things about upsetting the magical balance
+      of the Forest, but it's not as bad as you think it is.
+    - We are sure he will figure it out. And for now you can stay with us. Could
+      you give Twig this pebble and could you come back to talk to me .
+    SecondTalkQuest:
+    - What a suprise!
+    - We waited for a recipe, and you brought us food! And what food! Apple pie!
+      Our favorite! Our belly will be so happy today, and so will we!
+    - Do you wnat to try it too? Rockie's food is always excellent!
+    - '[Laughy''s stomach rumbles]'
+    - That's what we're saying, belly! Exactly!
+    - We will make sure to return Rockie the favor. Well, off to the fiest! Bon appetit!
+    FirstQuestDone:
+    - 'Oh... '
+    - That looks delicious. And it is nothing like the black burnt substance that
+      Laughy usually makes out of food...
+    - '[Rockie tries the croissant]'
+    - M-m-m, that is pretty good! Thank you.
+    - Well, you managed to impress me. I will give you something in return.
+    - Here you go. Use it whenever you need! Until we meet again.
+    SecondQuestDone: []
+    ThirdQuestDone: []
+    FailedQuestions: []
+  currentAmount: 0
+  DiffrentQuest: 0
+  hasQuestionQuest: 0
+  QuestionQuest: 0
+  interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
+  onQuest: {fileID: 253224392}
+  Quests: {fileID: 0}
+  questItems: {fileID: 253224393}
+  quests: {fileID: 253224391}
+  questName: CraftCroissant
+  secondquestName: 
+  thirdquestName: 
+  CurrentQuesttext: {fileID: 407031063}
+  CurrentQuestProgresstext: {fileID: 693968268}
+  hasSecondQuest: 0
+  secondQuestActive: 0
+  hasThirdQuest: 0
+  thirdQuestActive: 0
+--- !u!136 &1013497733
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013497731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.88
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1020051951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8592,6 +8869,124 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1153976439273760686, guid: 5784b3b5d3536cc4fa44dc4a8cdd64c2, type: 3}
   m_PrefabInstance: {fileID: 1818256713}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1184453778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1184453779}
+  - component: {fileID: 1184453783}
+  - component: {fileID: 1184453782}
+  - component: {fileID: 1184453781}
+  - component: {fileID: 1184453780}
+  m_Layer: 5
+  m_Name: Flour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1184453779
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184453778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1487080821}
+  m_Father: {fileID: 359625411}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 419.39563, y: -82.43381}
+  m_SizeDelta: {x: 137.29132, y: 164.86761}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1184453780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184453778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 30489067}
+          m_TargetAssemblyTypeName: CraftingManager, Assembly-CSharp
+          m_MethodName: OnMouseDownItem
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 473dd149297195142acf91322f55d953, type: 2}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1184453781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184453778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299ec371355eb174990ac1626ca6cda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: {fileID: 11400000, guid: 473dd149297195142acf91322f55d953, type: 2}
+--- !u!114 &1184453782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184453778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: c53f6b0e7c795f544a6167600f98b1a0, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1184453783
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184453778}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1185633685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8735,7 +9130,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189588219}
-  m_LocalRotation: {x: 0.3042126, y: -0.000000016390873, z: 0.000000005234398, w: 0.9526042}
+  m_LocalRotation: {x: 0.3042126, y: 0.000000016390873, z: -0.000000005234398, w: 0.9526042}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8763,6 +9158,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onQuest: 0
   TalkQuest: 0
+  SecondTalkQuest: 0
+  TwigQuest: 0
+  RockieQuest: 0
+  LaughyQuest: 0
   RiddleQuest: 0
   RiddleQuestCompleted: 0
   riddle: {fileID: 0}
@@ -9224,6 +9623,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8f1dff9c2a6afce4bb19776517548329, type: 2}
     - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
+      propertyPath: Item3
+      value: 
+      objectReference: {fileID: 11400000, guid: 473dd149297195142acf91322f55d953, type: 2}
+    - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
+      propertyPath: Item4
+      value: 
+      objectReference: {fileID: 11400000, guid: 8fe8f7010ac89ff4b8517cb422189bef, type: 2}
+    - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
       propertyPath: resultSlot
       value: 
       objectReference: {fileID: 486586238}
@@ -9235,6 +9642,14 @@ PrefabInstance:
       propertyPath: GameObject2
       value: 
       objectReference: {fileID: 1976318832}
+    - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
+      propertyPath: GameObject3
+      value: 
+      objectReference: {fileID: 1184453778}
+    - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
+      propertyPath: GameObject4
+      value: 
+      objectReference: {fileID: 566634246}
     - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
       propertyPath: AcceptButton
       value: 
@@ -9249,7 +9664,7 @@ PrefabInstance:
       objectReference: {fileID: 1798702497}
     - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
       propertyPath: recipe.Array.data[0]
-      value: FishFishnullnull
+      value: FlourRecipenullnull
       objectReference: {fileID: 0}
     - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
       propertyPath: craftingSlots.Array.data[0]
@@ -9267,6 +9682,10 @@ PrefabInstance:
       propertyPath: craftingSlots.Array.data[3]
       value: 
       objectReference: {fileID: 159586329}
+    - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
+      propertyPath: recipeResults.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c39984d14a16ed541a1195d9e0d67cfc, type: 2}
     - target: {fileID: 2543453769467341977, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -9907,6 +10326,167 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6693736345578290286, guid: cb6fb8cfa8c1c2547816c26202495c96, type: 3}
   m_PrefabInstance: {fileID: 2066361375}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1409752770
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2639800594581369285, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_Name
+      value: Laughy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369285, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_RootOrder
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 57.84184
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 49.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[0].location
+      value: 
+      objectReference: {fileID: 551405696}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[1].location
+      value: 
+      objectReference: {fileID: 1737744226}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[2].location
+      value: 
+      objectReference: {fileID: 306437299}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[3].location
+      value: 
+      objectReference: {fileID: 871307271}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[4].location
+      value: 
+      objectReference: {fileID: 551405696}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[5].location
+      value: 
+      objectReference: {fileID: 1737744226}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[6].location
+      value: 
+      objectReference: {fileID: 306437299}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[7].location
+      value: 
+      objectReference: {fileID: 871307271}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[0].actionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[1].actionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[2].actionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[3].actionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[4].actionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[5].actionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[6].actionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[7].actionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[0].triggerTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[1].triggerTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[2].triggerTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[3].triggerTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[4].triggerTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[5].triggerTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[6].triggerTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: routine.Array.data[7].triggerTime
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
 --- !u!1 &1411186590
 GameObject:
   m_ObjectHideFlags: 0
@@ -10495,6 +11075,141 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2092725687748685228, guid: 040c54aff59c99c45886d3284ca5ad14, type: 3}
   m_PrefabInstance: {fileID: 1485150391}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1487080820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1487080821}
+  - component: {fileID: 1487080823}
+  - component: {fileID: 1487080822}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1487080821
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487080820}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1184453779}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0011921, y: 51.6157}
+  m_SizeDelta: {x: 137.29, y: 58.7312}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1487080822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487080820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1487080823
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487080820}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1494977778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13858,7 +14573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5619598728775851739, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 109.6
       objectReference: {fileID: 0}
     - target: {fileID: 5619598729239219864, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_RaycastTarget
@@ -13889,6 +14604,30 @@ PrefabInstance:
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 5619598729871766343, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598729871766343, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33a27e83429e0284ca8026cee99d2d6a, type: 3}
+    - target: {fileID: 5619598729871766343, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6117647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598729871766343, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Color.b
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598729871766343, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Color.g
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598729871766343, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Color.r
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598729871766343, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
@@ -13911,10 +14650,10 @@ PrefabInstance:
     - target: {fileID: 5619598729871766361, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: ShopItemsList.Array.data[1].Image
       value: 
-      objectReference: {fileID: 21300000, guid: 60149714eb82868488f325d1ab665b99, type: 3}
+      objectReference: {fileID: 21300000, guid: c53f6b0e7c795f544a6167600f98b1a0, type: 3}
     - target: {fileID: 5619598729871766361, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: ShopItemsList.Array.data[1].Price
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5619598730127212946, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_Pivot.x
@@ -14006,7 +14745,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5619598730127212958, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598730210299742, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598730210299742, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33a27e83429e0284ca8026cee99d2d6a, type: 3}
+    - target: {fileID: 5619598730210299742, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5176471
       objectReference: {fileID: 0}
     - target: {fileID: 5619598730237818199, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_SizeDelta.x
@@ -14815,7 +15566,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2639800594581369285, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
       propertyPath: m_Name
-      value: Jeff
+      value: Twig
       objectReference: {fileID: 0}
     - target: {fileID: 2639800594581369285, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
       propertyPath: m_TagString
@@ -14899,19 +15650,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Jeff
+    name: Twig
     sentences:
-    - Hey! Could you get me 2 fishes?
+    - Hi. We, the village dwellers, welcome you in our Forest.
+    - We Already know what happened.
+    - 'When you got here, you damaged the magic viel. Now Arbor won''t get bored
+      - he
+
+      s got a lot of urgent things to do.'
+    - I'm Twig, the eldest of others like me.
+    - Long ago we were just wandering lights, until this place became our home. Maybe
+      it'll become yours, too.
+    - But I won't rush it. Maybe your jorney isn't over and you have long path ahead
+      of you. Time will tell.
+    - Anyway, you're welcomed quest here. I want you to get to know our little world.
+    - I'd suggest you drop in to another villagers'. Laughy and Rockie would surely
+      be happy to get a new friend.
+    - But you should start with Rockie. Talking to Laughy can take you hours. They
+      love attention. And don't be scared if you meet a spiri or two. They're harmless
+      creatures.
+    - We're somewhat alike, in some sense. I hope the time you spend here is pleasant.
+      See you soon.
     secondQuestSentences: []
+    thirdQuestSentences: []
     sentencesDuringQuests:
     - Have you gotten them?
     AfterQuestSentences:
-    - Thanks for these so much!
+    - Thank you for this!
     hasDiffrentQuestSentences:
     - You should complete your diffrent task first.
     CompletedQuest:
     - Thanks for these so much!
+    nextTwigQuest: []
+    nextRockieQuest:
+    - Hi! I think you should first talk to Rockie.
+    nextLaughyQuest:
+    - Hi! I think you should first talk to Laughy.
     TalkQuest: []
+    SecondTalkQuest: []
+    FirstQuestDone: []
+    SecondQuestDone: []
+    ThirdQuestDone: []
     FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
@@ -14920,13 +15699,17 @@ MonoBehaviour:
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
   onQuest: {fileID: 253224392}
   Quests: {fileID: 0}
+  questItems: {fileID: 253224393}
   quests: {fileID: 253224391}
-  questName: CatherFish
+  questName: TalkToNPC
   secondquestName: 
+  thirdquestName: 
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
   hasSecondQuest: 0
   secondQuestActive: 0
+  hasThirdQuest: 0
+  thirdQuestActive: 0
 --- !u!4 &2048948551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3117031684359226579, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
@@ -15341,6 +16124,141 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4970087727901191957, guid: 1607472a83624b84ea2ba3b91d4f957d, type: 3}
   m_PrefabInstance: {fileID: 2059700345}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2060591252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2060591253}
+  - component: {fileID: 2060591255}
+  - component: {fileID: 2060591254}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2060591253
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060591252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 566634247}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0011921, y: 51.6157}
+  m_SizeDelta: {x: 137.29, y: 58.7312}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2060591254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060591252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2060591255
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060591252}
+  m_CullTransparentMesh: 1
 --- !u!1001 &2066361375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16878,7 +17796,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2639800594581369285, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
       propertyPath: m_Name
-      value: Mark
+      value: Rockie
       objectReference: {fileID: 0}
     - target: {fileID: 2639800594581369285, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
       propertyPath: m_TagString
@@ -17062,19 +17980,77 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Mark
+    name: Rockie
     sentences:
-    - Hey! Could you gather 3 flowers for me?
-    secondQuestSentences: []
+    - I'm Rockie. Our place is quiet. We are entertaining ourselves the best we can.
+      Did you come here at Arbor's behest?
+    - Hmm. Let me think.
+    - There are no big tasks for you, but if you want a distraction, there is something
+      you could do. I want to test your skills.
+    - I love cooking, it's my passion! Will you make me happy with something? I will
+      give you a gift in return.
+    - You'll find everything you need in our local shop.
+    - 'May the fine taste and imagination be with you! I will give you a few coins
+      so you can get started. {TIP!: If you run out of money you can fish and sell
+      them back to the store.}'
+    secondQuestSentences:
+    - Okay let's start so Laughy dosen't make a catastrophe!
+    - Bring me 3 apples, then i will bbake Laughy's favorite apple pie.
+    - That will discourage them from unreasonable ideas. Can you handle it?
+    - Super. In the meantime, I will start preparing the dough.
+    - And please, don't encourage Laughy's cooking impulses. It never ends up with
+      anything good. Oh, Laughy...
+    thirdQuestSentences:
+    - Here, it is ready. Now you can feed the poor buddy, and we will all remain
+      unharmed and well.
+    - And tell them i said hello. They should come more often.
     sentencesDuringQuests:
-    - Have you gotten the 3 flowers?
+    - Have you done the task?
     AfterQuestSentences:
     - Thanks for your help!
     hasDiffrentQuestSentences:
     - You should propably do the other task first.
     CompletedQuest:
     - Thanks for that one time!
-    TalkQuest: []
+    nextTwigQuest:
+    - Hi! I think you should first talk to Twig.
+    nextRockieQuest: []
+    nextLaughyQuest:
+    - Hi! I think you should first talk to Laughy.
+    TalkQuest:
+    - Hello! This is the first time i'm seeing you here. You must be the newcomer!
+      Rumors about you spread all over the village!
+    - I know, Arbor told you a lot of scary things about upsetting the magical balance
+      of the Forest, but it's not as bad as you think it is.
+    - We are sure he will figure it out. And for now you can stay with us. Could
+      you give Twig this pebble and could you come back to talk to me .
+    SecondTalkQuest:
+    - 'Greetings! What''s up? '
+    - Laughy sent you?
+    - ...
+    - Are they planning to cook?! We cannot let that happen or it will be a catastrophe!
+    - Tell him you will get the recipe but come back to me. I will make everything
+      myself.
+    FirstQuestDone:
+    - 'Oh... '
+    - That looks delicious. And it is nothing like the black burnt substance that
+      Laughy usually makes out of food...
+    - '[Rockie tries the croissant]'
+    - M-m-m, that is pretty good! Thank you.
+    - Well, you managed to impress me. I will give you something in return.
+    - Here you go. Use it whenever you need! Until we meet again.
+    SecondQuestDone:
+    - Already picked them? Good job.
+    - Yes, these apples will make a lovely pie.
+    - Wait a little bit.
+    - '[Rockie is busy cooking]'
+    - Talk to him again.
+    ThirdQuestDone:
+    - Greeting! I cannot say "long time no see", but i am still glad to see you again.
+    - 'I need to ask you to do something for me. Since we made Laughy so happy with
+      the pie, now it''s time to make something for Twig. '
+    - But i need to work on my cooking project, so i have to ask for help. Talk to
+      me when you are ready to begin.
     FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
@@ -17083,13 +18059,17 @@ MonoBehaviour:
   interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
   onQuest: {fileID: 253224392}
   Quests: {fileID: 0}
+  questItems: {fileID: 253224393}
   quests: {fileID: 253224391}
-  questName: MissingFlowers
-  secondquestName: 
+  questName: CraftCroissant
+  secondquestName: GatherApples
+  thirdquestName: TalkToLaughy
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
-  hasSecondQuest: 0
+  hasSecondQuest: 1
   secondQuestActive: 0
+  hasThirdQuest: 1
+  thirdQuestActive: 0
 --- !u!1001 &2789852046046414394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17611,7 +18591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6056888930141853338, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6056888930370906440, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_Sprite
@@ -17623,7 +18603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6056888930671377301, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6056888930997610898, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_IsActive

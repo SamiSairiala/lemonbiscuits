@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Quests;
 
-public class TalkToNPC : NewQuest
+public class TalkToLaughy : NewQuest
 {
 
     public GameObject npc;
@@ -15,16 +15,16 @@ public class TalkToNPC : NewQuest
     {
         questItems = FindObjectOfType<QuestItems>();
         onquest = FindObjectOfType<OnQuest>();
-        npc = questItems.NPC1;
+        npc = questItems.NPC3;
         onquest.TalkQuest = true;
-        rewardItem = questItems.FishingRod;
+        rewardItem = questItems.Coin;
         //Debug.Log(requiredItem.name);
-        QuestName = "Talk To Rockie";
-        QuestDescription = "Talk to Rockie.";
+        QuestName = "Talk To Laughy";
+        QuestDescription = "Talk to Laughy.";
         ItemReward = rewardItem;
         RequiredAmount = requiredAmount;
 
-        Goals.Add(new TalkGoal(this, "Talk to Rockie.", false, 0, 1, npc));
+        Goals.Add(new TalkGoal(this, "Talk to Laughy.", false, 0, 1, npc));
 
 
         Goals.ForEach(g => g.Init());

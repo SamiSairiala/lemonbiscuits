@@ -14,7 +14,7 @@ public class GatherApples : NewQuest
     {
         questItems = FindObjectOfType<QuestItems>();
         requiredItem = questItems.Apple;
-        rewardItem = questItems.Coin;
+        rewardItem = questItems.ApplePie;
         QuestName = "Cather Apples";
         QuestDescription = "Gather 5 apples."; 
         ItemReward = rewardItem;
