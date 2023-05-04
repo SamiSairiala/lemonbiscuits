@@ -7331,7 +7331,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.3042126, y: 0.00000003278174, z: -0.000000010468797, w: 0.9526042}
+  m_LocalRotation: {x: 0.3042126, y: -0.00000003278174, z: 0.000000010468797, w: 0.9526042}
   m_LocalPosition: {x: 8, y: 3.56, z: -1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7944,6 +7944,7 @@ MonoBehaviour:
     - 'Even having dosen''t stop him from gastronomical wonders. He''s master of
       his craft! Could you ask him for a tasty, but simple recipe? '
     - And we'll give you a piece when we're done with it. Thanks!
+    FourthQuestSentences: []
     sentencesDuringQuests:
     - Have you gotten the 3 flowers?
     AfterQuestSentences:
@@ -7982,6 +7983,7 @@ MonoBehaviour:
     - Here you go. Use it whenever you need! Until we meet again.
     SecondQuestDone: []
     ThirdQuestDone: []
+    FourthQuestDone: []
     FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
@@ -7992,15 +7994,18 @@ MonoBehaviour:
   Quests: {fileID: 0}
   questItems: {fileID: 253224393}
   quests: {fileID: 253224391}
-  questName: CraftCroissant
-  secondquestName: 
-  thirdquestName: 
+  questName: cameraquest
+  secondquestName: cameraquest
+  thirdquestName: IMPLEMENTTALKTOROCKIEQUESTHERE
+  fourthquestName: 
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
   hasSecondQuest: 0
   secondQuestActive: 0
   hasThirdQuest: 0
   thirdQuestActive: 0
+  hasFourthQuest: 0
+  FourthQuestActive: 0
 --- !u!136 &1013497733
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9130,7 +9135,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189588219}
-  m_LocalRotation: {x: 0.3042126, y: 0.000000016390873, z: -0.000000005234398, w: 0.9526042}
+  m_LocalRotation: {x: 0.3042126, y: -0.000000016390873, z: 0.000000005234398, w: 0.9526042}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15673,6 +15678,7 @@ MonoBehaviour:
       See you soon.
     secondQuestSentences: []
     thirdQuestSentences: []
+    FourthQuestSentences: []
     sentencesDuringQuests:
     - Have you gotten them?
     AfterQuestSentences:
@@ -15691,6 +15697,7 @@ MonoBehaviour:
     FirstQuestDone: []
     SecondQuestDone: []
     ThirdQuestDone: []
+    FourthQuestDone: []
     FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
@@ -15704,12 +15711,15 @@ MonoBehaviour:
   questName: TalkToNPC
   secondquestName: 
   thirdquestName: 
+  fourthquestName: 
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
   hasSecondQuest: 0
   secondQuestActive: 0
   hasThirdQuest: 0
   thirdQuestActive: 0
+  hasFourthQuest: 0
+  FourthQuestActive: 0
 --- !u!4 &2048948551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3117031684359226579, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
@@ -18004,6 +18014,7 @@ MonoBehaviour:
     - Here, it is ready. Now you can feed the poor buddy, and we will all remain
       unharmed and well.
     - And tell them i said hello. They should come more often.
+    FourthQuestSentences: []
     sentencesDuringQuests:
     - Have you done the task?
     AfterQuestSentences:
@@ -18051,6 +18062,7 @@ MonoBehaviour:
       the pie, now it''s time to make something for Twig. '
     - But i need to work on my cooking project, so i have to ask for help. Talk to
       me when you are ready to begin.
+    FourthQuestDone: []
     FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
@@ -18064,12 +18076,15 @@ MonoBehaviour:
   questName: CraftCroissant
   secondquestName: GatherApples
   thirdquestName: TalkToLaughy
+  fourthquestName: 
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
   hasSecondQuest: 1
   secondQuestActive: 0
   hasThirdQuest: 1
   thirdQuestActive: 0
+  hasFourthQuest: 0
+  FourthQuestActive: 0
 --- !u!1001 &2789852046046414394
 PrefabInstance:
   m_ObjectHideFlags: 0
