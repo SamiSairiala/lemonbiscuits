@@ -21,6 +21,8 @@ public class OnQuest : MonoBehaviour
 	public GameObject Rockie;
 	public GameObject Twig;
 
+	public GameObject BeetlesTrigger;
+
 	public Riddle riddle;
  //   public int RequiredAmount = 0;
  //   public Item requiredItem;

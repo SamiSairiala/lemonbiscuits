@@ -10,8 +10,10 @@ public class QuestItems : MonoBehaviour
     public Item Apple;
     public Item Croissant;
     public Item Fishpie;
+    public Item RareFlower;
     public Item Amulet;
         public GameObject AmuletGameobject;
+    public GameObject RareFlowersHolder;
 
 
     [Header("Reward items")]
@@ -27,4 +29,6 @@ public class QuestItems : MonoBehaviour
     public GameObject NPC1; // Rename These.
     public GameObject NPC2;
     public GameObject NPC3;
+
+    public GameObject Arbor;
 }

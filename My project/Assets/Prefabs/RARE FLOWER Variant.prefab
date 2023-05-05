@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 604563684967898214, guid: 030cc83a5b4473d4c9eb039d05d4f99d, type: 3}
+      propertyPath: Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d0fb952813eb7c42bdf60226f0a2c19, type: 2}
     - target: {fileID: 2428946537773267564, guid: 030cc83a5b4473d4c9eb039d05d4f99d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3098066070667501782, guid: 030cc83a5b4473d4c9eb039d05d4f99d, type: 3}
       propertyPath: m_Name
-      value: RARE FLOWER
+      value: RARE FLOWER Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3923319503935905073, guid: 030cc83a5b4473d4c9eb039d05d4f99d, type: 3}
       propertyPath: m_Materials.Array.size
@@ -63,5 +67,9 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 62358239b10bbe2439fead95c7c26249, type: 2}
+    - target: {fileID: 6801710668914064016, guid: 030cc83a5b4473d4c9eb039d05d4f99d, type: 3}
+      propertyPath: Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d0fb952813eb7c42bdf60226f0a2c19, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030cc83a5b4473d4c9eb039d05d4f99d, type: 3}
