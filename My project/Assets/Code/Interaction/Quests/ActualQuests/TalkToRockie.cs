@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Quests;
 
-public class TalkToNPC : NewQuest
+public class TalkToRockie : NewQuest
 {
 
     public GameObject npc;
@@ -16,8 +16,8 @@ public class TalkToNPC : NewQuest
         questItems = FindObjectOfType<QuestItems>();
         onquest = FindObjectOfType<OnQuest>();
         npc = questItems.NPC1;
-        onquest.TalkQuest = true;
-        rewardItem = questItems.FishingRod;
+        onquest.SecondTalkQuest = true;
+        rewardItem = questItems.Coin;
         //Debug.Log(requiredItem.name);
         QuestName = "Talk To Rockie";
         QuestDescription = "Talk to Rockie.";

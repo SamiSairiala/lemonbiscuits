@@ -7,10 +7,19 @@ public class OnQuest : MonoBehaviour
     public bool onQuest = false;
 
 	public bool TalkQuest = false;
+	public bool SecondTalkQuest = false;
+
+	public bool TwigQuest = false; // THESE ARE USED TO TELL SCRIPT WHO GIVES NEXT QUEST.
+	public bool RockieQuest = false;
+	public bool LaughyQuest = false; 
 
 	public bool RiddleQuest = false;
 
 	public bool RiddleQuestCompleted = false;
+
+	public GameObject Laughy;
+	public GameObject Rockie;
+	public GameObject Twig;
 
 	public Riddle riddle;
  //   public int RequiredAmount = 0;

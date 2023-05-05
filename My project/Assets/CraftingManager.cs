@@ -36,6 +36,10 @@ public class CraftingManager : MonoBehaviour
 	public Item Item1;
 	public GameObject GameObject2; 
 	public Item Item2;
+	public GameObject GameObject3;
+	public Item Item3;
+	public GameObject GameObject4;
+	public Item Item4;
 
 
 	private void OnTriggerEnter(Collider other)
@@ -50,6 +54,8 @@ public class CraftingManager : MonoBehaviour
     {
 		GameObject1.GetComponentInChildren<TextMeshProUGUI>().text = Item1.Amount.ToString();
 		GameObject2.GetComponentInChildren<TextMeshProUGUI>().text = Item2.Amount.ToString();
+		GameObject3.GetComponentInChildren<TextMeshProUGUI>().text = Item3.Amount.ToString();
+		GameObject4.GetComponentInChildren<TextMeshProUGUI>().text = Item4.Amount.ToString();
 		if (Item1.Amount == 0) // Add items here too.
 		{
 			GameObject1.gameObject.SetActive(false);
@@ -57,6 +63,14 @@ public class CraftingManager : MonoBehaviour
 		if (Item2.Amount == 0)
 		{
 			GameObject2.gameObject.SetActive(false);
+		}
+		if(Item3.Amount == 0)
+        {
+			GameObject3.gameObject.SetActive(false);
+        }
+		if (Item4.Amount == 0)
+		{
+			GameObject4.gameObject.SetActive(false);
 		}
 		if (InventoryManager.Instance.Items.Contains(Item1))
         {
@@ -69,7 +83,15 @@ public class CraftingManager : MonoBehaviour
 			GameObject2.gameObject.SetActive(true);
 			
 		}
-    }
+        if (InventoryManager.Instance.Items.Contains(Item3))
+        {
+			GameObject3.gameObject.SetActive(true);
+        }
+		if (InventoryManager.Instance.Items.Contains(Item4))
+		{
+			GameObject4.gameObject.SetActive(true);
+		}
+	}
 
 
     public void OnMouseDownItem(Item item)

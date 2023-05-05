@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa3e62e959860d14886f11f6e8f90b4a, type: 3}
-  m_Name: Flour
+  m_Name: ApplePie
   m_EditorClassIdentifier: 
-  ID: 6
-  itemName: Flour
-  value: 1
-  Icon: {fileID: 21300000, guid: c53f6b0e7c795f544a6167600f98b1a0, type: 3}
+  ID: 9
+  itemName: ApplePie
+  value: 0
+  Icon: {fileID: 21300000, guid: 1250f675d463c3740a7ea4803bd1bd8a, type: 3}
   itemType: 1
-  IsStackable: 1
+  IsStackable: 0
   Amount: 0

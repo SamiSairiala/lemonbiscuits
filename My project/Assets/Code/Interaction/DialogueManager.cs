@@ -19,9 +19,16 @@ public class DialogueManager : MonoBehaviour
     public bool hasDiffrentQuest = false;
     public bool CompletedQuest = false;
     public bool SecondQuest = false;
+    public bool ThirdQuest = false;
+    public bool fourthQuest = false;
     public bool TalkQuest = false;
+    public bool SecondTalkQuest = false;
     public bool QuestionsQuest = false;
     public bool failedQuestionQuest = false;
+    public bool FirstQuestCompleted = false;
+    public bool SecondQuestCompleted = false;
+    public bool ThirdQuestCompleted = false;
+    public bool FourthQuestCompleted = false;
 
     public bool WrongAnswer = false;
 
@@ -69,6 +76,30 @@ public class DialogueManager : MonoBehaviour
             DisplayNextSentence();
 
         }
+        if (FirstQuestCompleted == true)
+        {
+            foreach (string sentence in dialogue.FirstQuestDone)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
+        if(SecondQuestCompleted == true)
+        {
+            foreach (string sentence in dialogue.SecondQuestDone)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
+        if(ThirdQuestCompleted == true)
+        {
+            foreach (string sentence in dialogue.ThirdQuestDone)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
         if(SecondQuest == true)
         {
             foreach (string sentence in dialogue.secondQuestSentences)
@@ -78,9 +109,33 @@ public class DialogueManager : MonoBehaviour
             DisplayNextSentence();
 
         }
+        if(ThirdQuest == true)
+        {
+            foreach (string sentence in dialogue.thirdQuestSentences)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
+        if(fourthQuest == true)
+        {
+            foreach (string sentence in dialogue.FourthQuestSentences)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
         if(TalkQuest == true && hasDiffrentQuest == true)
         {
             foreach (string sentence in dialogue.TalkQuest)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
+        if(SecondTalkQuest == true && hasDiffrentQuest == true)
+        {
+            foreach (string sentence in dialogue.SecondTalkQuest)
             {
                 Sentences.Enqueue(sentence);
             }
@@ -209,7 +264,10 @@ public class DialogueManager : MonoBehaviour
         CompletedQuest = false;
         SecondQuest = false;
         TalkQuest = false;
-        
+        SecondTalkQuest = false;
+        FirstQuestCompleted = false;
+        SecondQuestCompleted = false;
+        ThirdQuestCompleted = false;
         
     }
 

@@ -8,14 +8,23 @@ public class QuestItems : MonoBehaviour
     public Item Flower;
     public Item Fish;
     public Item Apple;
+    public Item Croissant;
+    public Item Fishpie;
+    public Item Amulet;
+        public GameObject AmuletGameobject;
 
 
     [Header("Reward items")]
     public Item Coin;
     public Item FishingRod;
+    public Item ApplePie;
+    
+
+    [Header("Needed items")]
+    public Item Recipe;
 
     [Header("Quest NPC's")]
     public GameObject NPC1; // Rename These.
     public GameObject NPC2;
-
+    public GameObject NPC3;
 }
