@@ -9,6 +9,9 @@ public class QuestItems : MonoBehaviour
     public Item Fish;
     public Item Apple;
     public Item Croissant;
+    public Item Fishpie;
+    public Item Amulet;
+        public GameObject AmuletGameobject;
 
 
     [Header("Reward items")]

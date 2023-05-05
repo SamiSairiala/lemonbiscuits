@@ -17,6 +17,10 @@ public class OnQuest : MonoBehaviour
 
 	public bool RiddleQuestCompleted = false;
 
+	public GameObject Laughy;
+	public GameObject Rockie;
+	public GameObject Twig;
+
 	public Riddle riddle;
  //   public int RequiredAmount = 0;
  //   public Item requiredItem;

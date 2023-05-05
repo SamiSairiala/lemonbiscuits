@@ -1419,7 +1419,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190044033}
-  m_LocalRotation: {x: 0.2646427, y: -0.000000016592917, z: 0.0000000045535438, w: 0.9643466}
+  m_LocalRotation: {x: 0.2646427, y: 0.00000001659291, z: -0.000000004553543, w: 0.9643465}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2220,9 +2220,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8f1dff9c2a6afce4bb19776517548329, type: 2}
     - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: Amulet
+      value: 
+      objectReference: {fileID: 11400000, guid: 92deef7fdb35a4d49b067d6cc8988295, type: 2}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
       propertyPath: Recipe
       value: 
       objectReference: {fileID: 11400000, guid: 8fe8f7010ac89ff4b8517cb422189bef, type: 2}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: Fishpie
+      value: 
+      objectReference: {fileID: 11400000, guid: 51896576c1cb01c4383399ffd8199aed, type: 2}
     - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
       propertyPath: ApplePie
       value: 
@@ -2235,6 +2243,22 @@ PrefabInstance:
       propertyPath: FishingRod
       value: 
       objectReference: {fileID: 11400000, guid: 09754824046c45744b865cb2df6169b8, type: 2}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: AmuletGameobject
+      value: 
+      objectReference: {fileID: 1814951048}
+    - target: {fileID: 4466637910475298246, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: Twig
+      value: 
+      objectReference: {fileID: 2040309598}
+    - target: {fileID: 4466637910475298246, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: Laughy
+      value: 
+      objectReference: {fileID: 1013497731}
+    - target: {fileID: 4466637910475298246, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: Rockie
+      value: 
+      objectReference: {fileID: 2639800595101608050}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
 --- !u!1 &253224391 stripped
@@ -7335,7 +7359,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.3042126, y: 0.00000003278174, z: -0.000000010468797, w: 0.9526042}
+  m_LocalRotation: {x: 0.3042126, y: -0.00000003278174, z: 0.000000010468797, w: 0.9526042}
   m_LocalPosition: {x: 8, y: 3.56, z: -1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7922,16 +7946,22 @@ MonoBehaviour:
     sentences:
     - Oh, hello-o-o! We're always happy to see new faces here! Fell yourself at home!
       Our name is Laughy. Will you be our friend?
-    - Hmm. Let me think.
-    - There are no big tasks for you, but if you want a distraction, there is something
-      you could do. I want to test your skills.
-    - I love cooking, it's my passion! Will you make me happy with something? I will
-      give you a gift in return.
-    - You'll find everything you need in our local shop.
-    - 'May the fine taste and imagination be with you! I will give you a few coins
-      so you can get started. {TIP!: If you run out of money you can fish and sell
-      them back to the store.}'
-    secondQuestSentences: []
+    - 'Oh, sorry. Rockie always tells us we rush things, but we get so excited with
+      just a thought of having a new friend! '
+    - "You\u2019re here at Arbor\u2019s behest, right? That\u2019s great, we could
+      use some help!\r"
+    - 'We were looking for a hobby for a long time, and decided to try photography! '
+    - "But we don\u2019t have a camera\u2026 Do you happen to have one lying around?
+      No? Well, no big deal, we know what\u2019s needed to make it."
+    - "Could you craft it for us? And I\u2019ll land it to you for a bit! Here\u2019s
+      a recipe. Good luckies!"
+    secondQuestSentences:
+    - "Hey, _Playername_, how about being a photographer with us for a bit? We\u2019re
+      sure you\u2019d make a good one!"
+    - "Take a couple of test shots, and we\u2019ll show you the most picturesque
+      places here! Maybe you\u2019ll catch a couple of rare spiri on camera. [ giggles
+      ] And then we\u2019ll find out if it works properly!"
+    - "Good luck!\r"
     thirdQuestSentences:
     - Hi-i. Are you getting the hang of it here yet? How do you like it? Have you
       already met our friends, Rockie and Twig?
@@ -7948,7 +7978,27 @@ MonoBehaviour:
     - 'Even having dosen''t stop him from gastronomical wonders. He''s master of
       his craft! Could you ask him for a tasty, but simple recipe? '
     - And we'll give you a piece when we're done with it. Thanks!
-    FourthQuestSentences: []
+    FourthQuestSentences:
+    - '[ Laughy looks anxious. ]'
+    - "Where is it\u2026 Where could we have lost it\u2026\n[ Laughy looks around
+      nervously. ]"
+    - "In the forest? Is it really in the forest?.. That\u2019s not good, that\u2019s
+      not good at all!\r [ Laughy finally pays attention to the Player. ]"
+    - "Hi. Didn\u2019t see you there\u2026 You won\u2019t believe it. The worst that
+      could happen, happened\u2026"
+    - "No, it has nothing to do with the Forest\u2019s magic or Arbor. It\u2019s
+      that we\u2026 Lost our lucky amulet!"
+    - "We think we lost it in the woods when we were running away from\u2026 something\u2026
+      or someone.  It seems like a real doox was after us!\r\n"
+    - "Oh, you don\u2019t know what a doox is? We have never met them ourselves,
+      so all we know is from Twig\u2019s tales."
+    - "Dooxes are big and dangerous spiris, and they bite very hard!\nWe don\u2019t
+      like being bitten\u2026"
+    - "Twig said that it\u2019s better for us villagers to stay away from dooxes\u2026
+      Which we did! But our amulet\u2026"
+    - "Please, help us find it! Without it we\u2019re as without hands. [ Laughy
+      really looks scared and anxious without it. ]"
+    - "We\u2019ll tell you everything.  How are we going to be without it\u2026"
     sentencesDuringQuests:
     - Have you gotten the 3 flowers?
     AfterQuestSentences:
@@ -7977,17 +8027,38 @@ MonoBehaviour:
     - '[Laughy''s stomach rumbles]'
     - That's what we're saying, belly! Exactly!
     - We will make sure to return Rockie the favor. Well, off to the fiest! Bon appetit!
+      Could you thank him for me?
     FirstQuestDone:
-    - 'Oh... '
-    - That looks delicious. And it is nothing like the black burnt substance that
-      Laughy usually makes out of food...
-    - '[Rockie tries the croissant]'
-    - M-m-m, that is pretty good! Thank you.
-    - Well, you managed to impress me. I will give you something in return.
-    - Here you go. Use it whenever you need! Until we meet again.
-    SecondQuestDone: []
-    ThirdQuestDone: []
-    FourthQuestDone: []
+    - There you are! We already started to miss you. Did you do what we asked? Bring
+      it here!
+    - "That\u2019s really an amazing camera. Now we just need to test it."
+    SecondQuestDone:
+    - Happy to see you again, _Playername_! Well, show us what you got!
+    - "Oh\u2026 Wow\u2026"
+    - ' Oh-huh!'
+    - "This one is just perfect! How did you even capture it? You\u2019ve got talent!
+      And now we also know the camera works! Great potential!"
+    - "Hmm. We can\u2019t leave you rewardless. That would be a waste of a natural!"
+    - Here, take this recipe. You can make another one with it. If you want. We will
+      wait for more wonderful shots from you!
+    - "Now we gotta go. We\u2019re gonna take the coolest pictures in the world!
+      Byesies, _Playername_!"
+    ThirdQuestDone:
+    - Here is the recipe!
+    - Cant wait!
+    FourthQuestDone:
+    - "You\u2026 you found it?\r\n"
+    - "YAY! That\u2019s it! Thank you - thank you - thank you!"
+    - "So\u2026 you saw the doox in the forest, right?"
+    - "\u2026"
+    - It was a regular spiri?
+    - "\u2026"
+    - "Whoopst\u2026 Ah, our imagination! [ giggles ]"
+    - "All\u2019s well what ends well. We\u2019re glad we just imagined it. But be
+      careful! Dooxes are real\u2026"
+    - "And also, Twig was looking for you. They didn\u2019t look well! They probably
+      need a helping hand. And, in our expert opinion, a dose of hugs!"
+    - Pay them a visit. Good luck!
     FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
@@ -7998,17 +8069,17 @@ MonoBehaviour:
   Quests: {fileID: 0}
   questItems: {fileID: 253224393}
   quests: {fileID: 253224391}
-  questName: cameraquest
-  secondquestName: cameraquest
-  thirdquestName: IMPLEMENTTALKTOROCKIEQUESTHERE
-  fourthquestName: 
+  questName: MissingFlowers
+  secondquestName: GatherFish
+  thirdquestName: TalkToRockie
+  fourthquestName: LostAmulet
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
-  hasSecondQuest: 0
+  hasSecondQuest: 1
   secondQuestActive: 0
-  hasThirdQuest: 0
+  hasThirdQuest: 1
   thirdQuestActive: 0
-  hasFourthQuest: 0
+  hasFourthQuest: 1
   FourthQuestActive: 0
 --- !u!136 &1013497733
 CapsuleCollider:
@@ -8018,7 +8089,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013497731}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.88
   m_Height: 2
@@ -9139,7 +9210,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189588219}
-  m_LocalRotation: {x: 0.3042126, y: 0.000000016390873, z: -0.000000005234398, w: 0.9526042}
+  m_LocalRotation: {x: 0.3042126, y: -0.000000016390873, z: 0.000000005234398, w: 0.9526042}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9173,6 +9244,9 @@ MonoBehaviour:
   LaughyQuest: 0
   RiddleQuest: 0
   RiddleQuestCompleted: 0
+  Laughy: {fileID: 0}
+  Rockie: {fileID: 0}
+  Twig: {fileID: 0}
   riddle: {fileID: 0}
 --- !u!1001 &1200095719
 PrefabInstance:
@@ -9676,6 +9750,14 @@ PrefabInstance:
       value: FlourRecipenullnull
       objectReference: {fileID: 0}
     - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
+      propertyPath: recipe.Array.data[1]
+      value: FishRecipenullnull
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
+      propertyPath: recipeResults.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
       propertyPath: craftingSlots.Array.data[0]
       value: 
       objectReference: {fileID: 888579127}
@@ -9695,6 +9777,10 @@ PrefabInstance:
       propertyPath: recipeResults.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: c39984d14a16ed541a1195d9e0d67cfc, type: 2}
+    - target: {fileID: 2543453769467341976, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
+      propertyPath: recipeResults.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 51896576c1cb01c4383399ffd8199aed, type: 2}
     - target: {fileID: 2543453769467341977, guid: 0beae0ed13e0ff743b323df0957e8803, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -10494,7 +10580,8 @@ PrefabInstance:
       propertyPath: routine.Array.data[7].triggerTime
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2639800594581369287, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
 --- !u!1 &1411186590
 GameObject:
@@ -14163,6 +14250,132 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3545052235098643687, guid: e14c163bab94e294eb70bbc2fc78f8a5, type: 3}
   m_PrefabInstance: {fileID: 1806738536}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1814951048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1814951054}
+  - component: {fileID: 1814951053}
+  - component: {fileID: 1814951052}
+  - component: {fileID: 1814951051}
+  - component: {fileID: 1814951050}
+  - component: {fileID: 1814951049}
+  m_Layer: 0
+  m_Name: Amulet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1814951049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814951048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357bf53df9212ba438f9959daaf1ac21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 92deef7fdb35a4d49b067d6cc8988295, type: 2}
+--- !u!114 &1814951050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814951048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4084b118aedf6ab469ee93d69cb17a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 92deef7fdb35a4d49b067d6cc8988295, type: 2}
+  Collected: 0
+--- !u!65 &1814951051
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814951048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1814951052
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814951048}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1814951053
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814951048}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1814951054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814951048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 173.53, y: 1.01, z: 158.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 41
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1818256713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15625,7 +15838,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2639800594581369287, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
 --- !u!1 &2040309598 stripped
 GameObject:
@@ -15680,8 +15894,28 @@ MonoBehaviour:
       creatures.
     - We're somewhat alike, in some sense. I hope the time you spend here is pleasant.
       See you soon.
-    secondQuestSentences: []
-    thirdQuestSentences: []
+    secondQuestSentences:
+    - 'Hello, _Playername_. '
+    - " I see you\u2019re not bored. That\u2019s good. \r"
+    - "\u2026You smell good."
+    - Talk to Twig again he seems to be out of it.
+    thirdQuestSentences:
+    - '[ Twig looks very nervous. The leaf on their head is twitching. ]'
+    - Here you are. I was waiting for you to return. I really need your help.
+    - "A bunch of tiny pests intruded our forest. There\u2019s not much, but they
+      already caused a lot of trouble."
+    - "It\u2019s about Arbor. Bark beetles\u2026 They\u2019re swarming the Lemon
+      Tree and won\u2019t leave it alone."
+    - "They like old leaves\u2026 It\u2019s probably tastier for them than anything
+      else."
+    - "Because of them Arbor is sick. He\u2019s loosing his power."
+    - "If we don\u2019t do something, he won\u2019t be able to maintain the magic
+      of the Forest. Then the vail falls and\u2026 that would be a disaster to all
+      the villagers."
+    - "They need to be driven away from the Tree, but I can\u2019t even get close.
+      As you understand, I\u2019m a treat for them myself\u2026"
+    - "Please, help Arbor. Or we won\u2019t be able to avoid the consequences. Please,
+      hurry!"
     FourthQuestSentences: []
     sentencesDuringQuests:
     - Have you gotten them?
@@ -15698,8 +15932,15 @@ MonoBehaviour:
     - Hi! I think you should first talk to Laughy.
     TalkQuest: []
     SecondTalkQuest: []
-    FirstQuestDone: []
-    SecondQuestDone: []
+    FirstQuestDone:
+    - Oh...
+    - Could you help Rockie now?
+    SecondQuestDone:
+    - A pie?
+    - "\u2026"
+    - "That\u2019s\u2026 very nice of you\u2026 I\u2026"
+    - "[ The leaf on their head twitches, they\u2019re flustered. ]"
+    - "Thank you\u2026"
     ThirdQuestDone: []
     FourthQuestDone: []
     FailedQuestions: []
@@ -15713,12 +15954,12 @@ MonoBehaviour:
   questItems: {fileID: 253224393}
   quests: {fileID: 253224391}
   questName: TalkToNPC
-  secondquestName: 
-  thirdquestName: 
+  secondquestName: BringPieBackToTwig
+  thirdquestName: 8/9QUEST LEMONTREE INFECTED
   fourthquestName: 
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
-  hasSecondQuest: 0
+  hasSecondQuest: 1
   secondQuestActive: 0
   hasThirdQuest: 0
   thirdQuestActive: 0
@@ -16536,6 +16777,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6693736345578290286, guid: cb6fb8cfa8c1c2547816c26202495c96, type: 3}
   m_PrefabInstance: {fileID: 2103867479}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2103875745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1809548291282161212, guid: 74be52498c4298b439507a1e8a48fd28, type: 3}
+  m_PrefabInstance: {fileID: 72450444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2103875749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103875745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9235b145d4b6a1d44a51e1d79ae85958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Amulet: {fileID: 1814951048}
+  QuestActive: 0
 --- !u!4 &2105045940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1153976439273760686, guid: 5784b3b5d3536cc4fa44dc4a8cdd64c2, type: 3}
@@ -17813,6 +18073,10 @@ PrefabInstance:
       value: Rockie
       objectReference: {fileID: 0}
     - target: {fileID: 2639800594581369285, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369285, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
@@ -17858,6 +18122,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
@@ -17960,7 +18228,8 @@ PrefabInstance:
       propertyPath: routine.Array.data[7].triggerTime
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2639800594581369287, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
 --- !u!1 &2639800595101608050 stripped
 GameObject:
@@ -17975,7 +18244,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2639800595101608050}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.88
   m_Height: 2
@@ -18009,7 +18278,7 @@ MonoBehaviour:
       them back to the store.}'
     secondQuestSentences:
     - Okay let's start so Laughy dosen't make a catastrophe!
-    - Bring me 3 apples, then i will bbake Laughy's favorite apple pie.
+    - Bring me 5 apples, then i will bake Laughy's favorite apple pie.
     - That will discourage them from unreasonable ideas. Can you handle it?
     - Super. In the meantime, I will start preparing the dough.
     - And please, don't encourage Laughy's cooking impulses. It never ends up with
@@ -18018,7 +18287,20 @@ MonoBehaviour:
     - Here, it is ready. Now you can feed the poor buddy, and we will all remain
       unharmed and well.
     - And tell them i said hello. They should come more often.
-    FourthQuestSentences: []
+    FourthQuestSentences:
+    - "Greetings, _Playername_! I cannot say \u201Clong time no see\u201D, but I
+      am still glad to see you again"
+    - "I need to ask you to do something for me.\r"
+    - "Since we made Laughy so happy with the pie, now it\u2019s time to make something
+      for Twig."
+    - But I need to work on my cooking project, so I have to ask for help.
+    - Last time you helped me bake an exquisite treat, and also found an irreplaceable
+      apple pie ingredient.
+    - " I know you are very skilled, and you know some cooking basics. Wouldn\u2019t
+      you do it this time? I would be very grateful."
+    - And, of course, I will share the recipe. Twig loves the fish pie. So you should
+      bake just that.
+    - I will be waiting for you.
     sentencesDuringQuests:
     - Have you done the task?
     AfterQuestSentences:
@@ -18066,7 +18348,15 @@ MonoBehaviour:
       the pie, now it''s time to make something for Twig. '
     - But i need to work on my cooking project, so i have to ask for help. Talk to
       me when you are ready to begin.
-    FourthQuestDone: []
+    FourthQuestDone:
+    - Mm, _Playername_, I can already smell it from here!
+    - Fresh pastry always smells amazing and attracts. If it is baked properly, of
+      course.
+    - My kudos to you, cheff! Looks very delicious. I think you did everything right.
+    - Now we just need to take it to our friend. I am afraid you will need to do
+      that, too.
+    - I am sure Twig will appreciate such attention!
+    - Thanks for your help again, _Playername_. Tell me how it goes afterwards. Farewell!
     FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
@@ -18080,14 +18370,14 @@ MonoBehaviour:
   questName: CraftCroissant
   secondquestName: GatherApples
   thirdquestName: TalkToLaughy
-  fourthquestName: 
+  fourthquestName: BakeFishPie
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
   hasSecondQuest: 1
   secondQuestActive: 0
   hasThirdQuest: 1
   thirdQuestActive: 0
-  hasFourthQuest: 0
+  hasFourthQuest: 1
   FourthQuestActive: 0
 --- !u!1001 &2789852046046414394
 PrefabInstance:

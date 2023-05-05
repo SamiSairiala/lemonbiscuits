@@ -33,6 +33,11 @@ public class ItemPickup : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Player")
 		{
+			if (this.gameObject.name.Equals("Amulet"))
+			{
+				FindObjectOfType<NightQuest>().Amulet = null;
+				FindObjectOfType<NightQuest>().QuestActive = false;
+			}
 			Pickup();
 		}
 	}

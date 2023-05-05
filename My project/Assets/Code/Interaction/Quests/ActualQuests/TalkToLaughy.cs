@@ -16,17 +16,19 @@ public class TalkToLaughy : NewQuest
         questItems = FindObjectOfType<QuestItems>();
         onquest = FindObjectOfType<OnQuest>();
         npc = questItems.NPC3;
-        onquest.TalkQuest = true;
+        onquest.SecondTalkQuest = true;
         rewardItem = questItems.Coin;
         //Debug.Log(requiredItem.name);
         QuestName = "Talk To Laughy";
         QuestDescription = "Talk to Laughy.";
         ItemReward = rewardItem;
         RequiredAmount = requiredAmount;
-
+        InventoryManager.Instance.Add(questItems.ApplePie);
+        onquest.Laughy.GetComponent<CapsuleCollider>().isTrigger = true;
         Goals.Add(new TalkGoal(this, "Talk to Laughy.", false, 0, 1, npc));
 
 
         Goals.ForEach(g => g.Init());
+        
     }
 }
