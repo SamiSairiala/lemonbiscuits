@@ -14,6 +14,7 @@ public class QuestItems : MonoBehaviour
     public Item Amulet;
         public GameObject AmuletGameobject;
     public GameObject RareFlowersHolder;
+    public Item salmon;
 
 
     [Header("Reward items")]

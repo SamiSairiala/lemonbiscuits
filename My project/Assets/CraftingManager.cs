@@ -218,6 +218,14 @@ public class CraftingManager : MonoBehaviour
 		CraftingCanvas.SetActive(false);
 		ClearList();
 		List<Item> itemList = new List<Item>(4);
+		if (itemToReceive.itemName.Equals("Fish Pie"))
+		{
+			FindObjectOfType<NarratorDialogue>().SecondText();
+		}
+		if (itemToReceive.itemName.Equals("Croissant"))
+		{
+			FindObjectOfType<NarratorDialogue>().FirstText();
+		}
 	}
 
 	public static void ItemAddedToInventory(Item item)
