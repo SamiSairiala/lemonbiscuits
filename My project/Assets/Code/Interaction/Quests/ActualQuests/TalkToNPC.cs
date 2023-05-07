@@ -22,6 +22,7 @@ public class TalkToNPC : NewQuest
         QuestName = "Talk To Rockie";
         QuestDescription = "Talk to Rockie.";
         ItemReward = rewardItem;
+        Debug.Log(onquest.TalkQuest + "Talk quest is");
         RequiredAmount = requiredAmount;
         onquest.Rockie.GetComponent<CapsuleCollider>().isTrigger = true;
         questItems.Arbor.SetActive(false);

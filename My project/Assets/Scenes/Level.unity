@@ -705,7 +705,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.501
+  m_Value: 0.026
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1799,7 +1799,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190044033}
-  m_LocalRotation: {x: 0.2646427, y: 0.00000001659291, z: -0.000000004553543, w: 0.9643465}
+  m_LocalRotation: {x: 0.26464283, y: -0.000000016592915, z: 0.000000004553546, w: 0.9643465}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2647,6 +2647,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1947070904}
   proof: {fileID: 7598549786376075365, guid: 110303eb4a18cf243ad6a5febe3fdd7f, type: 3}
   Interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
+  clearBeetlesCanvas: {fileID: 403191353}
 --- !u!1001 &250166118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2882,6 +2883,10 @@ PrefabInstance:
       propertyPath: ApplePie
       value: 
       objectReference: {fileID: 11400000, guid: 41853ab95c3f4f349bbee342a50cb1b3, type: 2}
+    - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
+      propertyPath: Collider
+      value: 
+      objectReference: {fileID: 1532445159}
     - target: {fileID: 4466637910475298245, guid: bf7b07692252fc84c9125362e1b2fea6, type: 3}
       propertyPath: Croissant
       value: 
@@ -4802,6 +4807,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6693736345578290286, guid: cb6fb8cfa8c1c2547816c26202495c96, type: 3}
   m_PrefabInstance: {fileID: 402896086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &403191353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7673823613726106807, guid: 684a47cb4035f9b42a46d59180aaa4b3, type: 3}
+  m_PrefabInstance: {fileID: 394699262}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &407031063 stripped
 MonoBehaviour:
@@ -9052,7 +9062,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -1795259427726830044, guid: accc6c1a5a5ecbc47866fb5c78637ae5, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.026
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9729,8 +9739,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.3042126, y: -0.00000003278174, z: 0.000000010468797, w: 0.9526042}
-  m_LocalPosition: {x: 8, y: 3.56, z: -1.01}
+  m_LocalRotation: {x: 0.30421278, y: 0, z: 0, w: 0.9526041}
+  m_LocalPosition: {x: -24, y: 34.56, z: 122.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10546,11 +10556,7 @@ MonoBehaviour:
     - 'You''re a great friend, and we want others to know that too. But if you''ve
       already met them, that''s grea! '
     - And we wanted to ask something from you again...
-    - We haven't had any treats in a while. We lo-v-ove sweets! And you? We know
-      nothing about cooking. But Rockie is great chef!
-    - 'Even having dosen''t stop him from gastronomical wonders. He''s master of
-      his craft! Could you ask him for a tasty, but simple recipe? '
-    - And we'll give you a piece when we're done with it. Thanks!
+    - Could you fish us some normal fishies?
     FourthQuestSentences:
     - '[ Laughy looks anxious. ]'
     - "Where is it\u2026 Where could we have lost it\u2026\n[ Laughy looks around
@@ -10612,8 +10618,9 @@ MonoBehaviour:
     - "This one is just perfect! How did you even capture it? You\u2019ve got talent!"
     - Now we gotta go! Byesies!
     ThirdQuestDone:
-    - Here is the recipe!
-    - Cant wait!
+    - We haven't had any treats in a while. We lo-v-ove sweets! And you? We know
+      nothing about cooking. But Rockie is great chef!
+    - And we'll give you a piece when we're done with it. Thanks!
     FourthQuestDone:
     - "You\u2026 you found it?\r\n"
     - "YAY! That\u2019s it! Thank you - thank you - thank you!"
@@ -10639,7 +10646,7 @@ MonoBehaviour:
   quests: {fileID: 253224391}
   questName: MissingFlowers
   secondquestName: CatherSalmon
-  thirdquestName: TalkToRockie
+  thirdquestName: CatherFish
   fourthquestName: LostAmulet
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
@@ -10660,7 +10667,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.88
+  m_Radius: 1.98
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -12007,7 +12014,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189588219}
-  m_LocalRotation: {x: 0.3042126, y: -0.000000016390873, z: 0.000000005234398, w: 0.9526042}
+  m_LocalRotation: {x: 0.30421275, y: 1e-45, z: -0, w: 0.9526041}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12971,7 +12978,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321389142}
-  m_LocalRotation: {x: 0.3438076, y: -0.000000022850129, z: 0.00000000836604, w: 0.9390401}
+  m_LocalRotation: {x: 0.34380776, y: -0, z: -0, w: 0.93904006}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15210,6 +15217,7 @@ MonoBehaviour:
   nameText: {fileID: 703846622}
   FirstTimeMeeting: 1
   LastTimeTalking: 0
+  lastQuestDone: 0
   dialogue:
     name: Arbor
     sentences:
@@ -15263,7 +15271,7 @@ BoxCollider:
   m_GameObject: {fileID: 1532445157}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 11.699283, y: 1, z: 12.8146515}
   m_Center: {x: 0.37770033, y: 0, z: 0.34061432}
@@ -15836,7 +15844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584339648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 3.56, z: -1.01}
+  m_LocalPosition: {x: -24, y: 34.56, z: 122.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18507,9 +18515,25 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.8532
       objectReference: {fileID: 0}
+    - target: {fileID: 5619598728775851738, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Spacing.x
+      value: -31.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598728775851738, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_CellSize.x
+      value: 88.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598728775851738, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_CellSize.y
+      value: 61.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5619598728775851739, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 109.6
+      value: 71.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598728775851739, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 60.8
       objectReference: {fileID: 0}
     - target: {fileID: 5619598729239219864, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_Type
@@ -18533,15 +18557,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5619598729239219865, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 94.6
+      value: 88.2
       objectReference: {fileID: 0}
     - target: {fileID: 5619598729239219865, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 99.6
+      value: 61.1
       objectReference: {fileID: 0}
     - target: {fileID: 5619598729239219865, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 52.7
+      value: 102.564995
       objectReference: {fileID: 0}
     - target: {fileID: 5619598729239219865, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -18551,6 +18575,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: afa3741b4032af446bdf6b120296bc36, type: 3}
+    - target: {fileID: 5619598729580387095, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.199997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598729580387095, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598729580387113, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5619598729746068885, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -18703,6 +18739,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5619598730210299740, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 293.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598730210299740, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 237.9118
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598730210299740, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.6750002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598730210299740, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -80.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619598730210299740, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62.399
+      objectReference: {fileID: 0}
     - target: {fileID: 5619598730210299742, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_Type
       value: 0
@@ -18710,7 +18766,7 @@ PrefabInstance:
     - target: {fileID: 5619598730210299742, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 33a27e83429e0284ca8026cee99d2d6a, type: 3}
+      objectReference: {fileID: 21300000, guid: ab5e89bc74f9b24489ffd31c68bf6d62, type: 3}
     - target: {fileID: 5619598730210299742, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_Color.a
       value: 0.5176471
@@ -19865,7 +19921,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.88
+  m_Radius: 1.51
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -19898,11 +19954,7 @@ MonoBehaviour:
     - Anyway, you're welcomed quest here. I want you to get to know our little world.
     - I'd suggest you drop in to another villagers'. Laughy and Rockie would surely
       be happy to get a new friend.
-    - But you should start with Rockie. Talking to Laughy can take you hours. They
-      love attention. And don't be scared if you meet a spiri or two. They're harmless
-      creatures.
-    - We're somewhat alike, in some sense. I hope the time you spend here is pleasant.
-      See you soon.
+    - But first could you catch me some fish? I haven't eaten all day.
     secondQuestSentences:
     - 'Hello. '
     - " I see you\u2019re not bored. That\u2019s good. \r"
@@ -19947,7 +19999,13 @@ MonoBehaviour:
     SecondTalkQuest: []
     FirstQuestDone:
     - Oh...
-    - Could you help Rockie now?
+    - You were fast.
+    - You should help the others too!
+    - But you should start with Rockie. Talking to Laughy can take you hours. They
+      love attention. And don't be scared if you meet a spiri or two. They're harmless
+      creatures.
+    - We're somewhat alike, in some sense. I hope the time you spend here is pleasant.
+      See you soon.
     SecondQuestDone:
     - A pie?
     - "\u2026"
@@ -19973,7 +20031,7 @@ MonoBehaviour:
   Quests: {fileID: 0}
   questItems: {fileID: 253224393}
   quests: {fileID: 253224391}
-  questName: TalkToNPC
+  questName: CatherFish
   secondquestName: BringPieBackToTwig
   thirdquestName: Infestation
   fourthquestName: Healing
@@ -22590,7 +22648,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.88
+  m_Radius: 2.48
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -22609,6 +22667,12 @@ MonoBehaviour:
   dialogue:
     name: Rockie
     sentences:
+    - Hello! This is the first time i'm seeing you here. You must be the newcomer!
+      Rumors about you spread all over the village!
+    - I know, Arbor told you a lot of scary things about upsetting the magical balance
+      of the Forest, but it's not as bad as you think it is.
+    - We are sure he will figure it out. And for now you can stay with us. Could
+      you give Twig this pebble and could you come back to talk to me .
     - I'm Rockie. Our place is quiet. We are entertaining ourselves the best we can.
       Did you come here at Arbor's behest?
     - Hmm. Let me think.
@@ -22621,6 +22685,9 @@ MonoBehaviour:
       so you can get started. {TIP!: If you run out of money you can fish and sell
       them back to the store.}'
     secondQuestSentences:
+    - Greetings! What's up?
+    - Laughy sent you?
+    - Are they planning to cook?! We cannot let that happen or it will be a catastrophe!
     - Okay let's start so Laughy dosen't make a catastrophe!
     - Bring me 5 apples, then i will bake Laughy's favorite apple pie.
     - That will discourage them from unreasonable ideas. Can you handle it?
@@ -22632,8 +22699,8 @@ MonoBehaviour:
       unharmed and well.
     - And tell them i said hello. They should come more often.
     FourthQuestSentences:
-    - "Greetings, _Playername_! I cannot say \u201Clong time no see\u201D, but I
-      am still glad to see you again"
+    - "Greetings,! I cannot say \u201Clong time no see\u201D, but I am still glad
+      to see you again"
     - "I need to ask you to do something for me.\r"
     - "Since we made Laughy so happy with the pie, now it\u2019s time to make something
       for Twig."
@@ -22693,14 +22760,14 @@ MonoBehaviour:
     - But i need to work on my cooking project, so i have to ask for help. Talk to
       me when you are ready to begin.
     FourthQuestDone:
-    - Mm, _Playername_, I can already smell it from here!
+    - Mm, I can already smell it from here!
     - Fresh pastry always smells amazing and attracts. If it is baked properly, of
       course.
     - My kudos to you, cheff! Looks very delicious. I think you did everything right.
     - Now we just need to take it to our friend. I am afraid you will need to do
       that, too.
     - I am sure Twig will appreciate such attention!
-    - Thanks for your help again, _Playername_. Tell me how it goes afterwards. Farewell!
+    - Thanks for your help again. Tell me how it goes afterwards. Farewell!
     FailedQuestions: []
   currentAmount: 0
   DiffrentQuest: 0
@@ -22713,7 +22780,7 @@ MonoBehaviour:
   quests: {fileID: 253224391}
   questName: CraftCroissant
   secondquestName: GatherApples
-  thirdquestName: TalkToLaughy
+  thirdquestName: JuicyApplePie
   fourthquestName: BakeFishPie
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
@@ -23204,6 +23271,10 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6056888929700897624, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6056888929810609296, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_SizeDelta.x
       value: 67.6097
@@ -23263,6 +23334,10 @@ PrefabInstance:
     - target: {fileID: 6056888930370906447, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -65.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6056888930521235721, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6056888930671377301, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_IsActive
@@ -23430,15 +23505,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6336915006217868365, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 6336915006217868365, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 6336915006217868365, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.2
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 6336915006217868365, guid: a7d6978496b73c44cbfa6154685c5fa7, type: 3}
       propertyPath: m_LocalRotation.w

@@ -20,7 +20,7 @@ public class ArborDialogue : MonoBehaviour
 
     private Queue<string> Sentences;
 
-
+    public bool lastQuestDone = false;
 
     public Dialogue dialogue;
     
@@ -58,7 +58,7 @@ public class ArborDialogue : MonoBehaviour
 
 
         // First time meeting player.
-        if (FirstTimeMeeting)
+        if (FirstTimeMeeting && lastQuestDone == false)
 		{
             foreach (string sentence in dialogue.sentences)
             {
@@ -67,7 +67,7 @@ public class ArborDialogue : MonoBehaviour
             DisplayNextSentence();
             FirstTimeMeeting = false;
         }
-		else
+		if(lastQuestDone == true && FirstTimeMeeting == false)
 		{
             foreach (string sentence in dialogue.FirstQuestDone)
             {
@@ -113,7 +113,7 @@ public class ArborDialogue : MonoBehaviour
 
     IEnumerator SwitchSentence()
 	{
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(1.5f);
         DisplayNextSentence();
     }
 
@@ -124,7 +124,9 @@ public class ArborDialogue : MonoBehaviour
         PlayerDialogueCanvas.gameObject.SetActive(false);
         if(LastTimeTalking == true)
 		{
+            Debug.Log("End");
             // GIVE 2 CHOICES
+            Application.Quit(); // TODO: IMPLEMENT CHOICES
 		}
         
     }

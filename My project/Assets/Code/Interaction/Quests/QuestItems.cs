@@ -32,4 +32,5 @@ public class QuestItems : MonoBehaviour
     public GameObject NPC3;
 
     public GameObject Arbor;
+    public BoxCollider Collider;
 }

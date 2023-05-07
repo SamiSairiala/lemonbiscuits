@@ -49,6 +49,8 @@ public class DialogueManager : MonoBehaviour
     //TODO: Change to switch dialogues after pressing next or turning all of the quest items
     public void StartDialogue(Dialogue dialogue)
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         // TODO: open DIALOGUE BOX
         PlayerDialogueCanvas.gameObject.SetActive(true);
         Debug.Log("Starting dialogue");
@@ -95,6 +97,14 @@ public class DialogueManager : MonoBehaviour
         if(ThirdQuestCompleted == true)
         {
             foreach (string sentence in dialogue.ThirdQuestDone)
+            {
+                Sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
+        if(FourthQuestCompleted == true)
+		{
+            foreach (string sentence in dialogue.FourthQuestDone)
             {
                 Sentences.Enqueue(sentence);
             }
@@ -180,7 +190,7 @@ public class DialogueManager : MonoBehaviour
 
 
         // First time meeting player.
-        if (hasSpoken == false && hasGottenQuestItems == false && CompletedQuest == false && hasDiffrentQuest == false && TalkQuest == false && SecondQuest == false && ThirdQuest == false && fourthQuest == false)
+        if (hasSpoken == false && hasGottenQuestItems == false && CompletedQuest == false && hasDiffrentQuest == false && TalkQuest == false && SecondQuest == false && ThirdQuest == false && fourthQuest == false && FirstQuestCompleted == false && SecondQuestCompleted == false && ThirdQuestCompleted == false && FourthQuestCompleted == false)
         {
             foreach (string sentence in dialogue.sentences)
             {
@@ -264,7 +274,9 @@ public class DialogueManager : MonoBehaviour
         SecondQuestCompleted = false;
         ThirdQuestCompleted = false;
         FourthQuestCompleted = false;
-        
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
+
     }
 
     public void AcceptQuest()

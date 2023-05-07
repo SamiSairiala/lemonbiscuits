@@ -47,6 +47,7 @@ public class CraftingManager : MonoBehaviour
 		if (other.gameObject.tag.Equals("Player"))
 		{
 			CraftingCanvas.SetActive(true);
+			Cursor.visible = true;
 		}
 	}
 
@@ -196,6 +197,7 @@ public class CraftingManager : MonoBehaviour
 		ClearList();
 		List<Item> itemList = new List<Item>(4);
 		CraftingCanvas.SetActive(false);
+		Cursor.visible = false;
 	}
 
 	void ClearList()
@@ -226,6 +228,7 @@ public class CraftingManager : MonoBehaviour
 		{
 			FindObjectOfType<NarratorDialogue>().FirstText();
 		}
+		Cursor.visible = false;
 	}
 
 	public static void ItemAddedToInventory(Item item)

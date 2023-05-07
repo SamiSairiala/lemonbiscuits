@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Quests;
 
-public class LostAmulet : NewQuest
+public class JuicyApplePie : NewQuest
 {
     public Item rewardItem;
     public QuestItems questItems; // Quest items is here to get easy reference to needed items/npcs and other stuff that is needed in quest.
@@ -12,21 +12,16 @@ public class LostAmulet : NewQuest
     void Start()
     {
         questItems = FindObjectOfType<QuestItems>();
-        requiredItem = questItems.Amulet;
+        requiredItem = questItems.ApplePie;
         rewardItem = questItems.Coin;
-        QuestName = "Lost Amulet";
-        QuestDescription = "Follow the footsteps at night to find the amulet";
+        QuestName = "Juicy Apple Pie";
+        QuestDescription = "Talk to Rockie Again.";
         ItemReward = rewardItem;
         RequiredAmount = requiredAmount;
-        FindObjectOfType<NightQuest>().QuestActive = true;
-        Goals.Add(new CollectionGoal(this, requiredItem.name, "Follow the footsteps at night to find the amulet", false, 0, requiredAmount, requiredItem));
+
+        Goals.Add(new CollectionGoal(this, requiredItem.name, "Talk to Rockie Again.", false, 0, requiredAmount, requiredItem));
 
         Goals.ForEach(g => g.Init());
     }
 
-	private void Update()
-	{
-		
-	}
-
-}
+    }

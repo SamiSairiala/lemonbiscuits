@@ -8,7 +8,8 @@ public class BeetlesTrigger : MonoBehaviour
 	public GameObject spawnPoint;
 	public GameObject proof;
 	[SerializeField] private InputActionReference Interaction;
-
+	public GameObject clearBeetlesCanvas;
+	private bool CanClear = false;
 
 
 	private void OnEnable()
@@ -26,17 +27,24 @@ public class BeetlesTrigger : MonoBehaviour
 	{
 		if (other.gameObject.tag.Equals("Player"))
 		{
-			if (Interaction.action.triggered)
-			{
-				Instantiate(proof, spawnPoint.transform.position, Quaternion.identity);
-				this.gameObject.SetActive(false);
-			}
+			clearBeetlesCanvas.SetActive(true);
+			CanClear = true;
 			
 		}
 	}
 
-	private void Start()
+	private void Update()
 	{
-		
+		if (CanClear)
+		{
+			if (Interaction.action.WasPerformedThisFrame())
+			{
+				CanClear = false;
+				Instantiate(proof, spawnPoint.transform.position, Quaternion.identity);
+				clearBeetlesCanvas.SetActive(false);
+				this.gameObject.SetActive(false);
+				
+			}
+		}
 	}
 }

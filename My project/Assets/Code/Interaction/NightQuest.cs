@@ -23,7 +23,7 @@ public class NightQuest : MonoBehaviour
 			{
 
 				Debug.Log("NightQuest active");
-				if (TimeStateManager.Instance.CurrentState.Type.Equals(DayState.Midnight)) // TODO: FIX THIS
+				if (TimeStateManager.Instance.CurrentState.Type.Equals(DayState.Midnight) || TimeStateManager.Instance.CurrentState.Type.Equals(DayState.Sunset) || TimeStateManager.Instance.CurrentState.Type.Equals(DayState.Evening)) // TODO: FIX THIS
 				{
 					Amulet.SetActive(true);
 				}

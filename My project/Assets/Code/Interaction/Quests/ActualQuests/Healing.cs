@@ -19,7 +19,7 @@ public class Healing : NewQuest
         ItemReward = rewardItem;
         RequiredAmount = requiredAmount;
         FindObjectOfType<QuestItems>().RareFlowersHolder.SetActive(true);
-        FindObjectOfType<QuestItems>().Arbor.SetActive(true);
+        
         Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 4 Reddish colored flowers to heal the lemon tree", false, 0, requiredAmount, requiredItem));
 
         Goals.ForEach(g => g.Init());

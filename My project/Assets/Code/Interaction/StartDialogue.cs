@@ -27,6 +27,8 @@ public class StartDialogue : MonoBehaviour
     private void Start()
     {
         Sentences = new Queue<string>();
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
         StartDialogueBox(dialogue);
     }
 
@@ -99,8 +101,10 @@ public class StartDialogue : MonoBehaviour
         // TODO: CLOSE DIALOGUE BOX
         FindObjectOfType<ArborDialogue>().ShowDialogue();
         PlayerDialogueCanvas.gameObject.SetActive(false);
-        
-        
+        this.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Confined;
+
+
     }
 
     
