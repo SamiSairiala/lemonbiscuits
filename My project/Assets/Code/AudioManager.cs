@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
 
     public AudioSource EffectsSource;
     public AudioSource MusicSource;
+
+    public Slider musicSlider;
 
     // Random pitch adjustment range.
     public float LowPitchRange = .95f;
@@ -51,6 +54,11 @@ public class AudioManager : MonoBehaviour
         EffectsSource.clip = clips[randomIndex];
         EffectsSource.Play();
     }
+
+    public void MusicSlider()
+	{
+        MusicSource.volume = musicSlider.value;
+	}
 
 
     void Update()
