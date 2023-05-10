@@ -9424,6 +9424,7 @@ MonoBehaviour:
   EffectsSource: {fileID: 893230821}
   MusicSource: {fileID: 893230818}
   musicSlider: {fileID: 64496958}
+  sfxSlider: {fileID: 0}
   LowPitchRange: 0.95
   HighPitchRange: 1.05
 --- !u!82 &893230821
@@ -11096,6 +11097,8 @@ MonoBehaviour:
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
   animator: {fileID: 801704373}
+  npcBase: {fileID: 1013497739}
+  agent: {fileID: 1013497740}
   hasSecondQuest: 1
   secondQuestActive: 0
   hasThirdQuest: 1
@@ -11119,6 +11122,22 @@ CapsuleCollider:
 --- !u!4 &1013497738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+  m_PrefabInstance: {fileID: 1409752770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1013497739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+  m_PrefabInstance: {fileID: 1409752770}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013497731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26ca871dc28db4468190ac8d776efe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &1013497740 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 2639800594581369284, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
   m_PrefabInstance: {fileID: 1409752770}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1020051951
@@ -21020,6 +21039,8 @@ MonoBehaviour:
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
   animator: {fileID: 1556660473}
+  npcBase: {fileID: 2040309621}
+  agent: {fileID: 2040309622}
   hasSecondQuest: 1
   secondQuestActive: 0
   hasThirdQuest: 1
@@ -21029,6 +21050,22 @@ MonoBehaviour:
 --- !u!4 &2040309620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+  m_PrefabInstance: {fileID: 2040309597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2040309621 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+  m_PrefabInstance: {fileID: 2040309597}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040309598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26ca871dc28db4468190ac8d776efe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &2040309622 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 2639800594581369284, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
   m_PrefabInstance: {fileID: 2040309597}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2045011230 stripped
@@ -23781,6 +23818,8 @@ MonoBehaviour:
   CurrentQuesttext: {fileID: 407031063}
   CurrentQuestProgresstext: {fileID: 693968268}
   animator: {fileID: 1154130523}
+  npcBase: {fileID: 2639800595101608065}
+  agent: {fileID: 2639800595101608066}
   hasSecondQuest: 1
   secondQuestActive: 0
   hasThirdQuest: 1
@@ -23790,6 +23829,22 @@ MonoBehaviour:
 --- !u!4 &2639800595101608064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2639800594581369288, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+  m_PrefabInstance: {fileID: 2639800595101608049}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2639800595101608065 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2639800594581369291, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
+  m_PrefabInstance: {fileID: 2639800595101608049}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2639800595101608050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26ca871dc28db4468190ac8d776efe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &2639800595101608066 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 2639800594581369284, guid: 6d090fda3a32a5b469b231ed0285decb, type: 3}
   m_PrefabInstance: {fileID: 2639800595101608049}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2789852046046414394

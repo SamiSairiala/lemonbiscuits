@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource MusicSource;
 
     public Slider musicSlider;
+    public Slider sfxSlider;
 
     // Random pitch adjustment range.
     public float LowPitchRange = .95f;
@@ -59,6 +60,10 @@ public class AudioManager : MonoBehaviour
 	{
         MusicSource.volume = musicSlider.value;
 	}
+    public void SfxSlider()
+    {
+        EffectsSource.volume = sfxSlider.value;
+    }
 
 
     void Update()
