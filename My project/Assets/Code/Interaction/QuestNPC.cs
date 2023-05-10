@@ -67,7 +67,7 @@ public class QuestNPC : MonoBehaviour
             if (other.gameObject.tag == "Player")
         {
             animator.SetBool("React", true);
-            npcBase.PauseRoutine();
+            npcBase.PauseRoutine(); // stops npc from walking away from player.
 
             //if(this.gameObject.name.Contains("Laughy") && onQuest.LaughyQuest == true)
             //if(this.gameObject.name.Contains("Twig") && onQuest.TwigQuest == true)
@@ -187,11 +187,11 @@ public class QuestNPC : MonoBehaviour
         //    FindObjectOfType<DialogueManager>().EndDialogue(); // Closes dialogue box if player walks away.
         //}
         animator.SetBool("React", false);
-        npcBase.ContinueRoutine();
+        npcBase.ContinueRoutine(); // NPC CONTINUES TO WALK AFTER PLAYER LEAVES THE TRIGGER.
         
 
     }
-    void AssignSecondQuest()
+    void AssignSecondQuest() // Assigns correct quest and gets it's name from editor and then activates that quest, also displays that npc's dialogue.
     {
         if (hasQuestionQuest && QuestionQuest)
         {
@@ -214,7 +214,7 @@ public class QuestNPC : MonoBehaviour
 
     }
 
-    void AssingFourthQuest()
+    void AssingFourthQuest() // Assigns correct quest and gets it's name from editor and then activates that quest, also displays that npc's dialogue.
     {
 		if (fourthquestName.Contains("FishPie"))
 		{
@@ -231,7 +231,7 @@ public class QuestNPC : MonoBehaviour
         Helped = false;
     }
 
-    void AssingThirdQuest()
+    void AssingThirdQuest() // Assigns correct quest and gets it's name from editor and then activates that quest, also displays that npc's dialogue.
     {
         if (thirdquestName.Contains("CatherFish"))
         {
@@ -262,7 +262,7 @@ public class QuestNPC : MonoBehaviour
         
     }
 
-    void AssignQuest()
+    void AssignQuest() // Assigns correct quest and gets it's name from editor and then activates that quest, also displays that npc's dialogue.
     {
         if (hasQuestionQuest && QuestionQuest)
         {
@@ -405,8 +405,8 @@ public class QuestNPC : MonoBehaviour
             if (Quest.Completed)
             {
                 animator.SetBool("React", true);
-                if (questName.Contains("Croissant") && secondQuestActive == false)
-                {
+                if (questName.Contains("Croissant") && secondQuestActive == false)  // THESE ARE DONE THIS WAY TO APPLY CORRECT QUESTDONE TEXT / WASN'T THIS COMPLICATED BEFORE AS DIDIN'T PLAN TO USE THE QUEST SYSTEM AND DIALOGUE SYSTEM LIKE THIS
+                {                                                                   // TODO: MAKE REGIONS THAT CORRESPOND TO THE NPC'S THAT USE THESE TO MAKE THIS LITTLE BIT MORE READABLE
                     DeleteItems();
                     CurrentQuesttext.text = "";
                     onQuest.onQuest = false;
