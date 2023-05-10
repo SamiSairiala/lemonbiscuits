@@ -12,6 +12,7 @@ public class OpenShop : MonoBehaviour
 		if (other.gameObject.tag.Equals("Player"))
 		{
 			ShopCanvas.SetActive(true);
+			Cursor.visible = true;
 		}
 	}
 }

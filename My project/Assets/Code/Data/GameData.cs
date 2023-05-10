@@ -19,8 +19,8 @@ public class GameData
 	public GameData()
 	{
 		vPlayerPos = Vector3.zero;
-		items = new List<Item>();
-		Inventoryitems = new List<Item>();
+		//items = new List<Item>();
+		//Inventoryitems = new List<Item>();
 		if(firstquestComplete == true)
         {
 			firstquestComplete = true;

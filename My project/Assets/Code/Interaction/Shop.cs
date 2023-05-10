@@ -101,5 +101,6 @@ public class Shop : MonoBehaviour
     public void CloseShop()
     {
         ShopCanvas.SetActive(false);
+        Cursor.visible = false;
     }
 }

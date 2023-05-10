@@ -23,6 +23,7 @@ public class GatherApples : NewQuest
         RequiredAmount = requiredAmount;
         onquest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
         onquest.Laughy.GetComponent<CapsuleCollider>().isTrigger = false;
+        onquest.RockieQuestIndicator.SetActive(false);
         Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 5 apples.", false, 0, requiredAmount, requiredItem));
 
         Goals.ForEach(g => g.Init());

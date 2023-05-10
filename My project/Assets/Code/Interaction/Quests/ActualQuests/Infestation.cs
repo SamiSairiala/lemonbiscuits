@@ -23,6 +23,7 @@ public class Infestation : NewQuest
         RequiredAmount = requiredAmount;
         onquest.Twig.GetComponent<CapsuleCollider>().isTrigger = true;
         onquest.Laughy.GetComponent<CapsuleCollider>().isTrigger = false;
+        onquest.TwigQuestIndicator.SetActive(false);
         onquest.BeetlesTrigger.SetActive(true);
         Goals.Add(new CollectionGoal(this, requiredItem.name, "Get rid of beetles on the Lemon Tree. The tree should drop a sign of healing.", false, 0, requiredAmount, requiredItem));
 

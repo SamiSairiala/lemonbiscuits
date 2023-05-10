@@ -12,6 +12,8 @@ public class UI_Inventory : MonoBehaviour
 	private Transform Content;
 	private Transform Item;
 
+	
+
 	private void Awake()
 	{
 		Debug.Log(Inventory.Items.Count);
@@ -20,7 +22,7 @@ public class UI_Inventory : MonoBehaviour
 		
 		RefreshInventory();
 	}
-
+	
 
 	
 

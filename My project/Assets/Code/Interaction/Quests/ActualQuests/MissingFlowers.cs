@@ -10,9 +10,11 @@ public class MissingFlowers : NewQuest
     public Item rewardItem;
     public QuestItems questItems; // Quest items is here to get easy reference to needed items/npcs and other stuff that is needed in quest.
     public int requiredAmount = 2; // Invisible + 1 from somewhere so if you want to only to require 2 write 1 here. // TODO: Found the issue need to think of a fix 
+    public OnQuest onquest;
     private void Start()
     {
         questItems = FindObjectOfType<QuestItems>();
+        onquest = FindObjectOfType<OnQuest>();
         requiredItem = questItems.Flower;
         rewardItem = questItems.FishingRod;
         Debug.Log(requiredItem.name);
@@ -21,7 +23,7 @@ public class MissingFlowers : NewQuest
         ItemReward = rewardItem;
         RequiredAmount = requiredAmount;
 
-
+        onquest.LaughyQuestIndicator.SetActive(false);
         Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 2 flowers", false, 0, requiredAmount, requiredItem));
 
         Goals.ForEach(g => g.Init());

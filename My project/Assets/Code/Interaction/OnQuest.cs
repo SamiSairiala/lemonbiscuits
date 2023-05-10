@@ -21,6 +21,10 @@ public class OnQuest : MonoBehaviour
 	public GameObject Rockie;
 	public GameObject Twig;
 
+	public GameObject LaughyQuestIndicator;
+	public GameObject RockieQuestIndicator;
+	public GameObject TwigQuestIndicator;
+
 	public GameObject BeetlesTrigger;
 
 	public Riddle riddle;

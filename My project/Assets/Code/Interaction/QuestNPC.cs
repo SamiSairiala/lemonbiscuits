@@ -31,7 +31,7 @@ public class QuestNPC : MonoBehaviour
     public TextMeshProUGUI CurrentQuesttext;
     public TextMeshProUGUI CurrentQuestProgresstext;
 
-
+    public Animator animator;
 
 
     public bool hasSecondQuest = false;
@@ -62,7 +62,7 @@ public class QuestNPC : MonoBehaviour
 
             if (other.gameObject.tag == "Player")
         {
-
+            animator.SetBool("React", true);
 
             //if(this.gameObject.name.Contains("Laughy") && onQuest.LaughyQuest == true)
             //if(this.gameObject.name.Contains("Twig") && onQuest.TwigQuest == true)
@@ -70,7 +70,7 @@ public class QuestNPC : MonoBehaviour
             FindObjectOfType<DialogueManager>().npcName = dialogue.name;
 
 
-            if (!AssignedQuest && !Helped && !onQuest.onQuest)
+            if (!AssignedQuest && !Helped && !onQuest.onQuest && secondQuestActive == false)
             {
                 if (questName.Equals("Riddle"))
                 {
@@ -135,34 +135,37 @@ public class QuestNPC : MonoBehaviour
             {
                 if (hasSecondQuest && secondQuestActive == false && thirdQuestActive == false && FourthQuestActive == false && AssignedQuest == false)
                 {
+                    Debug.Log("Assigning 2 quest");
                     AssignSecondQuest();
                     onQuest.onQuest = true;
                 }
                 if (hasThirdQuest && secondQuestActive == true && thirdQuestActive == false && FourthQuestActive == false && AssignedQuest == false)
                 {
+                    Debug.Log("Assigning 3 quest");
                     AssingThirdQuest();
                     onQuest.onQuest = true;
                 }
                 if (hasFourthQuest && secondQuestActive == true && thirdQuestActive == true && FourthQuestActive == false && AssignedQuest == false)
                 {
+                    Debug.Log("Assigning 4 quest");
                     AssingFourthQuest();
                     onQuest.onQuest = true;
                 }
-                if (hasSecondQuest && secondQuestActive == false && thirdQuestActive == false && FourthQuestActive == false && AssignedQuest == true)
-				{
-                    FindObjectOfType<DialogueManager>().SecondQuest = true;
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-                if (hasThirdQuest && secondQuestActive == true && thirdQuestActive == false && FourthQuestActive == false && AssignedQuest == true)
-                {
-                    FindObjectOfType<DialogueManager>().ThirdQuest = true;
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-                if (hasFourthQuest && secondQuestActive == true && thirdQuestActive == true && FourthQuestActive == false && AssignedQuest == true)
-                {
-                    FindObjectOfType<DialogueManager>().fourthQuest = true;
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
+    //            if (hasSecondQuest && secondQuestActive == false && thirdQuestActive == false && FourthQuestActive == false && AssignedQuest == true)
+				//{
+    //                FindObjectOfType<DialogueManager>().SecondQuest = true;
+    //                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    //            }
+    //            if (hasThirdQuest && secondQuestActive == true && thirdQuestActive == false && FourthQuestActive == false && AssignedQuest == true)
+    //            {
+    //                FindObjectOfType<DialogueManager>().ThirdQuest = true;
+    //                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    //            }
+    //            if (hasFourthQuest && secondQuestActive == true && thirdQuestActive == true && FourthQuestActive == false && AssignedQuest == true)
+    //            {
+    //                FindObjectOfType<DialogueManager>().fourthQuest = true;
+    //                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    //            }
             }
 
 
@@ -222,15 +225,33 @@ public class QuestNPC : MonoBehaviour
 
     void AssingThirdQuest()
     {
-        Quest = null;
-        thirdQuestActive = true;
-        AssignedQuest = true;
-        Quest = (NewQuest)quests.AddComponent(System.Type.GetType(thirdquestName));
-        Debug.Log("Assigned quest");
-        FindObjectOfType<DialogueManager>().ThirdQuest = true;
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        StartCoroutine(UpdateQuestText());
-        Helped = false;
+        if (thirdquestName.Contains("CatherFish"))
+        {
+            onQuest.LaughyQuestIndicator.SetActive(false);
+            Quest = null;
+            thirdQuestActive = true;
+            AssignedQuest = true;
+            Quest = (NewQuest)quests.AddComponent(System.Type.GetType(thirdquestName));
+            Debug.Log("Assigned quest");
+            FindObjectOfType<DialogueManager>().ThirdQuest = true;
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            StartCoroutine(UpdateQuestText());
+            Helped = false;
+
+        }
+        else
+        {
+            Quest = null;
+            thirdQuestActive = true;
+            AssignedQuest = true;
+            Quest = (NewQuest)quests.AddComponent(System.Type.GetType(thirdquestName));
+            Debug.Log("Assigned quest");
+            FindObjectOfType<DialogueManager>().ThirdQuest = true;
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            StartCoroutine(UpdateQuestText());
+            Helped = false;
+        }
+        
     }
 
     void AssignQuest()
@@ -243,7 +264,7 @@ public class QuestNPC : MonoBehaviour
         if (questName.Contains("Croissant"))
         {
             InventoryManager.Instance.Add(questItems.Recipe);
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 2; i++)
             {
                 InventoryManager.Instance.Add(questItems.Coin);
             }
@@ -252,12 +273,22 @@ public class QuestNPC : MonoBehaviour
             Debug.Log("Assigned quest");
             StartCoroutine(UpdateQuestText());
         }
+        if (questName.Contains("CatherFish"))
+        {
+            onQuest.TwigQuestIndicator.SetActive(false);
+            AssignedQuest = true;
+            Quest = (NewQuest)quests.AddComponent(System.Type.GetType(questName));
+            Debug.Log("Assigned quest");
+            StartCoroutine(UpdateQuestText());
+            InventoryManager.Instance.Add(questItems.FishingRod);
+        }
         else
         {
             AssignedQuest = true;
             Quest = (NewQuest)quests.AddComponent(System.Type.GetType(questName));
             Debug.Log("Assigned quest");
             StartCoroutine(UpdateQuestText());
+            
         }
 
 
@@ -269,6 +300,7 @@ public class QuestNPC : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Debug.Log(this.Quest.QuestDescription);
         CurrentQuesttext.text = (Quest.QuestDescription.ToString());
+        animator.SetBool("React", false);
     }
 
     void DeleteItems()
@@ -293,7 +325,7 @@ public class QuestNPC : MonoBehaviour
 			}
 
         }
-        if (questName.Contains("GatherFish") && secondQuestActive == false && thirdQuestActive == false)
+        if (questName.Contains("CatherFish") && secondQuestActive == false && thirdQuestActive == false)
         {
             Debug.Log("Quest has fish");
             item = quests.GetComponent<QuestItems>().Fish;
@@ -313,9 +345,15 @@ public class QuestNPC : MonoBehaviour
             Debug.Log("Quest has apples");
             item = quests.GetComponent<QuestItems>().Apple;
         }
+        if (secondquestName.Contains("Salmon") && secondQuestActive == true && thirdQuestActive == false)
+        {
+            Debug.Log("Quest has apples");
+            item = quests.GetComponent<QuestItems>().salmon;
+        }
         if (fourthquestName.Contains("Healing") && FourthQuestActive == true)
 		{
             item = quests.GetComponent<QuestItems>().RareFlower;
+            questItems.Arbor.SetActive(true);
 		}
 
             if (InventoryManager.Instance.Items.Contains(item))
@@ -335,29 +373,30 @@ public class QuestNPC : MonoBehaviour
 
     void CheckQuest()
     {
-        if (onQuest.RiddleQuestCompleted)
-        {
-            onQuest.onQuest = false;
-            Helped = true;
-            AssignedQuest = false;
-            QuestionQuest = false;
-            FindObjectOfType<DialogueManager>().hasGottenQuestItems = true;
-            FindObjectOfType<DialogueManager>().CompletedQuest = false;
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        }
-        else if (QuestionQuest && !onQuest.RiddleQuestCompleted)
-        {
-            FindObjectOfType<DialogueManager>().hasSpoken = true;
-            FindObjectOfType<DialogueManager>().hasGottenQuestItems = false;
-            FindObjectOfType<DialogueManager>().CompletedQuest = false;
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        }
+        //if (onQuest.RiddleQuestCompleted)
+        //{
+        //    onQuest.onQuest = false;
+        //    Helped = true;
+        //    AssignedQuest = false;
+        //    QuestionQuest = false;
+        //    FindObjectOfType<DialogueManager>().hasGottenQuestItems = true;
+        //    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+        //    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        //}
+        //else if (QuestionQuest && !onQuest.RiddleQuestCompleted)
+        //{
+        //    FindObjectOfType<DialogueManager>().hasSpoken = true;
+        //    FindObjectOfType<DialogueManager>().hasGottenQuestItems = false;
+        //    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+        //    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        //}
         if (QuestionQuest == false)
         {
 
 
             if (Quest.Completed)
             {
+                animator.SetBool("React", true);
                 if (questName.Contains("Croissant") && secondQuestActive == false)
                 {
                     DeleteItems();
@@ -368,53 +407,115 @@ public class QuestNPC : MonoBehaviour
                     Helped = true;
                     AssignedQuest = false;
                     currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().FirstQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                     onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
                     onQuest.Laughy.GetComponent<CapsuleCollider>().isTrigger = true;
+                    onQuest.LaughyQuestIndicator.SetActive(true);
 
                 }
-				if (questName.Contains("TalkToNPC") && secondQuestActive == false)
+				if (questName.Contains("CatherFish") && secondQuestActive == false)
 				{
                     DeleteItems();
                     CurrentQuesttext.text = "";
                     onQuest.onQuest = false;
+                    onQuest.TalkQuest = false;
                     Quest.GiveReward();
                     Debug.Log("Quest completed");
                     Helped = true;
                     AssignedQuest = false;
                     currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().FirstQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                     onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
                     onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = true;
+                    onQuest.RockieQuestIndicator.SetActive(true);
                 }
-                if(secondquestName.Contains("Apple") && secondQuestActive == true && thirdQuestActive == false)
+                if (thirdquestName.Contains("CatherFish") && thirdQuestActive == true && FourthQuestActive == false)
+                {
+                    DeleteItems();
+                    CurrentQuesttext.text = "";
+                    onQuest.onQuest = false;
+                    onQuest.TalkQuest = false;
+                    Quest.GiveReward();
+                    Debug.Log("Quest completed");
+                    Helped = true;
+                    AssignedQuest = false;
+                    currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().ThirdQuestCompleted = true;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.Laughy.GetComponent<CapsuleCollider>().isTrigger = false;
+                    onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = true;
+                    onQuest.RockieQuestIndicator.SetActive(true);
+                }
+                if (secondquestName.Contains("Apple") && secondQuestActive == true && thirdQuestActive == false)
                 {
                     DeleteItems();
                     CurrentQuesttext.text = "";
                     onQuest.onQuest = false;
                     Quest.GiveReward();
                     InventoryManager.Instance.Add(questItems.Recipe);
-                    Debug.Log("Quest completed");
+                    Debug.Log("Quest 2 completed");
                     Helped = true;
                     AssignedQuest = false;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     currentAmount = 0;
                     FindObjectOfType<DialogueManager>().SecondQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.RockieQuestIndicator.SetActive(true);
+                }
+                if(thirdquestName.Contains("JuicyApple") && thirdQuestActive == true && FourthQuestActive == false)
+				{
+                    CurrentQuesttext.text = "";
+                    onQuest.onQuest = false;
+                    Quest.GiveReward();
+                    InventoryManager.Instance.Add(questItems.Recipe);
+                    Debug.Log("Quest 2 completed");
+                    Helped = true;
+                    AssignedQuest = false;
+                    currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().ThirdQuestCompleted = true;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.TwigQuestIndicator.SetActive(true);
+                }
+                if(secondquestName.Contains("Salmon") && secondQuestActive == true && thirdQuestActive == false)
+				{
+                    DeleteItems();
+                    CurrentQuesttext.text = "";
+                    onQuest.onQuest = false;
+                    Quest.GiveReward();
+                    Debug.Log("Quest 2 completed");
+                    Helped = true;
+                    AssignedQuest = false;
+                    currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().SecondQuestCompleted = true;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
+                    onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
+                    onQuest.LaughyQuestIndicator.SetActive(true);
                 }
                 if(thirdquestName.Contains("Laughy") && thirdQuestActive == true && FourthQuestActive == false)
                 {
                     CurrentQuesttext.text = "";
                     onQuest.onQuest = false;
+                    onQuest.TalkQuest = false;
                     Quest.GiveReward();
-                    Debug.Log("Quest completed");
+                    Debug.Log("Quest  3 completed");
                     Helped = true;
                     AssignedQuest = false;
                     currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().ThirdQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
@@ -425,26 +526,30 @@ public class QuestNPC : MonoBehaviour
                     CurrentQuesttext.text = "";
                     onQuest.onQuest = false;
                     Quest.GiveReward();
-                    Debug.Log("Quest completed");
+                    Debug.Log("Quest 2 completed");
+                    onQuest.TalkQuest = false;
                     Helped = true;
                     AssignedQuest = false;
                     InventoryManager.Instance.Remove(questItems.Fishpie);
                     currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().SecondQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
                     onQuest.Laughy.GetComponent<CapsuleCollider>().isTrigger = true;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.LaughyQuestIndicator.SetActive(true);
                 }
                 if(fourthquestName.Contains("FishPie") && FourthQuestActive == true)
 				{
                     CurrentQuesttext.text = "";
                     onQuest.onQuest = false;
                     Quest.GiveReward();
-                    Debug.Log("Quest completed");
+                    Debug.Log("Quest 4 completed");
                     Helped = true;
                     AssignedQuest = false;
                     currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().FourthQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
@@ -454,67 +559,6 @@ public class QuestNPC : MonoBehaviour
                 //THESE TWO ARE PLACEHOLDERS
 				if (questName.Contains("MissingFlowers") && secondQuestActive == false)
 				{
-                    CurrentQuesttext.text = "";
-                    onQuest.onQuest = false;
-                    Quest.GiveReward();
-                    Debug.Log("Quest completed");
-                    Helped = true;
-                    AssignedQuest = false;
-                    currentAmount = 0;
-                    FindObjectOfType<DialogueManager>().FirstQuestCompleted = true;
-                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                    onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
-                    onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
-                }
-                if(secondquestName.Contains("GatherFish") && thirdQuestActive == false && secondQuestActive == true)
-                {
-                    CurrentQuesttext.text = "";
-                    onQuest.onQuest = false;
-                    Quest.GiveReward();
-                    Debug.Log("Quest completed");
-                    Helped = true;
-                    AssignedQuest = false;
-                    currentAmount = 0;
-                    FindObjectOfType<DialogueManager>().SecondQuestCompleted = true;
-                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                    onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
-                    onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
-                }
-				if (fourthquestName.Contains("LostAmulet") && FourthQuestActive == true)
-				{
-                    CurrentQuesttext.text = "";
-                    onQuest.onQuest = false;
-                    Quest.GiveReward();
-                    Debug.Log("Quest completed");
-                    Helped = true;
-                    InventoryManager.Instance.Remove(questItems.Amulet);
-                    AssignedQuest = false;
-                    currentAmount = 0;
-                    FindObjectOfType<DialogueManager>().FourthQuestCompleted = true;
-                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                    onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
-                    onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = true;
-                    onQuest.Laughy.GetComponent<CapsuleCollider>().isTrigger = false;
-                }
-                if(thirdquestName.Contains("Infestation") && thirdQuestActive == true && FourthQuestActive == false)
-				{
-                    CurrentQuesttext.text = "";
-                    onQuest.onQuest = false;
-                    Quest.GiveReward();
-                    Debug.Log("Quest completed");
-                    Helped = true;
-                    InventoryManager.Instance.Remove(questItems.RareFlower);
-                    AssignedQuest = false;
-                    currentAmount = 0;
-                    FindObjectOfType<DialogueManager>().ThirdQuestCompleted = true;
-                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-                if(fourthquestName.Contains("Healing") && FourthQuestActive == true)
-				{
                     DeleteItems();
                     CurrentQuesttext.text = "";
                     onQuest.onQuest = false;
@@ -523,9 +567,68 @@ public class QuestNPC : MonoBehaviour
                     Helped = true;
                     AssignedQuest = false;
                     currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().FirstQuestCompleted = true;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
+                    onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
+                    onQuest.LaughyQuestIndicator.SetActive(true);
+                }
+                
+				if (fourthquestName.Contains("LostAmulet") && FourthQuestActive == true)
+				{
+                    CurrentQuesttext.text = "";
+                    onQuest.onQuest = false;
+                    Quest.GiveReward();
+                    Debug.Log("Quest 4 completed");
+                    Helped = true;
+                    InventoryManager.Instance.Remove(questItems.Amulet);
+                    AssignedQuest = false;
+                    currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().FourthQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
+                    onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = true;
+                    onQuest.Laughy.GetComponent<CapsuleCollider>().isTrigger = false;
+                    onQuest.TwigQuestIndicator.SetActive(true);
+                }
+                if(thirdquestName.Contains("Infestation") && thirdQuestActive == true && FourthQuestActive == false)
+				{
+                    CurrentQuesttext.text = "";
+                    onQuest.onQuest = false;
+                    Quest.GiveReward();
+                    Debug.Log("Quest 3 completed");
+                    Helped = true;
+                    InventoryManager.Instance.Remove(questItems.RareFlower);
+                    AssignedQuest = false;
+                    currentAmount = 0;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().ThirdQuestCompleted = true;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.TwigQuestIndicator.SetActive(true);
+                }
+                if(fourthquestName.Contains("Healing") && FourthQuestActive == true)
+				{
+                    DeleteItems();
+                    CurrentQuesttext.text = "";
+                    onQuest.onQuest = false;
+                    Quest.GiveReward();
+                    Debug.Log("Quest4 completed");
+                    Helped = true;
+                    AssignedQuest = false;
+                    currentAmount = 0;
+                    FindObjectOfType<QuestItems>().Arbor.SetActive(true);
+                    FindObjectOfType<QuestItems>().Collider.enabled = true;
+                    FindObjectOfType<ArborDialogue>().lastQuestDone = true;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().FourthQuestCompleted = true;
+                    FindObjectOfType<DialogueManager>().CompletedQuest = false;
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    // ADD ARBOR QUESTMARKER HERE ASWELL
                 }
                 else
                 {
