@@ -33,6 +33,16 @@ namespace LemonForest.AI
             DoThing(TimeController.Instance.GetCurrent());
         }
 
+        public void PauseRoutine() 
+        {
+            agent.speed = 0;
+        }
+
+        public void ContinueRoutine()
+        {
+            agent.speed = StaticVariables.NPCMovementSpeed;
+        }
+
         private void DoThing(DayState currentTime)
         {
             foreach (RoutineAction action in routine)
