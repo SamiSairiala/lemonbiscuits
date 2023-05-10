@@ -23,6 +23,8 @@ public class ArborDialogue : MonoBehaviour
     public bool lastQuestDone = false;
 
     public Dialogue dialogue;
+
+    public OnQuest onquest;
     
     private void Start()
     {
@@ -122,12 +124,18 @@ public class ArborDialogue : MonoBehaviour
         // TODO: CLOSE DIALOGUE BOX
         this.gameObject.SetActive(false);
         PlayerDialogueCanvas.gameObject.SetActive(false);
+        
         if(LastTimeTalking == true)
 		{
             Debug.Log("End");
             // GIVE 2 CHOICES
             Application.Quit(); // TODO: IMPLEMENT CHOICES
 		}
+        else
+        {
+            onquest.Twig.GetComponent<CapsuleCollider>().isTrigger = true;
+            onquest.TwigQuestIndicator.SetActive(true);
+        }
         
     }
 

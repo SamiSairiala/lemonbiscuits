@@ -22,6 +22,7 @@ public class BringPieBackToTwig : NewQuest
         RequiredAmount = requiredAmount;
         onquest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
         onquest.Twig.GetComponent<CapsuleCollider>().isTrigger = true;
+        onquest.TwigQuestIndicator.SetActive(false);
         Goals.Add(new CollectionGoal(this, requiredItem.name, "Bring Fish Pie to Twig", false, 0, requiredAmount, requiredItem));
         
         Goals.ForEach(g => g.Init());

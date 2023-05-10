@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations;
-
+using Cinemachine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private InputActionReference movementControl;
@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputActionReference Inventory;
 
     [SerializeField] private GameObject InventoryUI;
+
+    public CinemachineFreeLook freeLook;
+
+    public GameObject JournalCanvas;
     private bool inventoryOpen = false;
 
     private bool PlayerGrounded;
@@ -105,11 +109,17 @@ public class PlayerMovement : MonoBehaviour
                 inventoryOpen = true;
                 InventoryUI.SetActive(true);
                 InventoryManager.Instance.ListItems();
+                JournalCanvas.SetActive(true);
+                Cursor.visible = true;
+                freeLook.enabled = false;
             }
             else
             {
                 inventoryOpen = false;
                 InventoryUI.SetActive(false);
+                JournalCanvas.SetActive(false);
+                Cursor.visible = false;
+                freeLook.enabled = true;
             }
         }
     }

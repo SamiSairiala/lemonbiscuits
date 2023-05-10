@@ -225,15 +225,33 @@ public class QuestNPC : MonoBehaviour
 
     void AssingThirdQuest()
     {
-        Quest = null;
-        thirdQuestActive = true;
-        AssignedQuest = true;
-        Quest = (NewQuest)quests.AddComponent(System.Type.GetType(thirdquestName));
-        Debug.Log("Assigned quest");
-        FindObjectOfType<DialogueManager>().ThirdQuest = true;
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        StartCoroutine(UpdateQuestText());
-        Helped = false;
+        if (thirdquestName.Contains("CatherFish"))
+        {
+            onQuest.LaughyQuestIndicator.SetActive(false);
+            Quest = null;
+            thirdQuestActive = true;
+            AssignedQuest = true;
+            Quest = (NewQuest)quests.AddComponent(System.Type.GetType(thirdquestName));
+            Debug.Log("Assigned quest");
+            FindObjectOfType<DialogueManager>().ThirdQuest = true;
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            StartCoroutine(UpdateQuestText());
+            Helped = false;
+
+        }
+        else
+        {
+            Quest = null;
+            thirdQuestActive = true;
+            AssignedQuest = true;
+            Quest = (NewQuest)quests.AddComponent(System.Type.GetType(thirdquestName));
+            Debug.Log("Assigned quest");
+            FindObjectOfType<DialogueManager>().ThirdQuest = true;
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            StartCoroutine(UpdateQuestText());
+            Helped = false;
+        }
+        
     }
 
     void AssignQuest()
@@ -255,13 +273,22 @@ public class QuestNPC : MonoBehaviour
             Debug.Log("Assigned quest");
             StartCoroutine(UpdateQuestText());
         }
+        if (questName.Contains("CatherFish"))
+        {
+            onQuest.TwigQuestIndicator.SetActive(false);
+            AssignedQuest = true;
+            Quest = (NewQuest)quests.AddComponent(System.Type.GetType(questName));
+            Debug.Log("Assigned quest");
+            StartCoroutine(UpdateQuestText());
+            InventoryManager.Instance.Add(questItems.FishingRod);
+        }
         else
         {
             AssignedQuest = true;
             Quest = (NewQuest)quests.AddComponent(System.Type.GetType(questName));
             Debug.Log("Assigned quest");
             StartCoroutine(UpdateQuestText());
-            InventoryManager.Instance.Add(questItems.FishingRod);
+            
         }
 
 
@@ -386,6 +413,7 @@ public class QuestNPC : MonoBehaviour
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                     onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
                     onQuest.Laughy.GetComponent<CapsuleCollider>().isTrigger = true;
+                    onQuest.LaughyQuestIndicator.SetActive(true);
 
                 }
 				if (questName.Contains("CatherFish") && secondQuestActive == false)
@@ -405,6 +433,7 @@ public class QuestNPC : MonoBehaviour
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                     onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
                     onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = true;
+                    onQuest.RockieQuestIndicator.SetActive(true);
                 }
                 if (thirdquestName.Contains("CatherFish") && thirdQuestActive == true && FourthQuestActive == false)
                 {
@@ -423,6 +452,7 @@ public class QuestNPC : MonoBehaviour
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                     onQuest.Laughy.GetComponent<CapsuleCollider>().isTrigger = false;
                     onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = true;
+                    onQuest.RockieQuestIndicator.SetActive(true);
                 }
                 if (secondquestName.Contains("Apple") && secondQuestActive == true && thirdQuestActive == false)
                 {
@@ -439,6 +469,7 @@ public class QuestNPC : MonoBehaviour
                     FindObjectOfType<DialogueManager>().SecondQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.RockieQuestIndicator.SetActive(true);
                 }
                 if(thirdquestName.Contains("JuicyApple") && thirdQuestActive == true && FourthQuestActive == false)
 				{
@@ -454,6 +485,7 @@ public class QuestNPC : MonoBehaviour
                     FindObjectOfType<DialogueManager>().ThirdQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.TwigQuestIndicator.SetActive(true);
                 }
                 if(secondquestName.Contains("Salmon") && secondQuestActive == true && thirdQuestActive == false)
 				{
@@ -471,6 +503,7 @@ public class QuestNPC : MonoBehaviour
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                     onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
                     onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
+                    onQuest.LaughyQuestIndicator.SetActive(true);
                 }
                 if(thirdquestName.Contains("Laughy") && thirdQuestActive == true && FourthQuestActive == false)
                 {
@@ -505,6 +538,7 @@ public class QuestNPC : MonoBehaviour
                     onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
                     onQuest.Laughy.GetComponent<CapsuleCollider>().isTrigger = true;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.LaughyQuestIndicator.SetActive(true);
                 }
                 if(fourthquestName.Contains("FishPie") && FourthQuestActive == true)
 				{
@@ -539,6 +573,7 @@ public class QuestNPC : MonoBehaviour
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                     onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
                     onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
+                    onQuest.LaughyQuestIndicator.SetActive(true);
                 }
                 
 				if (fourthquestName.Contains("LostAmulet") && FourthQuestActive == true)
@@ -558,6 +593,7 @@ public class QuestNPC : MonoBehaviour
                     onQuest.Rockie.GetComponent<CapsuleCollider>().isTrigger = false;
                     onQuest.Twig.GetComponent<CapsuleCollider>().isTrigger = true;
                     onQuest.Laughy.GetComponent<CapsuleCollider>().isTrigger = false;
+                    onQuest.TwigQuestIndicator.SetActive(true);
                 }
                 if(thirdquestName.Contains("Infestation") && thirdQuestActive == true && FourthQuestActive == false)
 				{
@@ -573,6 +609,7 @@ public class QuestNPC : MonoBehaviour
                     FindObjectOfType<DialogueManager>().ThirdQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    onQuest.TwigQuestIndicator.SetActive(true);
                 }
                 if(fourthquestName.Contains("Healing") && FourthQuestActive == true)
 				{
@@ -591,6 +628,7 @@ public class QuestNPC : MonoBehaviour
                     FindObjectOfType<DialogueManager>().FourthQuestCompleted = true;
                     FindObjectOfType<DialogueManager>().CompletedQuest = false;
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    // ADD ARBOR QUESTMARKER HERE ASWELL
                 }
                 else
                 {

@@ -8,10 +8,12 @@ public class Healing : NewQuest
     public Item rewardItem;
     public QuestItems questItems; // Quest items is here to get easy reference to needed items/npcs and other stuff that is needed in quest.
     public int requiredAmount = 4; // Invisible + 1 from somewhere so if you want to only to require 2 write 1 here. // TODO: Found the issue need to think of a fix 
+    public OnQuest onquest;
     // Start is called before the first frame update
     void Start()
     {
         questItems = FindObjectOfType<QuestItems>();
+        onquest = FindObjectOfType<OnQuest>();
         requiredItem = questItems.RareFlower;
         rewardItem = questItems.Coin;
         QuestName = "Healing";
@@ -19,7 +21,7 @@ public class Healing : NewQuest
         ItemReward = rewardItem;
         RequiredAmount = requiredAmount;
         FindObjectOfType<QuestItems>().RareFlowersHolder.SetActive(true);
-        
+        onquest.TwigQuestIndicator.SetActive(false);
         Goals.Add(new CollectionGoal(this, requiredItem.name, "Gather 4 Reddish colored flowers to heal the lemon tree", false, 0, requiredAmount, requiredItem));
 
         Goals.ForEach(g => g.Init());

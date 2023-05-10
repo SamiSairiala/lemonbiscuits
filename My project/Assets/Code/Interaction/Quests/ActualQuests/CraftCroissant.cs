@@ -21,8 +21,9 @@ public class CraftCroissant : NewQuest
         ItemReward = rewardItem;
         RequiredAmount = requiredAmount;
         onquest.Twig.GetComponent<CapsuleCollider>().isTrigger = false;
+        onquest.RockieQuestIndicator.SetActive(false);
         Goals.Add(new CollectionGoal(this, requiredItem.name, "Buy flour from the store and then craft a croissant.", false, 0, requiredAmount, requiredItem));
-
+        
         Goals.ForEach(g => g.Init());
     }
 

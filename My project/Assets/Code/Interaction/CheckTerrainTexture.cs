@@ -10,6 +10,9 @@ public class CheckTerrainTexture : MonoBehaviour
     public int posZ;
     public float[] textureValues;
 
+    public AudioClip[] grassSteps;
+    public AudioClip[] sandSteps;
+
     private void Start()
     {
         t = Terrain.activeTerrain;
@@ -37,10 +40,12 @@ public class CheckTerrainTexture : MonoBehaviour
         if (textureValues[0] > 0)
         {
             //Debug.Log("Grass");
+            AudioManager.Instance.RandomSoundEffect(grassSteps);
         }
         if (textureValues[1] > 0)
         {
             //Debug.Log("Grass2");
+            AudioManager.Instance.RandomSoundEffect(grassSteps);
         }
         if (textureValues[2] > 0)
         {
@@ -53,6 +58,7 @@ public class CheckTerrainTexture : MonoBehaviour
         if (textureValues[4] > 0)
         {
             //Debug.Log("Sand");
+            AudioManager.Instance.RandomSoundEffect(sandSteps);
         }
     }
 
