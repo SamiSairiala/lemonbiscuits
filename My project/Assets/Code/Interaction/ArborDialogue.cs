@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class ArborDialogue : MonoBehaviour
@@ -129,7 +130,7 @@ public class ArborDialogue : MonoBehaviour
 		{
             Debug.Log("End");
             // GIVE 2 CHOICES
-            Application.Quit(); // TODO: IMPLEMENT CHOICES
+            SceneManager.LoadScene("Credits");
 		}
         else
         {

@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.AI;
+using LemonForest.AI;
 public class QuestNPC : MonoBehaviour
 {
     public Dialogue dialogue;
@@ -33,6 +35,8 @@ public class QuestNPC : MonoBehaviour
 
     public Animator animator;
 
+    public NPCBase npcBase;
+    public NavMeshAgent agent;
 
     public bool hasSecondQuest = false;
     public bool secondQuestActive = false;
@@ -63,6 +67,7 @@ public class QuestNPC : MonoBehaviour
             if (other.gameObject.tag == "Player")
         {
             animator.SetBool("React", true);
+            npcBase.PauseRoutine();
 
             //if(this.gameObject.name.Contains("Laughy") && onQuest.LaughyQuest == true)
             //if(this.gameObject.name.Contains("Twig") && onQuest.TwigQuest == true)
@@ -181,6 +186,9 @@ public class QuestNPC : MonoBehaviour
         //{
         //    FindObjectOfType<DialogueManager>().EndDialogue(); // Closes dialogue box if player walks away.
         //}
+        animator.SetBool("React", false);
+        npcBase.ContinueRoutine();
+        
 
     }
     void AssignSecondQuest()
@@ -662,6 +670,9 @@ public class QuestNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        float velocity = agent.velocity.magnitude / agent.speed;
+        
+        animator.SetFloat("Walk", velocity);
+        
     }
 }
