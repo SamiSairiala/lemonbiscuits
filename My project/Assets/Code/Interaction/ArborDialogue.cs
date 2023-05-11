@@ -134,6 +134,7 @@ public class ArborDialogue : MonoBehaviour
 		}
         else
         {
+            // When arbor has spoken make Twig able to give quest.
             onquest.Twig.GetComponent<CapsuleCollider>().isTrigger = true;
             onquest.TwigQuestIndicator.SetActive(true);
         }

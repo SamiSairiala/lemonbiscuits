@@ -141,11 +141,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (terrainCheck.textureValues[2] > 0)
         {
-            //Debug.Log("Dirt");
+            AudioManager.Instance.RandomSoundEffect(terrainCheck.dirtSteps);
         }
         if (terrainCheck.textureValues[3] > 0)
         {
-            //Debug.Log("Dirt with grass");
+            AudioManager.Instance.RandomSoundEffect(terrainCheck.dirtSteps);
         }
         if (terrainCheck.textureValues[4] > 0)
         {

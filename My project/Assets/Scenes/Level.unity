@@ -5335,7 +5335,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269105343}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 2840d9853fb8be74f8c5462360ec1ee4, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: e427b1d5292f5d94d9218fcf2095dde2, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 963194227}
@@ -22272,7 +22272,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189588219}
-  m_LocalRotation: {x: 0.30421275, y: -3e-45, z: 1e-45, w: 0.9526041}
+  m_LocalRotation: {x: 0.30421275, y: 1e-45, z: -0, w: 0.9526041}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -34822,12 +34822,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3746030071358639673, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 53.5498
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746030071358639673, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 14.358
+      value: 16.6282
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746030071358639673, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 23.1267
       objectReference: {fileID: 0}
     - target: {fileID: 3746030071358639673, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -38.312
+      value: -37.1769
       objectReference: {fileID: 0}
     - target: {fileID: 4901110971772568704, guid: b2125575b50b7194cb6b58a2041db098, type: 3}
       propertyPath: m_SizeDelta.y
@@ -37964,6 +37972,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1200095720}
     - target: {fileID: 7252159122577350061, guid: 14e3d3fc441e6a14fa993da007f8ccc4, type: 3}
+      propertyPath: itemPickup
+      value: 
+      objectReference: {fileID: 8300000, guid: 16140f15e260e02458d499c4d762e336, type: 3}
+    - target: {fileID: 7252159122577350061, guid: 14e3d3fc441e6a14fa993da007f8ccc4, type: 3}
       propertyPath: ItemContent
       value: 
       objectReference: {fileID: 931381006}
@@ -40159,6 +40171,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8b02a14c6454539498e89d9da7a24406, type: 3}
   sandSteps:
   - {fileID: 8300000, guid: 6022dde7b1fcd684aa1c3b46c4306553, type: 3}
+  dirtSteps:
+  - {fileID: 8300000, guid: 84f187df9bdb63f428fdee232c95dd4e, type: 3}
+  - {fileID: 8300000, guid: aa41f503f4e9f2d4b83b3a0237d6a7ce, type: 3}
 --- !u!1001 &440129160255089104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40796,6 +40811,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1485580362}
     m_Modifications:
+    - target: {fileID: 2126831117549456262, guid: 2b510c7b9eaf29f4987153437956cd55, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 49bc205fe5690e747962b6ff1bc0e9f6, type: 3}
     - target: {fileID: 2126831118053080678, guid: 2b510c7b9eaf29f4987153437956cd55, type: 3}
       propertyPath: m_Name
       value: CustomisationCanvas
@@ -40928,6 +40947,22 @@ PrefabInstance:
       propertyPath: BunnyEarsItem
       value: 
       objectReference: {fileID: 11400000, guid: 4e1ca83ae0b17fd4f861ad208be7ffac, type: 2}
+    - target: {fileID: 2126831118110802932, guid: 2b510c7b9eaf29f4987153437956cd55, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: f4498ddeae663f44dacc5c3c6595a2e0, type: 3}
+    - target: {fileID: 2126831118370803124, guid: 2b510c7b9eaf29f4987153437956cd55, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: febc215015af7cc49ac8f28d585f4b3e, type: 3}
+    - target: {fileID: 2126831118778351299, guid: 2b510c7b9eaf29f4987153437956cd55, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 9a58bc7c435f30646a1d5ad56ef3ce44, type: 3}
+    - target: {fileID: 2126831119494022932, guid: 2b510c7b9eaf29f4987153437956cd55, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 3a69a12312f8e0f46b59a164caa2bca2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b510c7b9eaf29f4987153437956cd55, type: 3}
 --- !u!23 &2227812515728018544

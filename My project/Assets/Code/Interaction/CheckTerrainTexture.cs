@@ -12,6 +12,7 @@ public class CheckTerrainTexture : MonoBehaviour
 
     public AudioClip[] grassSteps;
     public AudioClip[] sandSteps;
+    public AudioClip[] dirtSteps;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class CheckTerrainTexture : MonoBehaviour
 
     void ConvertPos(Vector3 playerPos)
     {
+        // Converts player position to v3 and gets the position of the terrain from alphamap
         Vector3 terrainPos = playerPos - t.transform.position;
         Vector3 mapPos = new Vector3(terrainPos.x / t.terrainData.size.x, 0, terrainPos.z / t.terrainData.size.z);
         float xCoord = mapPos.x * t.terrainData.alphamapWidth;

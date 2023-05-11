@@ -13,6 +13,8 @@ public class InventoryManager : MonoBehaviour
 	public Transform ItemContent;
 	public GameObject InventoryItem;
 
+	public AudioClip itemPickup;
+
 	private int quantity = 0;
 	[SerializeField]private UI_Inventory uiInventory;
 
@@ -62,6 +64,7 @@ public class InventoryManager : MonoBehaviour
 
 		ItemIcon.SetActive(true);
 		ItemName.SetActive(true);
+		AudioManager.Instance.Play(itemPickup);
 		ItemIcon.GetComponent<Image>().sprite = item.Icon;
 		ItemName.GetComponent<TextMeshProUGUI>().text = item.name + " Added!";
 		StartCoroutine(CloseItemPopUp());
