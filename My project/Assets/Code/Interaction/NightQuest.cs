@@ -8,6 +8,9 @@ public class NightQuest : MonoBehaviour
 
 	public GameObject Amulet;
 	public bool QuestActive = false;
+	public GameObject Footsteps1;
+	public GameObject Footsteps2;
+	public GameObject Footsteps3;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -26,6 +29,8 @@ public class NightQuest : MonoBehaviour
 				if (TimeStateManager.Instance.CurrentState.Type.Equals(DayState.Midnight) || TimeStateManager.Instance.CurrentState.Type.Equals(DayState.Sunset) || TimeStateManager.Instance.CurrentState.Type.Equals(DayState.Evening)) // TODO: FIX THIS
 				{
 					Amulet.SetActive(true);
+					Footsteps1.SetActive(true);
+					
 					
 				}
 				else

@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool PlayerGrounded;
 
+    public CheckTerrainTexture terrainCheck;
+
     private Vector3 playerVelocity;
     //private Vector3 Movement;
     private Vector3 Input;
@@ -123,6 +125,62 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+    public void RightFoot()
+	{
+        terrainCheck.GetTerrainTexture();
+        if (terrainCheck.textureValues[0] > 0)
+        {
+            //Debug.Log("Grass");
+            AudioManager.Instance.RandomSoundEffect(terrainCheck.grassSteps);
+        }
+        if (terrainCheck.textureValues[1] > 0)
+        {
+            //Debug.Log("Grass2");
+            AudioManager.Instance.RandomSoundEffect(terrainCheck.grassSteps);
+        }
+        if (terrainCheck.textureValues[2] > 0)
+        {
+            //Debug.Log("Dirt");
+        }
+        if (terrainCheck.textureValues[3] > 0)
+        {
+            //Debug.Log("Dirt with grass");
+        }
+        if (terrainCheck.textureValues[4] > 0)
+        {
+            //Debug.Log("Sand");
+            AudioManager.Instance.RandomSoundEffect(terrainCheck.sandSteps);
+        }
+    }
+
+    public void LeftFoot()
+	{
+        terrainCheck.GetTerrainTexture();
+        if (terrainCheck.textureValues[0] > 0)
+        {
+            //Debug.Log("Grass");
+            AudioManager.Instance.RandomSoundEffect(terrainCheck.grassSteps);
+        }
+        if (terrainCheck.textureValues[1] > 0)
+        {
+            //Debug.Log("Grass2");
+            AudioManager.Instance.RandomSoundEffect(terrainCheck.grassSteps);
+        }
+        if (terrainCheck.textureValues[2] > 0)
+        {
+            //Debug.Log("Dirt");
+        }
+        if (terrainCheck.textureValues[3] > 0)
+        {
+            //Debug.Log("Dirt with grass");
+        }
+        if (terrainCheck.textureValues[4] > 0)
+        {
+            //Debug.Log("Sand");
+            AudioManager.Instance.RandomSoundEffect(terrainCheck.sandSteps);
+        }
+    }
     void FixedUpdate()
     {
        
@@ -146,7 +204,7 @@ public class PlayerMovement : MonoBehaviour
         // Sets animation controllers var speed to correspond charactercontrollers speed so plays right animation.
         if (currentSpeed > 0)
 		{
-            anim.SetFloat("Speed", 0.5f);
+            anim.SetFloat("Speed", 1f);
 		}
 		else
 		{

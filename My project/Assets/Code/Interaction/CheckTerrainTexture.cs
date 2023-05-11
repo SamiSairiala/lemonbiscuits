@@ -36,30 +36,30 @@ public class CheckTerrainTexture : MonoBehaviour
 
     private void Update()
     {
-        GetTerrainTexture();
-        if (textureValues[0] > 0)
-        {
-            //Debug.Log("Grass");
-            AudioManager.Instance.RandomSoundEffect(grassSteps);
-        }
-        if (textureValues[1] > 0)
-        {
-            //Debug.Log("Grass2");
-            AudioManager.Instance.RandomSoundEffect(grassSteps);
-        }
-        if (textureValues[2] > 0)
-        {
-            //Debug.Log("Dirt");
-        }
-        if (textureValues[3] > 0)
-        {
-            //Debug.Log("Dirt with grass");
-        }
-        if (textureValues[4] > 0)
-        {
-            //Debug.Log("Sand");
-            AudioManager.Instance.RandomSoundEffect(sandSteps);
-        }
+        //GetTerrainTexture();
+        //if (textureValues[0] > 0)
+        //{
+        //    //Debug.Log("Grass");
+        //    AudioManager.Instance.RandomSoundEffect(grassSteps);
+        //}
+        //if (textureValues[1] > 0)
+        //{
+        //    //Debug.Log("Grass2");
+        //    AudioManager.Instance.RandomSoundEffect(grassSteps);
+        //}
+        //if (textureValues[2] > 0)
+        //{
+        //    //Debug.Log("Dirt");
+        //}
+        //if (textureValues[3] > 0)
+        //{
+        //    //Debug.Log("Dirt with grass");
+        //}
+        //if (textureValues[4] > 0)
+        //{
+        //    //Debug.Log("Sand");
+        //    AudioManager.Instance.RandomSoundEffect(sandSteps);
+        //}
     }
 
     void CheckTexture()

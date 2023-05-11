@@ -37,6 +37,9 @@ public class ItemPickup : MonoBehaviour
 			{
 				FindObjectOfType<NightQuest>().Amulet = null;
 				FindObjectOfType<NightQuest>().QuestActive = false;
+				FindObjectOfType<NightQuest>().Footsteps1.SetActive(false);
+				FindObjectOfType<NightQuest>().Footsteps2.SetActive(false);
+				FindObjectOfType<NightQuest>().Footsteps3.SetActive(false);
 			}
 			Pickup();
 		}
