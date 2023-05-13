@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 namespace LemonForest.Environment.DayTime
 {
@@ -5,6 +6,9 @@ namespace LemonForest.Environment.DayTime
     {
         private static TimeController instance;
         public float CurrentTime { get; private set; }
+
+        private bool paused = false;
+        public bool PauseTime { get { return paused; } set { paused = value; } }
 
         public static TimeController Instance
         {
@@ -37,9 +41,12 @@ namespace LemonForest.Environment.DayTime
         // Update is called once per frame
         void Update()
         {
-            CurrentTime = (CurrentTime + Time.deltaTime) % StaticVariables.secondsInDay;
-            
-            if(TimeStateManager.Instance.CurrentState.Type != GetCurrent())
+            if (!paused)
+            {
+                CurrentTime = (CurrentTime + Time.deltaTime) % StaticVariables.secondsInDay;
+            }
+
+            if (TimeStateManager.Instance.CurrentState.Type != GetCurrent())
             {
                 TimeStateManager.Instance.GoNext();
             }
@@ -55,13 +62,14 @@ namespace LemonForest.Environment.DayTime
             float secondsInDay = StaticVariables.secondsInDay;
             currentTime = currentTime % secondsInDay;
 
-            if(currentTime < secondsInDay * 0.25f) { return DayState.EarlyMorning; }
-            if(currentTime < secondsInDay * 0.5f) { return DayState.Morning; }
-            if(currentTime < secondsInDay * 0.75f) { return DayState.Afternoon; }
-            if(currentTime < secondsInDay) { return DayState.Evening; }
+            if (currentTime < secondsInDay * 0.25f) { return DayState.EarlyMorning; }
+            if (currentTime < secondsInDay * 0.5f) { return DayState.Morning; }
+            if (currentTime < secondsInDay * 0.75f) { return DayState.Afternoon; }
+            if (currentTime < secondsInDay) { return DayState.Evening; }
 
             return DayState.Error;
         }
+
     }
 }
 
