@@ -29,6 +29,7 @@ public class UIMenuPage : MonoBehaviour, IPage
     private void Awake()
     {
         page = GetComponent<Transform>();
+        transform.localRotation = new Quaternion(0, 0, 0, 0);
     }
 
     public void Top()

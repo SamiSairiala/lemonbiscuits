@@ -105,7 +105,7 @@ namespace LemonForest.UI
         public static IEnumerator Flip(Transform transform, Direction direction, UIMenuPage page, float speed)
         {
             Vector3 endRotation;
-            Vector3 startRotation = transform.eulerAngles;
+            Vector3 startRotation = transform.localEulerAngles;
             CanvasGroup front = page.Front;
             CanvasGroup back = page.Back;
 
@@ -154,12 +154,12 @@ namespace LemonForest.UI
                     default:
                         break;
                 }
-                transform.eulerAngles = Vector3.Lerp(startRotation, endRotation, time);
+                transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, time);
                 yield return null;
                 time += Time.deltaTime * speed;
             }
 
-            transform.eulerAngles = endRotation;
+            transform.localEulerAngles = endRotation;
         }
 
         public static IEnumerator SlideOut(RectTransform Transform, Direction Direction, float Speed)
