@@ -99,6 +99,7 @@ public class StartDialogue : MonoBehaviour
     public void EndDialogue()
     {
         // TODO: CLOSE DIALOGUE BOX
+        
         FindObjectOfType<ArborDialogue>().ShowDialogue();
         PlayerDialogueCanvas.gameObject.SetActive(false);
         this.gameObject.SetActive(false);

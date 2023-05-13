@@ -8,14 +8,17 @@ public class SettingsValues : MonoBehaviour
 {
 
     public Slider sensitivitySlider;
+    public Slider audioSlider;
 
     public float sensitivityValue;
+    public float audioValue;
 
     private CinemachineFreeLook camera;
 
     public GameObject pauseCanvas;
     public GameObject optionsMenu;
 
+    
     private Scene scene;
     // Start is called before the first frame update
     void Start()
@@ -37,6 +40,10 @@ public class SettingsValues : MonoBehaviour
             sensitivitySlider.value = sensitivityValue;
             
             sensitivitySlider.onValueChanged.AddListener(delegate { valueChanged(); });
+
+            audioSlider = GameObject.Find("VolumeSlider").GetComponent<Slider>();
+            audioSlider.value = audioValue;
+            audioSlider.onValueChanged.AddListener(delegate { valueChanged(); });
         }
         
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -48,6 +55,7 @@ public class SettingsValues : MonoBehaviour
         if (scene.name.Equals("Level"))
         {
             sensitivitySlider = GameObject.Find("SensitivitySlider").GetComponent<Slider>(); // gets slider and pause canvas as soon as scene is changed
+            audioSlider = GameObject.Find("AudioSlider").GetComponent<Slider>();
             pauseCanvas = GameObject.Find("PauseCanvas");
             StartCoroutine(GetStuff());
         }
@@ -66,6 +74,8 @@ public class SettingsValues : MonoBehaviour
         //sensitivitySlider = GameObject.Find("SensitivitySlider").GetComponent<Slider>();
         sensitivitySlider.value = sensitivityValue;
         sensitivitySlider.onValueChanged.AddListener(delegate { valueChanged(); });
+        audioSlider.value = audioValue;
+        audioSlider.onValueChanged.AddListener(delegate { valueChanged(); });
         camera.m_XAxis.m_MaxSpeed = sensitivityValue; // Changes cinemachines "sensitivity" to sensitivityValue
         pauseCanvas.SetActive(false);
     }
@@ -74,10 +84,17 @@ public class SettingsValues : MonoBehaviour
     {
 
         sensitivityValue = sensitivitySlider.value;
-        
+        audioValue = audioSlider.value;
+		if (scene.name.Equals("TiinaUItesting"))
+		{
+            FindObjectOfType<AudioSource>().volume = audioValue;
+		}
         if (scene.name.Equals("Level"))
         {
             camera.m_XAxis.m_MaxSpeed = sensitivityValue;
+            FindObjectOfType<AudioManager>().MusicSource.volume = audioValue;
+            FindObjectOfType<AudioManager>().EffectsSource.volume = audioValue;
+
         }
         
 
