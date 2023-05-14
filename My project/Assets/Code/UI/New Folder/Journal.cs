@@ -80,12 +80,12 @@ public class Journal : MonoBehaviour
 
     public void Open()
     {
-        UIAnimationHelper.SlideIn(rTransfrorm, Direction.UP, 1);
+        StartCoroutine(UIAnimationHelper.SlideIn(rTransfrorm, Direction.UP, 1));
     }
 
     public void Close()
     {
-        UIAnimationHelper.SlideOut(rTransfrorm, Direction.DOWN, 1);
+        StartCoroutine(UIAnimationHelper.SlideOut(rTransfrorm, Direction.DOWN, 1));
     }
 
     public void NextPage()
