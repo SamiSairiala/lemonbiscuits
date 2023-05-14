@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class CameraPicture : MonoBehaviour
 {
     [SerializeField] Photo photoPrefab;
-    [SerializeField] Transform parent;
+    private Transform parent;
+    [SerializeField] Journal journal;
 
     private void Update()
     {
@@ -24,13 +25,26 @@ public class CameraPicture : MonoBehaviour
         capture.ReadPixels(picSize, 0, 0, false);
         capture.Apply();
         Photo p = Instantiate(photoPrefab, new Vector3(0,0,0), Quaternion.identity);
-        p.transform.SetParent(parent, false);
-        p.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
-        p.transform.localScale = new Vector3(1, 1, 1);
-        ShowPhoto(p, capture);
+
+        if(journal.GetPicturePage().GetPictureCount() < 8)
+        {
+            parent = journal.GetPicturePage().GetPictureParent();
+
+            p.transform.SetParent(parent);
+            p.transform.SetLocalPositionAndRotation(journal.GetPicturePage().GetPictureLocation(), new Quaternion(0, 0, 0, 0));
+        } else
+        {
+            journal.AddPage();
+            parent = journal.GetPicturePage().GetPictureParent();
+            p.transform.SetParent(parent);
+            p.transform.SetLocalPositionAndRotation(journal.GetPicturePage().GetPictureLocation(), new Quaternion(0, 0, 0, 0));
+        }
+
+        journal.GetPicturePage().AddPictureCount();
+        AddPhoto(p, capture);
     }
 
-    void ShowPhoto(Photo p, Texture2D screenCap)
+    void AddPhoto(Photo p, Texture2D screenCap)
     {
         Sprite photoSprite = Sprite.Create(screenCap, new Rect(0f, 0f, screenCap.width, screenCap.height), new Vector2(0.5f, 0.5f), 100f);
         p.SetPhoto(photoSprite);

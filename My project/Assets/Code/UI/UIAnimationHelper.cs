@@ -152,7 +152,6 @@ namespace LemonForest.UI
                             break;
                         default:
                             break;
-
                     }
                 }
                 yield return null;

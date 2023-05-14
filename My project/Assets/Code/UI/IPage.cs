@@ -12,6 +12,6 @@ public interface IPage
     public void SetLayer(int i);
 
 
-    public void DisableContent(CanvasGroup group);
-    public void EnableContent(CanvasGroup group);
+    public void DisableContent();
+    public void EnableContent();
 }

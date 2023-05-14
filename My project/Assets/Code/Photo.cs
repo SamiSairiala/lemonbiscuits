@@ -13,6 +13,9 @@ public class Photo : MonoBehaviour
         float scale = 0f;
 
         RectTransform rectTransform = GetComponent<RectTransform>();
-        
+        RectTransform parentRectTransform = GetComponentInParent<RectTransform>();
+        scale = (parentRectTransform.sizeDelta.x / parentRectTransform.sizeDelta.y) / 34;
+
+        this.transform.localScale = new Vector3(scale, scale, scale);
     }
 }
