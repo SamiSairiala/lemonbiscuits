@@ -72,16 +72,19 @@ namespace LemonForest.UI
         public static IEnumerator SlideIn(RectTransform Transform, Direction Direction, float Speed)
         {
             Vector2 startPosition;
+            Vector2 endPosition = Vector2.zero;
             switch (Direction)
             {
                 case Direction.UP:
-                    startPosition = new Vector2(-51, -15);
+                    startPosition = Transform.position;
+                    endPosition = new Vector2(-51, -15);
                     break;
                 case Direction.RIGHT:
                     startPosition = new Vector2(-Screen.width, 0);
                     break;
                 case Direction.DOWN:
-                    startPosition = new Vector2(-51, Screen.height);
+                    startPosition = Transform.position;
+                    endPosition = new Vector2(-51, Screen.height);
                     break;
                 case Direction.LEFT:
                     startPosition = new Vector2(Screen.width, 0);
@@ -94,7 +97,7 @@ namespace LemonForest.UI
             float time = 0;
             while (time < 1)
             {
-                Transform.anchoredPosition = Vector2.Lerp(startPosition, Vector2.zero, time);
+                Transform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, time);
                 yield return null;
                 time += Time.deltaTime * Speed;
             }
