@@ -9,6 +9,10 @@ public class UIMenuPage : MonoBehaviour, IPage
     private Transform page;
     private Coroutine animationCoroutine;
     private Direction currentSide = Direction.RIGHT;
+    public Direction CurrentSide
+    {
+        get { return currentSide; }
+    }
     [SerializeField]
     private CanvasGroup front, back;
     [SerializeField]
@@ -57,14 +61,19 @@ public class UIMenuPage : MonoBehaviour, IPage
         animationCoroutine = StartCoroutine(UIAnimationHelper.Flip(transform, currentSide, this, turnSpeed));
     }
 
-    public void DisableContent(CanvasGroup group)
+    public void DisableContent()
     {
-        group.blocksRaycasts = false;
+        StartCoroutine(UIAnimationHelper.HidePage(this, turnSpeed));
     }
 
-    public void EnableContent(CanvasGroup group)
+    public void EnableSide(Direction dir)
     {
-        group.blocksRaycasts= true;
+        StartCoroutine(UIAnimationHelper.ShowSide(this, dir, turnSpeed));
+    }
+    
+    public void DisableSide(Direction dir)
+    {
+        StartCoroutine(UIAnimationHelper.HideSide(this, dir, turnSpeed));
     }
 
     public void Next()
@@ -90,5 +99,15 @@ public class UIMenuPage : MonoBehaviour, IPage
     public void SetLayer(int i)
     {
         GetComponentInChildren<SpriteRenderer>().sortingOrder = i;
+    }
+
+    public void DisableContent(CanvasGroup group)
+    {
+        
+    }
+
+    public void EnableContent(CanvasGroup group)
+    {
+        
     }
 }

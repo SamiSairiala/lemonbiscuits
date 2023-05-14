@@ -10,5 +10,9 @@ public class Photo : MonoBehaviour
     public void SetPhoto(Sprite photoSprite)
     {
         image.sprite = photoSprite;
+        float scale = 0f;
+
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        
     }
 }

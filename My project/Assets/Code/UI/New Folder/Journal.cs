@@ -19,7 +19,7 @@ public class Journal : MonoBehaviour
     public int TargetPage
     {
         set { targetPage = value; }
-        get { return (Mathf.Clamp(targetPage, 1, pages.Count) - 1); }
+        get { return (Mathf.Clamp(targetPage, 0, pages.Count-1)); }
     }
 
     public void Awake()
@@ -36,8 +36,12 @@ public class Journal : MonoBehaviour
         }
         if(currentPage > TargetPage)
         {
-            pages[currentPage].Previous();
             currentPage--;
+            pages[currentPage].Previous();
+        }
+        if(targetPage > TargetPage)
+        {
+            pages[TargetPage].Next();
         }
         if(targetPage < 1)
         {

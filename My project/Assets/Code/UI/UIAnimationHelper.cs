@@ -102,6 +102,95 @@ namespace LemonForest.UI
             Transform.anchoredPosition = Vector2.zero;
         }
 
+        public static IEnumerator HidePage(UIMenuPage page, float speed)
+        {
+            float time = 0f;
+            bool triggered = false;
+            while (time < 1f)
+            {
+                if(time > 0.5f && !triggered)
+                {
+                    triggered = true;
+                    page.Front.alpha = 0f;
+                    page.Front.blocksRaycasts = false;
+                    page.Front.interactable = false;
+                    page.Back.alpha = 0f;
+                    page.Back.blocksRaycasts = false;
+                    page.Back.interactable = false;
+                }
+                yield return null;
+            }
+
+            page.Front.alpha = 0f;
+            page.Front.blocksRaycasts = false;
+            page.Front.interactable = false;
+            page.Back.alpha = 0f;
+            page.Back.blocksRaycasts = false;
+            page.Back.interactable = false;
+        }
+        
+        public static IEnumerator ShowSide(UIMenuPage page,Direction direction, float speed)
+        {
+            float time = 0f;
+            bool triggered = false;
+            while (time < 1f)
+            {
+                if(time > 0.5f && !triggered)
+                {
+                    triggered = true;
+                    switch (direction)
+                    {
+                        case Direction.LEFT:
+                            page.Back.alpha = 1f;
+                            page.Back.blocksRaycasts = true;
+                            page.Back.interactable = true;
+                            break;
+                        case Direction.RIGHT:
+                            page.Front.alpha = 1f;
+                            page.Front.blocksRaycasts = true;
+                            page.Front.interactable = true;
+                            break;
+                        default:
+                            break;
+
+                    }
+                }
+                yield return null;
+            }
+
+        }
+        
+        public static IEnumerator HideSide(UIMenuPage page,Direction direction, float speed)
+        {
+            float time = 0f;
+            bool triggered = false;
+            while (time < 1f)
+            {
+                if(time > 0.5f && !triggered)
+                {
+                    triggered = true;
+                    switch (direction)
+                    {
+                        case Direction.LEFT:
+                            page.Back.alpha = 0f;
+                            page.Back.blocksRaycasts = false;
+                            page.Back.interactable = false;
+                            break;
+                        case Direction.RIGHT:
+                            page.Front.alpha = 0f;
+                            page.Front.blocksRaycasts = false;
+                            page.Front.interactable = false;
+                            break;
+                        default:
+                            break;
+
+                    }
+                }
+                yield return null;
+            }
+
+        }
+
         public static IEnumerator Flip(Transform transform, Direction direction, UIMenuPage page, float speed)
         {
             Vector3 endRotation;
@@ -126,7 +215,7 @@ namespace LemonForest.UI
             bool b = true;
             while (time < 1)
             {
-                if (b)
+                if (b && time > 0.5f)
                 {
                     page.Top();
                     b = false;
@@ -138,8 +227,11 @@ namespace LemonForest.UI
                         {
                             front.alpha = 0;
                             front.blocksRaycasts = false;
+                            front.interactable = false;
                             back.alpha = 1;
                             back.blocksRaycasts = true;
+                            back.interactable = true;
+                            back.transform.SetAsLastSibling();
                         }
                         break;
                     case Direction.RIGHT:
@@ -147,7 +239,10 @@ namespace LemonForest.UI
                         {
                             front.alpha = 1;
                             front.blocksRaycasts = true;
+                            front.interactable = true;
+                            front.transform.SetAsLastSibling();
                             back.alpha = 0;
+                            back.interactable = false;
                             back.blocksRaycasts = false;
                         }
                         break;

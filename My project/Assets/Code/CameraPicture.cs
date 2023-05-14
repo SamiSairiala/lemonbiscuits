@@ -24,7 +24,8 @@ public class CameraPicture : MonoBehaviour
         capture.ReadPixels(picSize, 0, 0, false);
         capture.Apply();
         Photo p = Instantiate(photoPrefab, new Vector3(0,0,0), Quaternion.identity);
-        p.transform.parent = parent;
+        p.transform.SetParent(parent, false);
+        p.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         p.transform.localScale = new Vector3(1, 1, 1);
         ShowPhoto(p, capture);
     }
