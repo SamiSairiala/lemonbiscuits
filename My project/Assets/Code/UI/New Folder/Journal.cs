@@ -17,12 +17,12 @@ public class Journal : MonoBehaviour
     [SerializeField]
     GameObject nextButton, previousButton;
 
-    [ReadOnlyAttrib][SerializeField] private int currentPage = 0;
+    [ReadOnlyAttrib][SerializeField] private int currentPage = 1;
     [ReadOnlyAttrib][SerializeField] private int targetPage = 0;
     public int TargetPage
     {
         set { targetPage = value; }
-        get { return (Mathf.Clamp(targetPage, 0, pages.Count - 1)); }
+        get { return (Mathf.Clamp(targetPage, -1, pages.Count - 1)); }
     }
 
     public void Awake()

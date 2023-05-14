@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.AI;
 using LemonForest.AI;
+using LemonForest.Environment.DayTime;
+
 public class QuestNPC : MonoBehaviour
 {
     public Dialogue dialogue;
@@ -591,6 +593,7 @@ public class QuestNPC : MonoBehaviour
                     Quest.GiveReward();
                     Debug.Log("Quest 4 completed");
                     Helped = true;
+                    TimeController.Instance.PauseTime = false;
                     InventoryManager.Instance.Remove(questItems.Amulet);
                     AssignedQuest = false;
                     currentAmount = 0;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CameraPicture : MonoBehaviour
 {
@@ -9,10 +10,22 @@ public class CameraPicture : MonoBehaviour
     private Transform parent;
     [SerializeField] Journal journal;
     [SerializeField] Canvas uiCanvas;
+    [SerializeField] InputActionReference Interaction;
+
+    private void OnEnable()
+    {
+        Interaction.action.Enable();
+
+    }
+    private void OnDisable()
+    {
+        Interaction.action.Disable();
+
+    }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Interaction.action.WasPerformedThisFrame())
         {
             OnScreenCaptureTrigger();
         }

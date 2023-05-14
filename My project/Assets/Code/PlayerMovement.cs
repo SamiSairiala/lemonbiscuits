@@ -109,16 +109,17 @@ public class PlayerMovement : MonoBehaviour
             if (inventoryOpen == false)
             {
                 inventoryOpen = true;
-                InventoryUI.SetActive(true);
-                InventoryManager.Instance.ListItems();
+                //InventoryUI.SetActive(true);
+                //InventoryManager.Instance.ListItems();
                 JournalCanvas.SetActive(true);
+                InventoryManager.Instance.ListItems();
                 Cursor.visible = true;
                 freeLook.enabled = false;
             }
             else
             {
                 inventoryOpen = false;
-                InventoryUI.SetActive(false);
+                //InventoryUI.SetActive(false);
                 JournalCanvas.SetActive(false);
                 Cursor.visible = false;
                 freeLook.enabled = true;
@@ -169,11 +170,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (terrainCheck.textureValues[2] > 0)
         {
-            //Debug.Log("Dirt");
+            AudioManager.Instance.RandomSoundEffect(terrainCheck.dirtSteps);
         }
         if (terrainCheck.textureValues[3] > 0)
         {
-            //Debug.Log("Dirt with grass");
+            AudioManager.Instance.RandomSoundEffect(terrainCheck.dirtSteps);
         }
         if (terrainCheck.textureValues[4] > 0)
         {
