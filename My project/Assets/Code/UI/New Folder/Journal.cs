@@ -81,6 +81,8 @@ public class Journal : MonoBehaviour
 
     public void Open()
     {
+        nextButton.SetActive(true);
+        previousButton.SetActive(true);
         StartCoroutine(UIAnimationHelper.SlideIn(rTransfrorm, Direction.UP, 1));
         nextButton.SetActive(true);
         previousButton.SetActive(true);
@@ -88,6 +90,8 @@ public class Journal : MonoBehaviour
 
     public void Close()
     {
+        nextButton.SetActive(false);
+        previousButton.SetActive(false);
         StartCoroutine(UIAnimationHelper.SlideOut(rTransfrorm, Direction.DOWN, 1));
         nextButton.SetActive(false);
         previousButton.SetActive(false);

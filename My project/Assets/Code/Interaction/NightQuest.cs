@@ -31,6 +31,7 @@ public class NightQuest : MonoBehaviour
 					Amulet.SetActive(true);
 					Footsteps1.SetActive(true);
 					TimeController.Instance.PauseTime = true;
+					Debug.Log("Time paused");
 					
 				}
 				else

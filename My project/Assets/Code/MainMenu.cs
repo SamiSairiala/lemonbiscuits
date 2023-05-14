@@ -8,8 +8,13 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene("Level");
+       
 
+    }
+
+    public void Menu()
+	{
+        SceneManager.LoadScene("TiinaUItesting");
     }
 
     public void QuitGame()

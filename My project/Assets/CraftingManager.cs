@@ -44,11 +44,11 @@ public class CraftingManager : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag.Equals("Player"))
-		{
-			CraftingCanvas.SetActive(true);
-			Cursor.visible = true;
-		}
+		//if (other.gameObject.tag.Equals("Player"))
+		//{
+		//	CraftingCanvas.SetActive(true);
+		//	Cursor.visible = true;
+		//}
 	}
 
 	private void Update()
@@ -156,7 +156,8 @@ public class CraftingManager : MonoBehaviour
 
 	public void RedoClose()
     {
-		for(int i = 0; i < craftingSlots.Length; i++)
+		Debug.Log("Redoing Craft");
+		for (int i = 0; i < craftingSlots.Length; i++)
         {
 			if(craftingSlots[i].item != null)
             {
@@ -179,6 +180,7 @@ public class CraftingManager : MonoBehaviour
 	
 	public void Close() // Does the same as in RedoClose but also closes CraftingCanvas.
     {
+		Debug.Log("Closing Craft");
 		for (int i = 0; i < craftingSlots.Length; i++)
 		{
 			if (craftingSlots[i].item != null)
@@ -212,12 +214,13 @@ public class CraftingManager : MonoBehaviour
 
 	public void AcceptCraft()
     {
+		Debug.Log("Accepted Craft");
 		InventoryManager.Instance.Add(itemToReceive);
 		ItemAddedToInventory(itemToReceive);
 		resultSlot.item = null;
 		resultSlot.gameObject.SetActive(false);
 		AcceptButton.SetActive(false);
-		CraftingCanvas.SetActive(false);
+		FindObjectOfType<Journal>().Close();
 		ClearList();
 		List<Item> itemList = new List<Item>(4);
 		if (itemToReceive.itemName.Equals("Fish Pie"))
