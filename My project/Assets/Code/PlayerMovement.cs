@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     public delegate void TalkEventHandler(GameObject npc);
     public static event TalkEventHandler WhoTalkedTo;
 
-
+    [SerializeField] private Journal journal;
 
     private void OnEnable()
     {
@@ -111,7 +111,8 @@ public class PlayerMovement : MonoBehaviour
                 inventoryOpen = true;
                 //InventoryUI.SetActive(true);
                 //InventoryManager.Instance.ListItems();
-                JournalCanvas.SetActive(true);
+                journal.Open();
+                //JournalCanvas.SetActive(true);
                 InventoryManager.Instance.ListItems();
                 Cursor.visible = true;
                 freeLook.enabled = false;
@@ -120,7 +121,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 inventoryOpen = false;
                 //InventoryUI.SetActive(false);
-                JournalCanvas.SetActive(false);
+                journal.Close();
+                //JournalCanvas.SetActive(false);
                 Cursor.visible = false;
                 freeLook.enabled = true;
             }
