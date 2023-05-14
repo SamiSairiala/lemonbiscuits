@@ -258,7 +258,11 @@ public class UIMenuPage : MonoBehaviour
 
     public Vector3 GetPictureLocation()
     {
-        return pictureLocations[GetPictureCount() % 4];
+        int i = 1;
+        if (GetPictureCount() >= 4) i = -1;
+        Vector3 loc = pictureLocations[GetPictureCount() % 4];
+        loc.x = loc.x * i;
+        return loc;
     }
 
     internal void AddPictureCount()

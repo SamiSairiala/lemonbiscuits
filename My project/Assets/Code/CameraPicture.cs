@@ -8,21 +8,36 @@ public class CameraPicture : MonoBehaviour
     [SerializeField] Photo photoPrefab;
     private Transform parent;
     [SerializeField] Journal journal;
+    [SerializeField] Canvas uiCanvas;
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(TakePhoto());
+            OnScreenCaptureTrigger();
         }
+    }
+
+    public void OnScreenCaptureTrigger()
+    {
+        StartCoroutine (TakePhoto());
     }
 
     IEnumerator TakePhoto()
     {
+        yield return null;
+
+        if(uiCanvas != null)
+        {
+            uiCanvas.enabled = false;
+        }
+
         yield return new WaitForEndOfFrame();
+
         Texture2D capture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         Rect picSize = new Rect(0,0, Screen.width, Screen.height);
         capture.ReadPixels(picSize, 0, 0, false);
+        uiCanvas.enabled = true;
         capture.Apply();
         Photo p = Instantiate(photoPrefab, new Vector3(0,0,0), Quaternion.identity);
 
@@ -42,6 +57,7 @@ public class CameraPicture : MonoBehaviour
 
         journal.GetPicturePage().AddPictureCount();
         AddPhoto(p, capture);
+
     }
 
     void AddPhoto(Photo p, Texture2D screenCap)

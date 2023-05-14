@@ -35,8 +35,8 @@ public class Journal : MonoBehaviour
     {
         if (currentPage < TargetPage)
         {
-            currentPage++;
             pages[currentPage].Next();
+            currentPage++;
             if (currentPage < pages.Count - 1)
             {
                 pages[currentPage + 1].EnableSide(Direction.LEFT);
@@ -46,8 +46,8 @@ public class Journal : MonoBehaviour
         }
         if (currentPage > TargetPage)
         {
-            currentPage--;
             pages[currentPage].Previous();
+            currentPage--;
 
             if (currentPage > 0)
             {
@@ -90,14 +90,25 @@ public class Journal : MonoBehaviour
 
     public void NextPage()
     {
-        targetPage++;
-        Debug.Log(TargetPage);
+        if (currentPage < pages.Count - 1)
+        {
+            targetPage++;
+        }
+        else if (pages[currentPage].GetPictureCount()>=4)
+        {
+            pages[currentPage].Next();
+        }
     }
 
     public void PreviousPage()
     {
-        targetPage--;
-        Debug.Log(TargetPage);
+        if (currentPage > 0)
+        {
+            targetPage--;
+        } else 
+        {
+            pages[currentPage].Previous();
+        }
     }
 
     public void GoTo(int i)
