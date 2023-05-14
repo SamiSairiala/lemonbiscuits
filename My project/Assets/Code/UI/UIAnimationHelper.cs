@@ -75,13 +75,13 @@ namespace LemonForest.UI
             switch (Direction)
             {
                 case Direction.UP:
-                    startPosition = new Vector2(0, -Screen.height);
+                    startPosition = new Vector2(-51, -15);
                     break;
                 case Direction.RIGHT:
                     startPosition = new Vector2(-Screen.width, 0);
                     break;
                 case Direction.DOWN:
-                    startPosition = new Vector2(0, Screen.height);
+                    startPosition = new Vector2(-51, Screen.height);
                     break;
                 case Direction.LEFT:
                     startPosition = new Vector2(Screen.width, 0);
