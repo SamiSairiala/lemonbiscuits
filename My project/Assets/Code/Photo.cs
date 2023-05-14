@@ -10,11 +10,7 @@ public class Photo : MonoBehaviour
     public void SetPhoto(Sprite photoSprite)
     {
         image.sprite = photoSprite;
-        float scale = 0f;
-
-        RectTransform rectTransform = GetComponent<RectTransform>();
-        RectTransform parentRectTransform = GetComponentInParent<RectTransform>();
-        scale = (parentRectTransform.sizeDelta.x / parentRectTransform.sizeDelta.y) / 34;
+        float scale = 0.026f;
 
         this.transform.localScale = new Vector3(scale, scale, scale);
     }
