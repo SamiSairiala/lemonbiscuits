@@ -978,8 +978,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00001267166, y: 0}
-  m_SizeDelta: {x: 125.239105, y: 21.2684}
+  m_AnchoredPosition: {x: -1.2856, y: 0}
+  m_SizeDelta: {x: 64.3093, y: 21.2684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53693029
 MonoBehaviour:
@@ -1028,8 +1028,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -19397,10 +19397,8 @@ MonoBehaviour:
     - "You\u2019re here at Arbor\u2019s behest, right? That\u2019s great, we could
       use some help!\r"
     - 'We were looking for a hobby for a long time, and decided to try photography! '
-    - "But we don\u2019t have a camera\u2026 Do you happen to have one lying around?
-      No? Well, no big deal, we know what\u2019s needed to make it."
-    - "Could you craft it for us? And I\u2019ll land it to you for a bit! Here\u2019s
-      a recipe. Good luckies!"
+    - Could you take few photos? Press "E" to take photos.
+    - Also could you me some flowers also.
     secondQuestSentences:
     - "Hey, how about getting us few salmons? We\u2019re sure you\u2019d catch a
       good one!"

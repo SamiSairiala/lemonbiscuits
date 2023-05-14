@@ -29,6 +29,7 @@ public class Journal : MonoBehaviour
     {
         rTransfrorm = GetComponent<RectTransform>();
         DisableExtraStuffs();
+        Close();
     }
 
     public void Update()
@@ -81,11 +82,15 @@ public class Journal : MonoBehaviour
     public void Open()
     {
         StartCoroutine(UIAnimationHelper.SlideIn(rTransfrorm, Direction.UP, 1));
+        nextButton.SetActive(true);
+        previousButton.SetActive(true);
     }
 
     public void Close()
     {
         StartCoroutine(UIAnimationHelper.SlideOut(rTransfrorm, Direction.DOWN, 1));
+        nextButton.SetActive(false);
+        previousButton.SetActive(false);
     }
 
     public void NextPage()
