@@ -11,6 +11,7 @@ public class CameraPicture : MonoBehaviour
     [SerializeField] Journal journal;
     [SerializeField] Canvas uiCanvas;
     [SerializeField] InputActionReference Interaction;
+    private Coroutine pictureTakingCoroutine;
 
     private void OnEnable()
     {
@@ -33,7 +34,11 @@ public class CameraPicture : MonoBehaviour
 
     public void OnScreenCaptureTrigger()
     {
-        StartCoroutine (TakePhoto());
+        if(pictureTakingCoroutine != null)
+        {
+            StopCoroutine(pictureTakingCoroutine);
+        }
+        pictureTakingCoroutine = StartCoroutine(TakePhoto());
     }
 
     IEnumerator TakePhoto()
