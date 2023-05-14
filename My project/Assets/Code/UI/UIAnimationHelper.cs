@@ -76,7 +76,7 @@ namespace LemonForest.UI
             switch (Direction)
             {
                 case Direction.UP:
-                    startPosition = Transform.position;
+                    startPosition = Transform.anchoredPosition;
                     endPosition = new Vector2(-51, -15);
                     break;
                 case Direction.RIGHT:
@@ -102,7 +102,7 @@ namespace LemonForest.UI
                 time += Time.deltaTime * Speed;
             }
 
-            Transform.anchoredPosition = Vector2.zero;
+            Transform.anchoredPosition = endPosition;
         }
 
         public static IEnumerator HidePage(UIMenuPage page, float speed)
@@ -262,6 +262,7 @@ namespace LemonForest.UI
         public static IEnumerator SlideOut(RectTransform Transform, Direction Direction, float Speed)
         {
             Vector2 endPosition;
+            Vector2 startPosition = Transform.anchoredPosition;
             switch (Direction)
             {
                 case Direction.UP:
@@ -284,7 +285,7 @@ namespace LemonForest.UI
             float time = 0;
             while (time < 1)
             {
-                Transform.anchoredPosition = Vector2.Lerp(Vector2.zero, endPosition, time);
+                Transform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, time);
                 yield return null;
                 time += Time.deltaTime * Speed;
             }
