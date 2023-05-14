@@ -97,17 +97,29 @@ public class UIMenuPage : MonoBehaviour
 
     public void DisableContent()
     {
-        StartCoroutine(UIAnimationHelper.HidePage(this, turnSpeed));
+        if (animationCoroutine != null)
+        {
+            StopCoroutine(animationCoroutine);
+        }
+        animationCoroutine = StartCoroutine(UIAnimationHelper.HidePage(this, turnSpeed));
     }
 
     public void EnableSide(Direction dir)
     {
-        StartCoroutine(UIAnimationHelper.ShowSide(this, dir, turnSpeed));
+        if (animationCoroutine != null)
+        {
+            StopCoroutine(animationCoroutine);
+        }
+        animationCoroutine = StartCoroutine(UIAnimationHelper.ShowSide(this, dir, turnSpeed));
     }
 
     public void DisableSide(Direction dir)
     {
-        StartCoroutine(UIAnimationHelper.HideSide(this, dir, turnSpeed));
+        if (animationCoroutine != null)
+        {
+            StopCoroutine(animationCoroutine);
+        }
+        animationCoroutine = StartCoroutine(UIAnimationHelper.HideSide(this, dir, turnSpeed));
     }
 
     public void Next()
