@@ -17,6 +17,14 @@ public class Journal : MonoBehaviour
     [SerializeField]
     GameObject nextButton, previousButton;
 
+    private bool hideButtons = false;
+
+    public bool HideButtons
+    {
+        get { return hideButtons; }
+        set { hideButtons = value; }
+    }
+
     [ReadOnlyAttrib][SerializeField] private int currentPage = 1;
     [ReadOnlyAttrib][SerializeField] private int targetPage = 0;
     public int TargetPage
@@ -61,21 +69,24 @@ public class Journal : MonoBehaviour
         {
             pages[TargetPage].Next();
         }
-        if (targetPage < 1)
+        if (!hideButtons)
         {
-            previousButton.SetActive(false);
-        }
-        else
-        {
-            previousButton.SetActive(true);
-        }
-        if (targetPage >= pages.Count)
-        {
-            nextButton.SetActive(false);
-        }
-        else
-        {
-            nextButton.SetActive(true);
+            if (targetPage < 1)
+            {
+                previousButton.SetActive(false);
+            }
+            else
+            {
+                previousButton.SetActive(true);
+            }
+            if (targetPage >= pages.Count)
+            {
+                nextButton.SetActive(false);
+            }
+            else
+            {
+                nextButton.SetActive(true);
+            }
         }
     }
 
@@ -86,6 +97,7 @@ public class Journal : MonoBehaviour
         StartCoroutine(UIAnimationHelper.SlideIn(rTransfrorm, Direction.UP, 1));
         nextButton.SetActive(true);
         previousButton.SetActive(true);
+        HideButtons = false;
     }
 
     public void Close()
@@ -95,6 +107,7 @@ public class Journal : MonoBehaviour
         StartCoroutine(UIAnimationHelper.SlideOut(rTransfrorm, Direction.DOWN, 1));
         nextButton.SetActive(false);
         previousButton.SetActive(false);
+        HideButtons = true;
     }
 
     public void NextPage()

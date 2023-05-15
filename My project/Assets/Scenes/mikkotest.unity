@@ -219,6 +219,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1910858103}
     m_Modifications:
+    - target: {fileID: 3019333266588842876, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7621492919053203490, guid: fb08568c1df5dff46a047325641a1370, type: 3}
       propertyPath: m_Name
       value: Journal
@@ -228,16 +232,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7684349257707034705, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684349257707034705, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684349257707034705, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684349257707034705, guid: fb08568c1df5dff46a047325641a1370, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 468
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7684349257707034705, guid: fb08568c1df5dff46a047325641a1370, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 123.96724
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7684349257707034705, guid: fb08568c1df5dff46a047325641a1370, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11675
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7684349257707034705, guid: fb08568c1df5dff46a047325641a1370, type: 3}
       propertyPath: m_LocalRotation.w
@@ -266,6 +282,50 @@ PrefabInstance:
     - target: {fileID: 7684349257707034705, guid: fb08568c1df5dff46a047325641a1370, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684349257707034705, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208389105892590007, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208389105892590007, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1099
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208389105892590007, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -881
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208389106994790808, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 82.28001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208389106994790808, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 82.28001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208389106994790808, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 82.28001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208389106994790808, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208389106994790808, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208389106994790808, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208389106994790808, guid: fb08568c1df5dff46a047325641a1370, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb08568c1df5dff46a047325641a1370, type: 3}
@@ -484,7 +544,7 @@ Canvas:
   m_GameObject: {fileID: 1910858099}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1724923824}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -531,6 +591,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   photoPrefab: {fileID: 7948405504533045824, guid: 19760dce8a47bb64398a41dce8d7abc0, type: 3}
   journal: {fileID: 340407998}
+  uiCanvas: {fileID: 1910858102}
+  Interaction: {fileID: -5907359914775559961, guid: fa604f3a97c7cf7439793e81ffbfdb05, type: 3}
 --- !u!1 &2126371882
 GameObject:
   m_ObjectHideFlags: 0
